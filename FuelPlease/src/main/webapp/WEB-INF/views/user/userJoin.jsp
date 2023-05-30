@@ -73,8 +73,8 @@
 					<div class="form-group">
 						<label for="addr-num">주소</label>
 						<div class="input-group">
-							<input type="text" name="addrZipNum" class="form-control"
-								id="addrZipNum" placeholder="우편번호" readonly>
+							<input type="text" name="zipCd" class="form-control"
+								id="zipCd" placeholder="우편번호" readonly>
 							<div class="input-group-addon">
 								<button type="button" class="btn btn-primary"
 									onclick="searchAddress()">주소찾기</button>
@@ -82,8 +82,8 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<input type="text" name="addrBasic" class="form-control"
-							id="addrBasic" placeholder="기본주소">
+						<input type="text" name="userAddr" class="form-control"
+							id="userAddr" placeholder="기본주소">
 					</div>
 					<div class="form-group">
 						<input type="text" name="addrDetail" class="form-control"
@@ -122,7 +122,7 @@
 	        return;
 	    }
 	    else if(!idFlag){
-	        alert('똑바로 쓰라고요ㅋ');
+	        alert('형식에 맞춰 입력해 주세요.');
 	        return;
 	    }
 	    
@@ -131,7 +131,7 @@
 			
 			 method: 'post',
 		     headers: {
-		         'Content-type':'application/json'
+		         'Content-type':'text/plain'
 		     },
 		     body : userId
 		})
@@ -212,8 +212,8 @@
 		        }
 		
 		        // 우편번호와 주소 정보를 해당 필드에 넣는다.
-		        document.getElementById('addrZipNum').value = data.zonecode;
-		        document.getElementById("addrBasic").value = addr;
+		        document.getElementById('zipCd').value = data.zonecode;
+		        document.getElementById("userAddr").value = addr;
 		        // 커서를 상세주소 필드로 이동한다.
 		        document.getElementById("addrDetail").focus();
 		    }

@@ -42,6 +42,8 @@ public class UserLoginSuccessHandler implements HandlerInterceptor {
 				//로그인 성공한 회원에게 세션 데이터를 생성해서 로그인 유지를 하게 해 줌.
 				HttpSession session = request.getSession();
 				session.setAttribute("login", id);
+				log.info((String) session.getAttribute("login"));
+				log.info(id);
 				response.sendRedirect(request.getContextPath() + "/");
 				
 			} else { //vo == null -> 로그인 실패

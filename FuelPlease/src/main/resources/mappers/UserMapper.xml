@@ -42,7 +42,7 @@
     		user_email1, user_email2,
     		user_addr, addr_detail, zip_cd
     	from users
-    	where user_id = #{id}
+    	where user_id = #{userId}
     </select>
     
 </mapper>

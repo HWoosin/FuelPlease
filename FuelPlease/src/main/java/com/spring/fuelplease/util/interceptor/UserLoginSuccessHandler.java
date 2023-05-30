@@ -20,49 +20,62 @@ public class UserLoginSuccessHandler implements HandlerInterceptor {
 		log.info("preHandle 접근");
 		return HandlerInterceptor.super.preHandle(request, response, handler);
 	}
+<<<<<<< HEAD
+=======
+
+	//postHandle은 컨트롤러를 나갈 때 공통 처리해야 할 내용을 작성.
+	// /userLogin이라는 요청이 마무리 된 후 viewResolver로 전달이 되기 전
+	// 로그인 성공,실패 여부에 따라 처리할 로직을 작성할 예정입니다.
+>>>>>>> 1e70f3e291e31d9e439ce29db5cc70ee1acb117f
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		
+
 		log.info("로그인 인터셉터가 동작!");
 		log.info("요청 방식" + request.getMethod());
-		
+
 		if(request.getMethod().equals("POST")) {
 			ModelMap map = modelAndView.getModelMap(); //모델 객체 꺼내기
 			String id = (String) map.get("user"); //모델 내에 user라는 이름의 데이터 꺼내기
+<<<<<<< HEAD
 			
+=======
+//			log.info("인터셉터 내부에서 user 확인: " + vo.toString());
+
+>>>>>>> 1e70f3e291e31d9e439ce29db5cc70ee1acb117f
 			if(id != null) { //로그인 성공
 				log.info("로그인 성공 로직이 동작합니다.");
 				//로그인 성공한 회원에게 세션 데이터를 생성해서 로그인 유지를 하게 해 줌.
 				HttpSession session = request.getSession();
+				session.setMaxInactiveInterval(60 * 60);
 				session.setAttribute("login", id);
 				log.info((String) session.getAttribute("login"));
 				log.info(id);
 				response.sendRedirect(request.getContextPath() + "/");
-				
+
 			} else { //vo == null -> 로그인 실패
 				modelAndView.addObject("msg", "loginFail");
 			}
-			
+
 		}
-		
-		
-		
-		
-		
-		
+
+
+
+
+
+
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

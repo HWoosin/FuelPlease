@@ -17,11 +17,11 @@ public interface IUserMapper {
 	int idCheck(String id);
 
 	//회원정보 얻어오기
-<<<<<<< HEAD
+
 	UserVO getInfo(@Param("id") String id);
-=======
-	UserVO getInfo(@Param("userId")String id);
->>>>>>> 77b656769aa499e47bbdda252ec208ff2c2141ad
+
+//	UserVO getInfo(@Param("userId")String id);
+
 
 	//회원정보 수정
 	void updateUser(UserVO vo);

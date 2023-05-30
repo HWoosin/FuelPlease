@@ -69,7 +69,6 @@
 					</div>
 
 
-<<<<<<< HEAD
                     <!--readonly 속성 추가시 자동으로 블락-->
                     <div class="form-group">
                         <label for="addr-num">주소</label>
@@ -86,28 +85,6 @@
                     <div class="form-group">
                         <input type="text" name="addrDetail" class="form-control" id="addrDetail" placeholder="상세주소">
                     </div>
-=======
-					<!--readonly 속성 추가시 자동으로 블락-->
-					<div class="form-group">
-						<label for="addr-num">주소</label>
-						<div class="input-group">
-							<input type="text" name="zipCd" class="form-control"
-								id="zipCd" placeholder="우편번호" readonly>
-							<div class="input-group-addon">
-								<button type="button" class="btn btn-primary"
-									onclick="searchAddress()">주소찾기</button>
-							</div>
-						</div>
-					</div>
-					<div class="form-group">
-						<input type="text" name="userAddr" class="form-control"
-							id="userAddr" placeholder="기본주소">
-					</div>
-					<div class="form-group">
-						<input type="text" name="addrDetail" class="form-control"
-							id="addrDetail" placeholder="상세주소">
-					</div>
->>>>>>> 77b656769aa499e47bbdda252ec208ff2c2141ad
 
 					<!--button탭에 들어가서 버튼종류를 확인한다-->
 					<div class="form-group">
@@ -141,11 +118,7 @@
 	        return;
 	    }
 	    else if(!idFlag){
-<<<<<<< HEAD
 	        alert('똑바로 쓰라고요ㅋ');
-=======
-	        alert('형식에 맞춰 입력해 주세요.');
->>>>>>> 77b656769aa499e47bbdda252ec208ff2c2141ad
 	        return;
 	    }
 	    
@@ -154,7 +127,6 @@
 			
 			 method: 'post',
 		     headers: {
-<<<<<<< HEAD
 		         'Content-type':'application/json'
 		     },
 		     body : userId
@@ -278,132 +250,6 @@
 	var id = document.getElementById("userId");
 	id.onkeyup = function() {
 
-=======
-		        'Content-type':'text/plain'
-
-		     },
-		     body : userId
-		})
-		.then(res =>res.text())//요청 완료 후 응답 정보에서 텍스트만 빼기
-		    .then(data => {//텍스트만 뺀 Promise 객체로부터 data전달받음.
-	            if(data ==='1'){
-	            	msg.textContent = '중복된 아이디 입니다.';
-	            }
-	            else{
-	                document.getElementById('userId').setAttribute('readonly',true);
-	                //document.getElementById('idCheckBtn').setAttribute('disabled', true);
-	                msg.textContent = '사용 가능한 아이디 입니다.';
-	            }
-	        });
-	} //아이디 중복확인 끝
-	
-	//인증번호 이메일 전송
-	document.getElementById('mail-check-btn').onclick = function(){
-	const email = document.getElementById('userEmail1').value
-	                + document.getElementById('userEmail2').value;
-	
-	console.log('완성된 email:' + email);   
-	fetch('${pageContext.request.contextPath}/user/mailCheck?email='+email)
-	    .then(res => res.text())
-	    	.then(data => {
-	    		console.log('인증번호: '+data);
-	    		//비활성된 인증번호 입력창 활성화
-	            document.querySelector('.mail-check-input').disabled = false;
-	            code = data; //인증번호를 전역변수에 저장
-	            alert('인증번호가 전송되었습니다. 확인후 입력란에 정확히 입력하세요.');
-	    	});//비동기 끝.
-	}; //인증번호 이벤트 끝.
-	
-	//인증번호 검증
-	//blur -> focus가 벗어나는 경우 발생.
-	document.querySelector('.mail-check-input').onblur = function(e){
-	
-	const inputCode = e.target.value; //사용자가 입력한 인증번호.
-	const $resultMsg = document.getElementById('mail-check-warn');
-	console.log('사용자가 입력한 값: ' + inputCode);
-	
-		if(inputCode === code){
-		    $resultMsg.textContent ='인증번호가 일치합니다.';
-		    $resultMsg.style.color = 'green';
-		    document.getElementById('mail-check-btn').disabled = true;
-		    document.getElementById('userEmail1').setAttribute('readonly',true);
-		    document.getElementById('userEmail2').setAttribute('readonly',true);
-		    e.target.style.display = 'none'; //인증번호 입력창 숨기기
-		
-		    const email2 = document.getElementById('userEmail2');
-		
-		    email2.setAttribute('onFocus', 'this.initialSelect = this.selectedIndex');
-		    email2.setAttribute('onChange', 'this.selectedIndex = this.initialSelect');
-		}
-		else{
-		    $resultMsg.textContent ='인증번호를 다시 확인해 주세요.'
-		    $resultMsg.style.color = 'red';
-		    e.target.focus(); //다시 입력할 수 있도록 포커싱.
-		}
-	}//인증 번호 검증 끝
-	
-	//카카오 API
-	function searchAddress() {
-		new daum.Postcode({
-		    oncomplete: function(data) {
-		        // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-		
-		        // 각 주소의 노출 규칙에 따라 주소를 조합한다.
-		        // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-		        var addr = ''; // 주소 변수
-		        var extraAddr = ''; // 참고항목 변수
-		
-		        //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-		        if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-		            addr = data.roadAddress;
-		        } else { // 사용자가 지번 주소를 선택했을 경우(J)
-		            addr = data.jibunAddress;
-		        }
-		
-		        // 우편번호와 주소 정보를 해당 필드에 넣는다.
-		        document.getElementById('zipCd').value = data.zonecode;
-		        document.getElementById("userAddr").value = addr;
-		        // 커서를 상세주소 필드로 이동한다.
-		        document.getElementById("addrDetail").focus();
-		    }
-		}).open();
-	} //주소찾기 api끝
-	
-	//폼 데이터 검증 (회원 가입 버튼 눌렀을 시)
-	document.getElementById('joinBtn').onclick = function() {
-	
-		if(idFlag && pwFlag){
-		    if(!document.getElementById('userId').getAttribute('readonly')){
-		    alert('아이디 중복체크는 필수 입니다.');
-		    return;
-		}
-		if(document.getElementById('userPw').value != document.getElementById('pwConfirm').value){
-		    alert('비밀번호 확인란을 확인하세요!');
-		    return;
-		}
-		if(document.getElementById('userName').value === ''){
-		    alert('이름은 필수값 입니다.');
-		    return;
-		}
-		if(!document.getElementById('mail-check-btn').disabled){
-		    alert('이메일 인증을 완료해 주세요.');
-		    return;
-		}
-		if(confirm('회원가입을 진행합니다.')){
-		    document.joinForm.submit();
-		}
-		else return;
-		}
-		else {
-		    alert('입력값을 다시 한 번 확인하세요!');
-		}
-	}
-	
-	/*아이디 형식 검사 스크립트*/
-	var id = document.getElementById("userId");
-	id.onkeyup = function() {
-
->>>>>>> 77b656769aa499e47bbdda252ec208ff2c2141ad
 	    var regex = /^[A-Za-z0-9+]{4,12}$/; 
 	    if(regex.test(document.getElementById("userId").value )) {
 	        document.getElementById("userId").style.borderColor = "green";

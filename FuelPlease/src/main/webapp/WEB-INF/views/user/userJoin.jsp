@@ -131,7 +131,8 @@
 			
 			 method: 'post',
 		     headers: {
-		         'Content-type':'text/plain'
+		        'Content-type':'text/plain'
+
 		     },
 		     body : userId
 		})

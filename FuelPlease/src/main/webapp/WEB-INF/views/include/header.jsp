@@ -25,21 +25,8 @@
             <li><a href="${pageContext.request.contextPath}/user/userLogin" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Login</span></a></li>
             <li><a href="${pageContext.request.contextPath}/user/userMypage" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>MyPage</span></a></li>
             <li><a href="${pageContext.request.contextPath}/user/userLogout" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Logout</span></a></li>
+            <li><a href="${pageContext.request.contextPath}/user/userJoin" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>회원가입</span></a></li>
        
-            <li>
-              <ul>
-
-                <c:if test="${sessionScope.login == null}">
-                  <li><a href="${pageContext.request.contextPath}/user/userLogin" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Login</span></a></li>
-                  <li><a href="${pageContext.request.contextPath}/user/userJoin" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>회원가입</span></a></li>
-                </c:if>
-                <c:if test="${sessionScope.login != null}">
-                  <li><a href="${pageContext.request.contextPath}/user/userMypage" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>MyPage</span></a></li>
-                  <li><a href="${pageContext.request.contextPath}/user/userLogout" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Logout</span></a></li>
-                </c:if>
-              </ul>  
-              
-            </li>
            
           </ul>
 

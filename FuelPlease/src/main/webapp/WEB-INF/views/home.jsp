@@ -85,7 +85,7 @@
 				  </svg>
 				  <i class="bx bxl-dribbble"></i>
 				</div>
-				<h4><a href="">주유소 ckwdkdkdkdkdk</a></h4>
+				<h4><a href="">주유소</a></h4>
 			  </div>
 			</div>
   
@@ -97,7 +97,7 @@
 				  </svg>
 				  <i class="bx bx-file"></i>
 				</div>
-				<h4><a href="">전기충전소</a></h4>
+				<h4><a href="">전기충전소</a></h4>
 			  </div>
 			</div>
   

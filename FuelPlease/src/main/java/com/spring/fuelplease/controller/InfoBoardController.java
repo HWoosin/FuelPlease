@@ -32,21 +32,21 @@ public class InfoBoardController {
 		
 		log.info(pc.toString()); //콘솔창에 log 찍기 
 		
-		model.addAttribute("boardList", service.getList(vo));
+		model.addAttribute("infoBoardList", service.getList(vo));
 		model.addAttribute("pc", pc);
 	}
 	
 	//글쓰기 페이지 열어주는 메서드
 	@GetMapping("/regist")
 	public String regist() {
-		return "infoboard/infoRegist";
+		return "infoboard/boardRegist";
 	}
 	
 	//글 등록 처리
 	@PostMapping("/regist")
 	public String regist(InfoBoardVO vo) { 
 		service.regist(vo);
-		return "redirect:/infoboard/infoList";
+		return "redirect:/infoboard/boardList";
 	}
 	
 	//글 상세 보기 처리
@@ -62,14 +62,14 @@ public class InfoBoardController {
 	public String content(@PathVariable int bno, @ModelAttribute("p") PageVO vo
 			, Model model) {
 		model.addAttribute("article", service.getContent(bno));
-		return "infoboard/infoDetail";
+		return "infoboard/boardDetail";
 		
 	}
 	
 	//글 수정 페이지 이동 처리
 	@PostMapping("/modify")
 	public String modify(@ModelAttribute("article") InfoBoardVO vo) {
-		return "infoboard/infoModify";
+		return "infoboard/boardModify";
 	}
 	
 	
@@ -84,7 +84,7 @@ public class InfoBoardController {
 	@PostMapping("/delete")
 	public String delete(int bno) {
 		service.delete(bno);
-		return "redirect:/infoboard/infoList";
+		return "redirect:/infoboard/boardList";
 	}
 	
 	

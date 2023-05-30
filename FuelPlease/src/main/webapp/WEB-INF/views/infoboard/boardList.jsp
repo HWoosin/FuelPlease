@@ -51,18 +51,19 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="vo" items="${boardList}">
+
+							<c:forEach var="vo" items="${infoBoardList}">
 								<tr>
 									<td>${vo.bno}</td>
 									<td><a
 										href="${pageContext.request.contextPath}/infoboard/content/${vo.bno}?pageNum=${pc.paging.pageNum}&cpp=${pc.paging.cpp}&keyword=${pc.paging.keyword}&condition=${pc.paging.condition}">${vo.title}</a>
 										&nbsp; <strong>[${vo.replyCnt}]</strong></td>
 									<td>${vo.writer}</td>
-									<td><fmt:parseDate value="${vo.regDate}"
+									<td><fmt:parseDate value="${vo.WDate}"
 											pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDateTime"
 											type="both" /> <fmt:formatDate value="${parsedDateTime}"
 											pattern="yyyy년 MM월 dd일 HH시 mm분" /></td>
-									<td><fmt:parseDate value="${vo.updateDate}"
+									<td><fmt:parseDate value="${vo.UDate}"
 											pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedUpDateTime"
 											type="both" /> <fmt:formatDate value="${parsedUpDateTime}"
 											pattern="yyyy년 MM월 dd일 HH시 mm분" /></td>
@@ -100,8 +101,7 @@
 						<input type="hidden" name="pageNum" value="${pc.paging.pageNum}">
 						<input type="hidden" name="cpp" value="${pc.paging.cpp}">
 						<input type="hidden" name="keyword" value="${pc.paging.keyword}">
-						<input type="hidden" name="condition"
-							value="${pc.paging.condition}">
+						<input type="hidden" name="condition" value="${pc.paging.condition}">
 
 					</form>
 
@@ -109,6 +109,14 @@
 			</div>
 		</div>
 	</section>
+
+	<script>
+		// const $baord1 = document.querySelector('#board1');
+		// const $baord2 = document.querySelector('#board2');
+
+
+	</script>
+
 
 
 

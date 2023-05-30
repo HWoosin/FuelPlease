@@ -48,7 +48,21 @@
 		<include refid="myPage" />
 	</select>
     
-    
+    <select id="getContent" resultType="board">
+		SELECT * FROM infoboard
+		WHERE bno = #{bno}
+	</select>
+	
+	<update id="update">
+		UPDATE infoboard 
+		SET title = #{title}, content = #{content}, u_date = current_timestamp
+		WHERE bno = #{bno}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM infoboard
+		WHERE bno = #{bno}
+	</delete>
     
     
     

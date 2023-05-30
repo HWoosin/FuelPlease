@@ -16,7 +16,7 @@ public class UserService implements IUserService {
 	private IUserMapper mp;
 	@Autowired
 	private BCryptPasswordEncoder encoder;
-	
+
 	@Override
 	public void userJoin(UserVO vo) {
 		log.info("암호화 하기 전 비번: "+ vo.getUserPw());
@@ -25,7 +25,7 @@ public class UserService implements IUserService {
 		log.info("암호화 후 비번: " + securePw);
 		vo.setUserPw(securePw);
 		mp.userJoin(vo);
-		
+
 	}
 
 	@Override
@@ -52,7 +52,12 @@ public class UserService implements IUserService {
 	@Override
 	public void updateUser(UserVO vo) {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	@Override
+	public void deleteUser(String id, String pw) {
+		mp.deleteUser(id,pw);
 	}
 
 }

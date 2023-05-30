@@ -14,6 +14,7 @@
   
         <nav id="navbar" class="navbar nav-menu">
           <ul>
+
             <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
             <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>주유소</span></a></li>
             <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>전기충전소</span></a></li>
@@ -29,8 +30,15 @@
             
            
           </ul>
-        </nav><!-- .nav-menu -->
-    
+
+          <ul>
+            <li><a href="#">회원가입</a></li>
+            <li><a href="#">로그인</a></li>
+          </ul>
+        </nav>
+
+        
+
       </header><!-- End Header -->
 </body>
 </html>

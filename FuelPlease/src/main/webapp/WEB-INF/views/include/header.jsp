@@ -19,6 +19,7 @@
             <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>전기충전소</span></a></li>
             <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>LPG충전소</span></a></li>
             <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Board</span></a></li>
+            <li><a href="${pageContext.request.contextPath}/infoboard/boardList" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Board</span></a></li>
             
             <c:if test="${login == null}">
             	<li><a href="${pageContext.request.contextPath}/user/userLogin" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Login</span></a></li>
@@ -27,6 +28,8 @@
             	<li><a href="${pageContext.request.contextPath}/user/userMypage" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>MyPage</span></a></li>
             	<li><a href="${pageContext.request.contextPath}/user/userLogout" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Logout</span></a></li>
           	</c:if>
+            
+           
           </ul>
         </nav><!-- .nav-menu -->
     

@@ -55,4 +55,9 @@ public class UserService implements IUserService {
 		
 	}
 
+	@Override
+	public void deleteUser(String id, String pw) {
+		mp.deleteUser(id,pw);
+	}
+
 }

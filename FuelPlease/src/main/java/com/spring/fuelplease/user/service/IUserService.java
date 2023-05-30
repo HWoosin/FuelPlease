@@ -18,4 +18,7 @@ public interface IUserService {
 	
 	//회원정보 수정
 	void updateUser(UserVO vo);
+	
+	//회원 삭제
+	void deleteUser(String id, String pw);
 }

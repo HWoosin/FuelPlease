@@ -45,4 +45,9 @@
     	where user_id = #{userId}
     </select>
     
+    <delete id="userDelete">
+    	delete from users
+    	where user_id = #{userId} and user_pw = #{userPw}
+    </delete>
+    
 </mapper>

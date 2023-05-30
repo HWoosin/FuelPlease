@@ -74,5 +74,10 @@ public class UserController {
 		String id = (String) session.getAttribute("login");
 		model.addAttribute("userInfo", sv.getInfo(id));
 	}
+	
+	@GetMapping("/userDelete")
+	public void userDelete(HttpSession sessison) {
+		
+	}
 
 }

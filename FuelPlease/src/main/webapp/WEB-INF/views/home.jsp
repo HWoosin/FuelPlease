@@ -144,4 +144,10 @@
   
   </body>
   
+  <script>
+  
+  	alert('${sessionScope.login}');
+  
+  </script>
+  
   </html>

@@ -19,7 +19,7 @@
                     <p>상세보기</p>
                 </div>
 
-                <form action="<c:url value='/infoboard/modify' />" method="post">
+                <form action="<c:url value='/infoboard/modify' />" method="post" name="modifyForm">
                     <div>
                         <label>DATE</label>
                         <c:if test="${article.UDate == null}">
@@ -43,7 +43,7 @@
                     </div>
                     <div class="form-group">
                         <label>작성자</label>
-                        <input class="form-control" name="writer" value="${article.writer}" readonly>
+                        <input class="form-control" name="writer" value="${article.writer}" id="writer" readonly>
                     </div>
                     <div class="form-group">
                         <label>제목</label>
@@ -55,7 +55,7 @@
                         <textarea class="form-control" rows="10" name="content" readonly>${article.content}</textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-primary" onclick="return confirm('변경 페이지로 이동합니다.')">변경</button>
+                    <button type="button" class="btn btn-primary" id="btn-modify" >변경</button>
                     <button type="button" class="btn btn-dark"
                         onclick="location.href='${pageContext.request.contextPath}/infoboard/boardList?pageNum=${p.pageNum}&cpp=${p.cpp}&keyword=${p.keyword}&condition=${p.condition}'">목록</button>
                 </form>
@@ -114,6 +114,30 @@
         </div>
     </div>
 </section>
+
+<script>
+    //상세보기 안 수정 버튼 권한 검사 로직
+    const $form = document.modifyForm;
+
+    
+    document.getElementById('btn-modify').onclick = () => {
+        if(confirm('변경 페이지로 이동합니다.')) {
+            const id = '${login}';
+            if(document.getElementById('writer').value === id) {
+                $form.submit();
+                alert('${login}');
+            } else {
+                alert('본인이 작성한 글만 수정할 수 있습니다.');
+            }
+        } else {
+            return;
+        }
+    }
+
+
+
+
+</script>
 
 </body>
 </html>

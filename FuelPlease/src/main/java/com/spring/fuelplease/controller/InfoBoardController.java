@@ -20,37 +20,37 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/infoboard")
 @Slf4j
 public class InfoBoardController {
-	
+
 	@Autowired
 	private InfoBoardService service;
-	
+
 	//목록 화면
 	@GetMapping("/boardList")
 	public void freeList(PageVO vo, Model model) {
-		
+
 		PageCreator pc = new PageCreator(vo, service.getTotal(vo));
-		
-		log.info(pc.toString()); //콘솔창에 log 찍기 
-		
+
+		log.info(pc.toString()); //콘솔창에 log 찍기
+
 		model.addAttribute("infoBoardList", service.getList(vo));
 		model.addAttribute("pc", pc);
 	}
-	
+
 	//글쓰기 페이지 열어주는 메서드
 	@GetMapping("/regist")
 	public String regist() {
 		return "infoboard/boardRegist";
 	}
-	
+
 	//글 등록 처리
 	@PostMapping("/regist")
-	public String regist(InfoBoardVO vo) { 
+	public String regist(InfoBoardVO vo) {
 		service.regist(vo);
 		return "redirect:/infoboard/boardList";
 	}
-	
+
 	//글 상세 보기 처리
-	
+
 	/*
 	 @PathVariable은 URL경로에 변수를 포함시켜 주는 방식
 	 null이나 공백이 들어갈 수 있는 파라미터라면 적용하지 않는 것을 추천
@@ -63,33 +63,33 @@ public class InfoBoardController {
 			, Model model) {
 		model.addAttribute("article", service.getContent(bno));
 		return "infoboard/boardDetail";
-		
+
 	}
-	
+
 	//글 수정 페이지 이동 처리
 	@PostMapping("/modify")
 	public String modify(@ModelAttribute("article") InfoBoardVO vo) {
 		return "infoboard/boardModify";
 	}
-	
-	
+
+
 	//글 수정 처리
 	@PostMapping("/update")
 	public String update(InfoBoardVO vo) {
 		service.update(vo);
 		return "redirect:/infoboard/content/" + vo.getBno();
 	}
-	
+
 	//글 삭제 처리
 	@PostMapping("/delete")
 	public String delete(int bno) {
 		service.delete(bno);
 		return "redirect:/infoboard/boardList";
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 
 }

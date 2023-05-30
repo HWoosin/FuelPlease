@@ -67,7 +67,7 @@ public class UserController {
 		log.info("이메일 인증 요청 들어옴: " + email);
 		return mailsv.joinEmail(email);
 	}
-	
+
 	// 마이페이지 이동 요청
 	@GetMapping("/userMypage")
 	public void userMypage(HttpSession session, Model model) {

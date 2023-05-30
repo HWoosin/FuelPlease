@@ -49,7 +49,7 @@
         }
         if(pw === ''){
             alert("비밀번호를 입력해주세요")
-            return
+            return;
         }
         
         document.loginForm.submit();

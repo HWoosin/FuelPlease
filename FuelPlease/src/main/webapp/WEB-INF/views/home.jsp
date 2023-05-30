@@ -59,8 +59,14 @@
   
   <body>
   
+<<<<<<< HEAD
 	<h1>풀리퀘 연습2222222 feat/mun</h1>
 
+=======
+	<h1>풀리퀘 연습 feat/mun</h1>
+  <h2>풀리퀘스트 연습-지혁</h2>
+  
+>>>>>>> f1f6866e3eb5bde880b256266195fbe118947e52
 
 	<!-- ======= Mobile nav toggle button ======= -->
 	<!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
@@ -88,7 +94,7 @@
 				  </svg>
 				  <i class="bx bxl-dribbble"></i>
 				</div>
-				<h4><a href="">주유소</a></h4>
+				<h4><a href="">주유소 ckwdkdkdkdkdk</a></h4>
 			  </div>
 			</div>
   

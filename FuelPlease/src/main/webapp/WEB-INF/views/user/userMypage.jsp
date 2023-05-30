@@ -87,14 +87,14 @@
 										<tr>
 											<td class="m-title">*우편번호</td>
 											<td><input class="form-control input-sm"
-												name="zipCd" value="${userInfo.addrZipNum}" readonly>
+												name="zipCd" value="${userInfo.zipCd}" readonly>
 												<button type="button" class="btn btn-primary" id="addBtn">주소찾기</button>
 											</td>
 										</tr>
 										<tr>
 											<td class="m-title">*주소</td>
 											<td><input class="form-control input-sm add"
-												name="userAddr" value="${userInfo.addrBasic}"></td>
+												name="userAddr" value="${userInfo.userAddr}"></td>
 										</tr>
 										<tr>
 											<td class="m-title">*상세주소</td>

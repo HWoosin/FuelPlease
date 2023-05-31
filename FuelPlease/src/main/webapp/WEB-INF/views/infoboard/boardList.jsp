@@ -2,14 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>fuelplease</title>
-</head>
-<body>
-
+<%@ include file="../include/header.jsp" %>
 
 	<section>
 		<div class="container-fluid">
@@ -110,6 +103,8 @@
 		</div>
 	</section>
 
+	<%@ include file="../include/footer.jsp" %>
+
 	<script>
 		// const $baord1 = document.querySelector('#board1');
 		// const $baord2 = document.querySelector('#board2');
@@ -119,6 +114,3 @@
 
 
 
-
-</body>
-</html>

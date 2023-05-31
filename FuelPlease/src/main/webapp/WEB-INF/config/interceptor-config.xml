@@ -28,6 +28,7 @@
 			<mvc:mapping path="/infoboard/regist"/>
 			<mvc:mapping path="/user/userMypage"/>
 			<mvc:mapping path="/infoboard/modify"/>
+			<mvc:mapping path="/infoboard/content/*"/>
 
 			<ref bean ="userAuth"/>
 		</mvc:interceptor>	

@@ -1,12 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>fuelplease</title>
-</head>
-<body>
+	<%@ include file="../include/header.jsp" %>
 
  <section>
        <div class="container">
@@ -20,15 +14,15 @@
 	                    <table class="table">
 	                        <tbody class="t-control">
 	                            <tr>
-	                                <td class="t-title">NAME</td>
+	                                <td class="t-title">작성자</td>
 	                                <td><input class="form-control input-sm" name="writer" value="${login}" readonly></td>
 	                            </tr>
 	                            <tr>
-	                                <td class="t-title">TITLE</td>
+	                                <td class="t-title">제목</td>
 	                                <td><input class="form-control input-sm" name="title"></td>
 	                            </tr>
 	                            <tr>
-	                                <td class="t-title">CONTENT</td>
+	                                <td class="t-title">내용</td>
 	                                <td>
 	                                <textarea class="form-control" rows="7" name="content"></textarea>
 	                                </td>                 
@@ -46,5 +40,4 @@
        </div>
     </section>
 
-</body>
-</html>
+	<%@ include file="../include/footer.jsp" %>

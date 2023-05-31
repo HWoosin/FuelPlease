@@ -1,12 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>fuelplease</title>
-</head>
-<body>
+    <%@ include file="../include/header.jsp" %>
 
  <section>
         <div class="container">
@@ -44,6 +38,8 @@
             </div>
         </div>
         </section>
+
+        <%@ include file="../include/footer.jsp" %>
 
         <script>
             //목록 이동 처리
@@ -83,6 +79,3 @@
 
 
         </script>
-
-</body>
-</html>

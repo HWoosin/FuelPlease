@@ -35,7 +35,7 @@ public class GasolineService {
 		}
 
 		for (GasolineVO vo : filteredList) {
-			mp.inputData(vo);
+//			mp.inputData(vo);
 		}
 	}
 }

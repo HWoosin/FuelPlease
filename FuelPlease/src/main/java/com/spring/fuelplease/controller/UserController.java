@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -37,6 +38,7 @@ public class UserController {
 	public void login(String userId, String userPw, Model model) {
 		log.info("사용자 로그인 요청!");
 		model.addAttribute("user", sv.userLogin(userId, userPw));// user에 정보 담아 보냄
+
 	}
 
 	@GetMapping("/userJoin") // 회원 가입 페이지 이동
@@ -48,7 +50,8 @@ public class UserController {
 	public String join(UserVO vo, RedirectAttributes ra) {
 		sv.userJoin(vo);
 		ra.addFlashAttribute("msg", "joinSuccess"); //msg에 메세지 담아 보내서 이것으로 판단할것임
-		return "redirect:/user/userLogin";
+
+		return "redirect:/";
 	}
 
 	@PostMapping("/idCheck") // 아이디중복체크
@@ -94,6 +97,15 @@ public class UserController {
 		
 
 	}
+
+
+	// 회원정보 수정
+	@PostMapping("/updateUser")
+	public String updateUser (UserVO vo) {
+		sv.updateUser(vo);
+		return "redirect:/user/userMypage";
+	}
+	
 
 
 }

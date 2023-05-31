@@ -38,14 +38,29 @@
 	<!-- 마이페이지 -->
     <select id="getInfo" resultMap="userMap">
     	select
-    		user_name, user_phone1, user_phone2,
+    		user_name, user_phone1, user_phone2, user_pw,
     		user_email1, user_email2,
     		user_addr, addr_detail, zip_cd
     	from users
     	where user_id = #{userId}
     </select>
+
+    <!-- 회원 정보 수정 -->
+    <update id="updateUser">
+    	update users
+    	set user_pw = #{userPw},
+    		user_phone1 = #{userPhone1},
+    		user_phone2 = #{userPhone2},
+    		user_email1 = #{userEmail1},
+    		user_email2 = #{userEmail2},
+    		user_addr = #{userAddr},
+    		addr_detail = #{addrDetail},
+    		zip_cd = #{zipCd}
+    	where user_id = #{userId}
+    </update>
     
     <delete id="deleteUser">
+
     	delete from users
     	where user_id = #{userId} and user_pw = #{userPw}
     </delete>

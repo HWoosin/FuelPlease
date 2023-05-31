@@ -1,10 +1,58 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ include file="../include/header.jsp" %>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+	<title>Fuel Please</title>
+	<meta content="" name="description">
+	<meta content="" name="keywords">
+  
+	<!-- Favicons -->
+	<link href="${pageContext.request.contextPath }/img/favicon.png" rel="icon">
+  
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    
+        <style>
+            @font-face {
+                font-family: 'KIMM_Bold';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
+                font-weight: 700;
+                font-style: normal;
+			}
+        </style>
+
 
 
 <section>
 	<div class="container">
+
+	<!-- Vendor CSS Files -->
+	<!--  <link href="/vendor/aos/aos.css" rel="stylesheet">-->
+	<link href="${pageContext.request.contextPath }/vendor/aos/aos.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath }/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath }/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath }/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath }/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath }/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  
+	<!-- Template Main CSS File -->
+	<link href="${pageContext.request.contextPath }/css/style.css" rel="stylesheet">
+  
+	<!-- =======================================================
+	* Template Name: MyResume
+	* Updated: Mar 10 2023 with Bootstrap v5.2.3
+	* Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
+	* Author: BootstrapMade.com
+	* License: https://bootstrapmade.com/license/
+	======================================================== -->
+  </head>
+  <section>
+	  <div class="container">
+
 		<div class="row">
 			<div class="col-lg-6 col-md-9 col-sm-12 join-form">
 				<div class="titlebox">회원가입</div>
@@ -14,7 +62,7 @@
 						<label for="id">아이디</label>
 						<div class="input-group">
 							<input type="text" name="userId" class="form-control" id="userId"
-								placeholder="아이디를 (영문포함 4~12자 이상)">
+							placeholder="아이디를 (영문포함 4~12자 이상)">
 							<div class="input-group-addon">
 								<button type="button" class="btn btn-primary" id="idCheckBtn">아이디중복체크</button>
 							</div>
@@ -29,7 +77,7 @@
 					</div>
 					<div class="form-group">
 						<label for="password-confrim">비밀번호 확인</label> <input
-							type="password" class="form-control" id="pwConfirm"
+						type="password" class="form-control" id="pwConfirm"
 							placeholder="비밀번호를 확인해주세요."> <span id="msgPw-c"></span>
 					</div>
 					<div class="form-group">
@@ -43,8 +91,8 @@
 								id="userPhone1" placeholder="ex)010"> <input type="text"
 								name="userPhone2" class="form-control phone2" id="userPhone2"
 								placeholder="번호를 입력해주세요">
+							</div>
 						</div>
-					</div>
 					<div class="form-group email-form">
 						<label for="email">이메일</label><br>
 						<div class="input-group">
@@ -75,11 +123,11 @@
 						<label for="addr-num">주소</label>
 						<div class="input-group">
 							<input type="text" name="zipCd" class="form-control"
-								id="zipCd" placeholder="우편번호" readonly>
+							id="zipCd" placeholder="우편번호" readonly>
 							<div class="input-group-addon">
 								<button type="button" class="btn btn-primary"
 									onclick="searchAddress()">주소찾기</button>
-							</div>
+								</div>
 						</div>
 					</div>
 					<div class="form-group">
@@ -94,12 +142,12 @@
 					<!--button탭에 들어가서 버튼종류를 확인한다-->
 					<div class="form-group">
 						<button type="button" id="joinBtn"
-							class="btn btn-lg btn-success btn-block">회원가입</button>
+						class="btn btn-lg btn-success btn-block">회원가입</button>
 					</div>
 
 					<div class="form-group">
 						<button type="button" id="loginBtn"
-							class="btn btn-lg btn-info btn-block">로그인</button>
+						class="btn btn-lg btn-info btn-block">로그인</button>
 					</div>
 				</form>
 			</div>
@@ -109,9 +157,9 @@
 
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-
-	let code = ''; //이메일 전송 인증번호 저장을 위한 변수
+	<script>
+		
+		let code = ''; //이메일 전송 인증번호 저장을 위한 변수
 	let idFlag, pwFlag; // 유효성 검사 여부 판단.
 	
 	//아이디 중복체크
@@ -119,7 +167,7 @@
 		const msg = document.getElementById('msgId');
 	    const userId = document.getElementById('userId').value;
 	    if(userId === ''){
-	        alert('아이디는 필수값입니다');
+			alert('아이디는 필수값입니다');
 	        return;
 	    }
 	    else if(!idFlag){
@@ -138,7 +186,7 @@
 		     body : userId
 		})
 		.then(res =>res.text())//요청 완료 후 응답 정보에서 텍스트만 빼기
-		    .then(data => {//텍스트만 뺀 Promise 객체로부터 data전달받음.
+		.then(data => {//텍스트만 뺀 Promise 객체로부터 data전달받음.
 	            if(data ==='1'){
 	            	msg.textContent = '중복된 아이디 입니다.';
 	            }
@@ -159,7 +207,7 @@
 	fetch('${pageContext.request.contextPath}/user/mailCheck?email='+email)
 	    .then(res => res.text())
 	    	.then(data => {
-	    		console.log('인증번호: '+data);
+				console.log('인증번호: '+data);
 	    		//비활성된 인증번호 입력창 활성화
 	            document.querySelector('.mail-check-input').disabled = false;
 	            code = data; //인증번호를 전역변수에 저장
@@ -182,7 +230,7 @@
 		    document.getElementById('userEmail1').setAttribute('readonly',true);
 		    document.getElementById('userEmail2').setAttribute('readonly',true);
 		    e.target.style.display = 'none'; //인증번호 입력창 숨기기
-		
+			
 		    const email2 = document.getElementById('userEmail2');
 		
 		    email2.setAttribute('onFocus', 'this.initialSelect = this.selectedIndex');
@@ -198,8 +246,8 @@
 	//카카오 API
 	function searchAddress() {
 		new daum.Postcode({
-		    oncomplete: function(data) {
-		        // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+			oncomplete: function(data) {
+				// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 		
 		        // 각 주소의 노출 규칙에 따라 주소를 조합한다.
 		        // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
@@ -212,7 +260,7 @@
 		        } else { // 사용자가 지번 주소를 선택했을 경우(J)
 		            addr = data.jibunAddress;
 		        }
-		
+				
 		        // 우편번호와 주소 정보를 해당 필드에 넣는다.
 		        document.getElementById('zipCd').value = data.zonecode;
 		        document.getElementById("userAddr").value = addr;
@@ -224,14 +272,14 @@
 	
 	//폼 데이터 검증 (회원 가입 버튼 눌렀을 시)
 	document.getElementById('joinBtn').onclick = function() {
-	
+		
 		if(idFlag && pwFlag){
-		    if(!document.getElementById('userId').getAttribute('readonly')){
-		    alert('아이디 중복체크는 필수 입니다.');
+			if(!document.getElementById('userId').getAttribute('readonly')){
+				alert('아이디 중복체크는 필수 입니다.');
 		    return;
 		}
 		if(document.getElementById('userPw').value != document.getElementById('pwConfirm').value){
-		    alert('비밀번호 확인란을 확인하세요!');
+			alert('비밀번호 확인란을 확인하세요!');
 		    return;
 		}
 		if(document.getElementById('userName').value === ''){
@@ -246,8 +294,8 @@
 		    document.joinForm.submit();
 		}
 		else return;
-		}
-		else {
+	}
+	else {
 		    alert('입력값을 다시 한 번 확인하세요!');
 		}
 	}
@@ -255,14 +303,14 @@
 	/*아이디 형식 검사 스크립트*/
 	var id = document.getElementById("userId");
 	id.onkeyup = function() {
-
-	    var regex = /^[A-Za-z0-9+]{4,12}$/; 
+		
+		var regex = /^[A-Za-z0-9+]{4,12}$/; 
 	    if(regex.test(document.getElementById("userId").value )) {
 	        document.getElementById("userId").style.borderColor = "green";
 	        document.getElementById("msgId").innerHTML = "아이디중복체크는 필수 입니다";
 	        idFlag =true;
 	    } else {
-	        document.getElementById("userId").style.borderColor = "red";
+			document.getElementById("userId").style.borderColor = "red";
 	        document.getElementById("msgId").innerHTML = "부적합한 아이디 입니다.";
 	        idFlag =false;
 	    }
@@ -277,7 +325,7 @@
 	        document.getElementById("msgPw").innerHTML = "사용가능합니다";
 	        pwFlag =true;
 	    } else {
-	        document.getElementById("userPw").style.borderColor = "red";
+			document.getElementById("userPw").style.borderColor = "red";
 	        document.getElementById("msgPw").innerHTML = "올바른 비밀번호를 입력하세요";
 	        pwFlag =false;
 	    }
@@ -291,9 +339,10 @@
 	        document.getElementById("pwConfirm").style.borderColor = "green";
 	        document.getElementById("msgPw-c").innerHTML = "비밀번호가 일치합니다";
 	    } else {
-	        document.getElementById("pwConfirm").style.borderColor = "red";
+			document.getElementById("pwConfirm").style.borderColor = "red";
 	        document.getElementById("msgPw-c").innerHTML = "비밀번호 확인란을 확인하세요";
 	    }
 	}   
 
 </script>
+	<%@ include file="../include/footer.jsp" %>

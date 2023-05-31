@@ -21,4 +21,5 @@ public interface IUserService {
 	
 	//회원 삭제
 	int deleteUser(String id, String pw);
+
 }

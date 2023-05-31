@@ -17,11 +17,12 @@ public interface IUserMapper {
 	int idCheck(String id);
 
 	//회원정보 얻어오기
-	UserVO getInfo(@Param("userId")String id);
+	UserVO getInfo(@Param("userId") String id);
 
 	//회원정보 수정
 	void updateUser(UserVO vo);
 	
 	//회원 탈퇴
 	void deleteUser(@Param("userId")String id, @Param("userPw")String userPw);
+
 }

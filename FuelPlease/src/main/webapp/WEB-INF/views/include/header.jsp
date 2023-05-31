@@ -11,7 +11,7 @@
 <body>
    <!-- ======= Header ======= -->
 	<header id="header" class="d-flex flex-column justify-content-center">
-  
+    
         <nav id="navbar" class="navbar nav-menu">
           <ul>
             <li><a href="#"><i class="bx bx-home"></i> <span>Home</span></a></li>

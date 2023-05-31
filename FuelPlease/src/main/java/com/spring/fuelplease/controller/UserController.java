@@ -34,10 +34,9 @@ public class UserController {
 	}
 
 	@PostMapping("/userLogin")// 로그인 요청
-	public String login(String userId, String userPw, Model model) {
+	public void login(String userId, String userPw, Model model) {
 		log.info("사용자 로그인 요청!");
 		model.addAttribute("user", sv.userLogin(userId, userPw));// user에 정보 담아 보냄
-		return "redirect:/";
 	}
 
 	@GetMapping("/userJoin") // 회원 가입 페이지 이동
@@ -46,10 +45,10 @@ public class UserController {
 	}
 
 	@PostMapping("/userJoin") // 가입 후 홈으로 이동
-	public String join(UserVO vo, RedirectAttributes msg) {
+	public String join(UserVO vo, RedirectAttributes ra) {
 		sv.userJoin(vo);
-		msg.addFlashAttribute("msg", "joinSuccess"); //msg에 메세지 담아 보내서 이것으로 판단할것임
-		return "redirect:/";
+		ra.addFlashAttribute("msg", "joinSuccess"); //msg에 메세지 담아 보내서 이것으로 판단할것임
+		return "redirect:/user/userLogin";
 	}
 
 	@PostMapping("/idCheck") // 아이디중복체크
@@ -68,12 +67,17 @@ public class UserController {
 		log.info("이메일 인증 요청 들어옴: " + email);
 		return mailsv.joinEmail(email);
 	}
-	
+
 	// 마이페이지 이동 요청
 	@GetMapping("/userMypage")
 	public void userMypage(HttpSession session, Model model) {
 		String id = (String) session.getAttribute("login");
 		model.addAttribute("userInfo", sv.getInfo(id));
+	}
+	
+	@GetMapping("/userDelete")
+	public void userDelete(HttpSession sessison) {
+		
 	}
 
 }

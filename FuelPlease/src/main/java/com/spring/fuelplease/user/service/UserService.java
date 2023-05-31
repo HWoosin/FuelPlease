@@ -57,6 +57,10 @@ public class UserService implements IUserService {
 
 	@Override
 	public void deleteUser(String id, String pw) {
+		log.info("암호화 하기 전 비번: "+ pw);
+		//비밀번호를 암호화 해서 vo객체에 다시 저장하기.
+		String securePw = encoder.encode(pw);
+		log.info("암호화 후 비번: " + securePw);
 		mp.deleteUser(id,pw);
 	}
 

@@ -76,8 +76,12 @@ public class UserController {
 	}
 	
 	@GetMapping("/userDelete")
-	public void userDelete(HttpSession sessison) {
+	public void userDelete() {
 		
+	}
+	@PostMapping("/userDelete")
+	public void userDelete(HttpSession session) {
+		String id = (String)session.getAttribute("login");
 	}
 
 }

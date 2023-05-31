@@ -24,4 +24,5 @@ public interface IUserMapper {
 	
 	//회원 탈퇴
 	void deleteUser(String id, String pw);
+	
 }

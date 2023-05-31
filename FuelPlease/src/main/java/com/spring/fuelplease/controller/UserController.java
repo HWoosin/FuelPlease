@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -77,9 +78,29 @@ public class UserController {
 		model.addAttribute("userInfo", sv.getInfo(id));
 	}
 	
-	@GetMapping("/userDelete")
-	public void userDelete(HttpSession sessison) {
-		
+	// 회원정보 수정
+	@PostMapping("/updateUser")
+	public String updateUser (UserVO vo) {
+		sv.updateUser(vo);
+		return "redirect:/user/userMypage";
 	}
+	
+	@PostMapping("/userDelete")
+    @ResponseBody
+    public int userDelete(HttpSession session, @RequestBody String userPw) {
+        String id = (String)session.getAttribute("login");
+        log.info("id: " + id);
+        log.info("pw: " + userPw);
+        int result = sv.deleteUser(id, userPw);
+//        log.info("result: " + result);
+        if(result == 1) {
+            return 1;
+        }
+        else return 0;
+
+
+    }
+	
+	
 
 }

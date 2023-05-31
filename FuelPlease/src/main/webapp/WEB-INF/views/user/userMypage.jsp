@@ -7,8 +7,8 @@
 <html>
 
 <head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
+<meta charset="UTF-8">
+<title>Fuel Please</title>
 </head>
 
 <body>

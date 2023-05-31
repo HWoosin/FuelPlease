@@ -1,5 +1,6 @@
 package com.spring.fuelplease.user.service;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -51,13 +52,27 @@ public class UserService implements IUserService {
 
 	@Override
 	public void updateUser(UserVO vo) {
-		// TODO Auto-generated method stub
-
+		log.info("전 DB저장 비밀번호: " + vo.getUserPw());
+		String updatePw = encoder.encode(vo.getUserPw());
+		vo.setUserPw(updatePw);
+		mp.updateUser(vo);
 	}
 
 	@Override
-	public void deleteUser(String id, String pw) {
-		mp.deleteUser(id,pw);
-	}
+    public int deleteUser(String id, String userPw) {
+        log.info("사용자 세션 아이디: "+ id);
+        String dbPw = mp.userLogin(id);
+        log.info("DB저장 비번:"+ dbPw);
+        log.info("결과: {}",encoder.matches(userPw, dbPw));
+        if(dbPw != null) {
+            if(encoder.matches(userPw, dbPw)) {
+                mp.deleteUser(id,dbPw);
+                return 1;
+            }
+            return 0;
+        }
+        return -2;
+
+    }
 
 }

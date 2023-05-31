@@ -9,9 +9,10 @@
 	<!-- web.xml에 초기 설정 파일로 이 파일을 추가 -->
 	
 	<bean id="userLoginSuccessHandler" class="com.spring.fuelplease.util.interceptor.UserLoginSuccessHandler" />
-	<bean id="userAuth" class="com.spring.fuelplease.util.interceptor.UserAuthHandler" />
-	
-	
+	<bean id="userAuth" class="com.spring.fuelplease.util.interceptor.UserAuthHandler"></bean>	
+		
+
+
 	<mvc:interceptors>
 	
 		<!-- 로그인 이후에 실행되는 postHandler를 어떤 url에 동작하게 할 지 세팅 -->
@@ -22,6 +23,8 @@
 		
 		<!-- 로그인 권한 체크 인터셉터 url 매핑 -->
 		<mvc:interceptor>
+
+
 			<mvc:mapping path="/infoboard/regist"/>
 			<mvc:mapping path="/user/userMypage"/>
 			<mvc:mapping path="/infoboard/modify"/>
@@ -30,6 +33,10 @@
 		</mvc:interceptor>	
 	
 	</mvc:interceptors>
-
-
+	
 </beans>
+
+
+
+
+

@@ -58,10 +58,6 @@
   </head>
   
   <body>
-<<<<<<< HEAD
-  
-=======
->>>>>>> 77b656769aa499e47bbdda252ec208ff2c2141ad
 
 	<!-- ======= Mobile nav toggle button ======= -->
 	<!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->

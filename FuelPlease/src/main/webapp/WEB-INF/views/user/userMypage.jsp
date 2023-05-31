@@ -88,26 +88,26 @@
 										</tr>
 										<tr>
 											<td class="m-title">*우편번호</td>
-<<<<<<< HEAD
+
 											<td><input class="form-control input-sm" name="zipCd" id="zipCd"
 													value="${userInfo.zipCd}" readonly>
 												<button type="button" class="btn btn-primary" id="addBtn" onclick="searchAddress()">주소찾기</button>
-=======
+
 											<td><input class="form-control input-sm"
 												name="zipCd" value="${userInfo.zipCd}" readonly>
 												<button type="button" class="btn btn-primary" id="addBtn">주소찾기</button>
->>>>>>> 77b656769aa499e47bbdda252ec208ff2c2141ad
+
 											</td>
 										</tr>
 										<tr>
 											<td class="m-title">*주소</td>
-<<<<<<< HEAD
+
 											<td><input class="form-control input-sm add" name="userAddr" id="userAddr"
 													value="${userInfo.userAddr}"></td>
-=======
+
 											<td><input class="form-control input-sm add"
 												name="userAddr" value="${userInfo.userAddr}"></td>
->>>>>>> 77b656769aa499e47bbdda252ec208ff2c2141ad
+
 										</tr>
 										<tr>
 											<td class="m-title">*상세주소</td>

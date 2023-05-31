@@ -17,7 +17,14 @@ public interface IUserMapper {
 	int idCheck(String id);
 
 	//회원정보 얻어오기
+<<<<<<< HEAD
 	UserVO getInfo(@Param("userId") String id);
+=======
+
+	UserVO getInfo(@Param("id") String id);
+
+//	UserVO getInfo(@Param("userId")String id);
+>>>>>>> dev
 
 
 	//회원정보 수정

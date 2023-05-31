@@ -69,7 +69,7 @@
 					</div>
 
 
-<<<<<<< HEAD
+
                     <!--readonly 속성 추가시 자동으로 블락-->
                     <div class="form-group">
                         <label for="addr-num">주소</label>
@@ -86,7 +86,7 @@
                     <div class="form-group">
                         <input type="text" name="addrDetail" class="form-control" id="addrDetail" placeholder="상세주소">
                     </div>
-=======
+
 					<!--readonly 속성 추가시 자동으로 블락-->
 					<div class="form-group">
 						<label for="addr-num">주소</label>
@@ -107,7 +107,7 @@
 						<input type="text" name="addrDetail" class="form-control"
 							id="addrDetail" placeholder="상세주소">
 					</div>
->>>>>>> 77b656769aa499e47bbdda252ec208ff2c2141ad
+
 
 					<!--button탭에 들어가서 버튼종류를 확인한다-->
 					<div class="form-group">
@@ -140,12 +140,10 @@
 	        alert('아이디는 필수값입니다');
 	        return;
 	    }
-	    else if(!idFlag){
-<<<<<<< HEAD
-	        alert('똑바로 쓰라고요ㅋ');
-=======
-	        alert('형식에 맞춰 입력해 주세요.');
->>>>>>> 77b656769aa499e47bbdda252ec208ff2c2141ad
+	    else if(!idFlag){    
+
+	        alert('형식에 맞춰 입력해 주세요.');    
+
 	        return;
 	    }
 	    
@@ -154,7 +152,7 @@
 			
 			 method: 'post',
 		     headers: {
-<<<<<<< HEAD
+
 		         'Content-type':'application/json'
 		     },
 		     body : userId
@@ -277,10 +275,7 @@
 	/*아이디 형식 검사 스크립트*/
 	var id = document.getElementById("userId");
 	id.onkeyup = function() {
-
-=======
 		        'Content-type':'text/plain'
-
 		     },
 		     body : userId
 		})
@@ -403,7 +398,7 @@
 	var id = document.getElementById("userId");
 	id.onkeyup = function() {
 
->>>>>>> 77b656769aa499e47bbdda252ec208ff2c2141ad
+
 	    var regex = /^[A-Za-z0-9+]{4,12}$/; 
 	    if(regex.test(document.getElementById("userId").value )) {
 	        document.getElementById("userId").style.borderColor = "green";

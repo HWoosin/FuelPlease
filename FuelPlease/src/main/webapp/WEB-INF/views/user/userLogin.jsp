@@ -74,13 +74,9 @@
             </div>
         </div>
     </section>
-<<<<<<< HEAD
-
-=======
     
      <%@ include file="../include/footer.jsp" %>
-    
->>>>>>> fc6651f20c2f3d3b188f6477e3ee4725f1a03cd5
+
 <script>
     //회원 가입 완료 후 add FlashAttibute로 msg데이터가 전달되는 지 확인
     const msg = '${msg}';

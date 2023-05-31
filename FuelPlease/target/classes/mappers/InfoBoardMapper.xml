@@ -28,8 +28,11 @@
     
     <select id="getList" resultType="board">
 		SELECT 
-			*
-		FROM infoboard
+			i.* , (
+				SELECT count(*) FROM inforeply 
+		        WHERE bno = i.bno
+    		) AS reply_cnt
+		FROM infoboard i
 		<include refid="search" />
 		ORDER BY bno DESC
 		LIMIT #{pageStart}, #{cpp}

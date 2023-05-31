@@ -13,6 +13,8 @@
     
     <!-- Favicons -->
     <link href="${pageContext.request.contextPath }/img/favicon.png" rel="icon">
+    <link href="${pageContext.request.contextPath }/img/apple-touch-icon.png" rel="apple-touch-icon">
+
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -57,15 +59,17 @@
         </div>
 
         <nav id="navbar" class="navbar nav-menu">
-          
-          <ul class="text-align">
-            <li><a href="#"><i class="bx bx-home"></i> <span>Home</span></a></li>
-            <li><a href="#" class=""><span>주유소</span></a></li>
-            <li><a href="#" class=""><span>전기충전소</span></a></li>
-            <li><a href="#" class=""><span>LPG충전소</span></a></li>
-            <li><a href="${pageContext.request.contextPath}/infoboard/boardList"> <span>Board</span></a></li>
-            <li><a href="${pageContext.request.contextPath}/user/userMypage"> <span>MyPage</span></a></li>
-            
+
+          <ul>
+
+            <li><a href="${pageContext.request.contextPath}/" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+            <li><a href="#about" class="nav-link scrollto"> <span>주유소</span></a></li>
+            <li><a href="#resume" class="nav-link scrollto"> <span>전기충전소</span></a></li>
+            <li><a href="#portfolio" class="nav-link scrollto"> <span>LPG충전소</span></a></li>
+            <li><a href="#services" class="nav-link scrollto"> <span>Board</span></a></li>
+            <li><a href="${pageContext.request.contextPath}/infoboard/boardList" class="nav-link scrollto"> <span>Board</span></a></li>
+            <li><a href="${pageContext.request.contextPath}/user/userMypage" class="nav-link scrollto"> <span>MyPage</span></a></li>
+
           </ul>
           
           <div class="search-bar" role="search">

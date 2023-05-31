@@ -41,23 +41,41 @@ h6 {
   height: 120px;
   background: #fff;
   border-bottom: 1px solid #7998ff;
+  color: #7998ff;
   text-align: left;
 }
 
 .nav-menu ul {
   display: flex;
-  margin-left: 130px;
   margin-top: 20px;
   margin-bottom: 20px;
+  list-style: none;
   padding: 20px;
 }
+
 .nav-menu ul li {
-  padding: 20px;
+  padding: 15px;
   list-style: none;
   font-size: 18px;
 }
 
+.logo img {
+  margin-top: 5%;
+  margin-left: 46%;
+}
 
+.search-bar {
+  margin: 0;
+
+}
+
+.search-bar .form-contorl {
+  left: 30px;
+  border-radius: 10px;
+  border-color: #7998ff;
+  margin-right: 320px;
+  padding: 10px;
+}
 
 /*--------------------------------------------------------------
 # Back to top button
@@ -83,51 +101,13 @@ h6 {
 }
 
 .back-to-top:hover {
-  background: #0678e3;
-  color: #fff;
+  background: #fff;
+  color: #7998ff;
 }
 
 .back-to-top.active {
   visibility: visible;
   opacity: 1;
-}
-
-/*--------------------------------------------------------------
-# Preloader
---------------------------------------------------------------*/
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9999;
-  overflow: hidden;
-  background: #fff;
-}
-
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid #0563bb;
-  border-top-color: #fff;
-  border-bottom-color: #fff;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: animate-preloader 1s linear infinite;
-}
-
-@keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 /*--------------------------------------------------------------
@@ -332,10 +312,72 @@ section {
   fill: #e80368;
 }
 
+
+/*--------------------------------------------------------------
+# UserLogin
+--------------------------------------------------------------*/
+
+.titlebox {
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-left: 60%;
+  color: #7998ff;
+}
+
+
+.container form {
+  width: 650px;
+  background: #fff;
+  border-radius: 2%;
+  border: 1px solid #7998ff;
+  margin-left: 60%;
+  margin-bottom: 250px;
+  
+  padding: 30px;
+
+}
+
+.container #loginBtn {
+  margin-top: 30px;
+  padding: 10px;
+  background: #5c7ce2;
+  border: 1px solid #fff; 
+  color: #fff;
+}
+
+.container #joinBtn {
+  margin-top: 30px;
+  padding: 10px;
+  background: #cfcfcf;
+  border: 1px solid #7998ff;
+ }
+
+
+ /*--------------------------------------------------------------
+# UserJoin
+--------------------------------------------------------------*/
+/*큰 틀의 박스는 userLogin에서 해결*/
+
+
+
+/*--------------------------------------------------------------
+# Board
+--------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------------
+# MyPage
+--------------------------------------------------------------*/
+
+
+
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 #footer {
+  width: 100vw;
   background: #f2f3f5;
   color: #7998ff;
   font-size: 14px;

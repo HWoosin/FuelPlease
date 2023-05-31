@@ -20,21 +20,20 @@
   
 	<!-- Favicons -->
 	<link href="${pageContext.request.contextPath }/img/favicon.png" rel="icon">
-	<link href="${pageContext.request.contextPath }/img/apple-touch-icon.png" rel="apple-touch-icon">
   
 	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-    <!--
+    
         <style>
             @font-face {
                 font-family: 'KIMM_Bold';
                 src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
                 font-weight: 700;
                 font-style: normal;
-}
+			}
         </style>
 
-    -->
+    
   	
 	<!-- Vendor CSS Files -->
 	<!--  <link href="/vendor/aos/aos.css" rel="stylesheet">-->

@@ -3,6 +3,7 @@ package com.spring.fuelplease.user.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.spring.fuelplease.user.mapper.IUserMapper;
 import com.spring.fuelplease.voCenter.UserVO;
@@ -56,12 +57,20 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public void deleteUser(String id, String pw) {
-		log.info("암호화 하기 전 비번: "+ pw);
-		//비밀번호를 암호화 해서 vo객체에 다시 저장하기.
-		String securePw = encoder.encode(pw);
-		log.info("암호화 후 비번: " + securePw);
-		mp.deleteUser(id,pw);
+	public int deleteUser(String id, String userPw) {
+		log.info("사용자 세션 아이디: "+ id);
+		String dbPw = mp.userLogin(id);
+		log.info("DB저장 비번:"+ dbPw);
+		log.info("결과: {}",encoder.matches(userPw, dbPw));
+		if(dbPw != null) {
+			if(encoder.matches(userPw, dbPw)) {
+				mp.deleteUser(id,dbPw);
+				return 1;
+			}
+			return 0;
+		}
+		return -2;
+		
 	}
 
 }

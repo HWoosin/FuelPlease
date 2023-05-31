@@ -80,8 +80,20 @@ public class UserController {
 		
 	}
 	@PostMapping("/userDelete")
-	public void userDelete(HttpSession session) {
+	@ResponseBody
+	public int userDelete(HttpSession session, @RequestBody String userPw) {
 		String id = (String)session.getAttribute("login");
+		log.info("id: " + id);
+		log.info("pw: " + userPw);
+		int result = sv.deleteUser(id, userPw);
+//		log.info("result: " + result);
+		if(result == 1) {
+			return 1;
+		}
+		else return 0;
+		
+
 	}
+
 
 }

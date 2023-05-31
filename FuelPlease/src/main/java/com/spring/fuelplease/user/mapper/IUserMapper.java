@@ -23,5 +23,5 @@ public interface IUserMapper {
 	void updateUser(UserVO vo);
 	
 	//회원 탈퇴
-	void deleteUser(String id, String pw);
+	void deleteUser(@Param("userId")String id, @Param("userPw")String userPw);
 }

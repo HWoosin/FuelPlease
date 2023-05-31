@@ -20,5 +20,5 @@ public interface IUserService {
 	void updateUser(UserVO vo);
 	
 	//회원 삭제
-	void deleteUser(String id, String pw);
+	int deleteUser(String id, String pw);
 }

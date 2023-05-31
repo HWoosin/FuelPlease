@@ -26,7 +26,7 @@
             </div>
         </div>
     </section>
-    
+
 <script>
     //회원 가입 완료 후 add FlashAttibute로 msg데이터가 전달되는 지 확인
     const msg = '${msg}';

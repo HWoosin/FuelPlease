@@ -37,10 +37,7 @@ public class UserController {
 	public void login(String userId, String userPw, Model model) {
 		log.info("사용자 로그인 요청!");
 		model.addAttribute("user", sv.userLogin(userId, userPw));// user에 정보 담아 보냄
-<<<<<<< HEAD
-=======
 
->>>>>>> dev
 	}
 
 	@GetMapping("/userJoin") // 회원 가입 페이지 이동

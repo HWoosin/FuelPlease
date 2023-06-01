@@ -10,7 +10,7 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "한국기계연구원", sans-serif;
+  font-family: "KIMM_Bold", sans-serif;
   color: #272829;
 }
 
@@ -30,7 +30,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "한국기계연구원", sans-serif;
+  font-family: "KIMM_Bold", sans-serif;
 }
 
 /*-------------------------------------------------------------
@@ -43,6 +43,7 @@ h6 {
   border-bottom: 1px solid #7998ff;
   color: #7998ff;
   text-align: left;
+  padding: 5px;
 }
 
 .nav-menu ul {
@@ -50,23 +51,21 @@ h6 {
   margin-top: 20px;
   margin-bottom: 20px;
   list-style: none;
-  padding: 20px;
+  padding: 8px;
 }
 
 .nav-menu ul li {
   padding: 15px;
   list-style: none;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .logo img {
-  margin-top: 5%;
   margin-left: 46%;
 }
 
 .search-bar {
   margin: 0;
-
 }
 
 .search-bar .form-contorl {
@@ -74,7 +73,7 @@ h6 {
   border-radius: 10px;
   border-color: #7998ff;
   margin-right: 320px;
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 /*--------------------------------------------------------------
@@ -348,7 +347,7 @@ section {
 
 .container #joinBtn {
   margin-top: 30px;
-  padding: 10px;
+  padding: 3px;
   background: #cfcfcf;
   border: 1px solid #7998ff;
  }

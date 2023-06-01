@@ -10,14 +10,20 @@ import lombok.ToString;
 @Getter @Setter @ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GasolineVO {
+	
+	private int gno; //기본 순서
+	
     @JsonProperty("sitetel")
     private String siteTel; //소재지전화
+    
     @JsonProperty("rdnwhladdr")
-    private String rdnwhladdr; //도로명전체주소
+    private String rdnWhladdr; //도로명전체주소
+    
     @JsonProperty("bplcnm")
     private String bplcNm; //사업장명
-    @JsonProperty("uptaenm")
-    private String trdstatenm; //영업상태
+    
+    @JsonProperty("trdstatenm")
+    private String trdStatenm; //영업상태
 
 
 }

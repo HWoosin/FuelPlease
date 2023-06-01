@@ -78,6 +78,12 @@
      <%@ include file="../include/footer.jsp" %>
 
 <script>
+    const loginId = '${login}'
+    console.log(loginId);
+    if(loginId !== '') {
+        history.back();
+        alert('이미 로그인 하셨습니다.');
+    }
     //회원 가입 완료 후 add FlashAttibute로 msg데이터가 전달되는 지 확인
     const msg = '${msg}';
     if(msg === 'joinSuccess'){

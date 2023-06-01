@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.spring.fuelplease.user.mapper.IUserMapper;
+import com.spring.fuelplease.util.PageVO;
 import com.spring.fuelplease.voCenter.UserVO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -47,8 +48,8 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public UserVO getInfo(String id) {
-		return mp.getInfo(id);
+	public UserVO getInfo(String id, PageVO vo) {
+		return mp.getInfo(id, vo);
 	}
 
 	@Override

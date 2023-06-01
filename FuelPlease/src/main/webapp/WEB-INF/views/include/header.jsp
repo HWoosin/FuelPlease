@@ -53,7 +53,13 @@
 	<header id="header" class="d-flex flex-column justify-content-center">
     
         <div class="logo">
+<<<<<<< HEAD
             <img src="${pageContext.request.contextPath}/img/FuelPlease_300.png" alt="로고이미지">
+=======
+            <a href="${pageContext.request.contextPath}/">  
+              <img src="${pageContext.request.contextPath}/img/FuelPlease_logo.png" alt="로고이미지">
+            </a>
+>>>>>>> feat/choi
         </div>
 
         <nav id="navbar" class="navbar nav-menu">

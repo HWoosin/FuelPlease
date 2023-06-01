@@ -69,7 +69,7 @@
 				},
 			body : selectCounty
 	   		})
-			.then(res =>res.text())
+			.then(res =>res.json())
 			.then(data=>{
 				alert(data);
 				for(var w=1; w <= data.length; w++){

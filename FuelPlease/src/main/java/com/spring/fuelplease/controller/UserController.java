@@ -85,10 +85,10 @@ public class UserController {
 		model.addAttribute("userInfo", sv.getInfo(id, vo));
 		model.addAttribute("pc", pc);
 	}
-	
+
 	@GetMapping("/userDelete")
 	public void userDelete() {
-		
+
 	}
 	@PostMapping("/userDelete")
 	@ResponseBody
@@ -97,12 +97,20 @@ public class UserController {
 		log.info("id: " + id);
 		log.info("pw: " + userPw);
 		int result = sv.deleteUser(id, userPw);
-//		log.info("result: " + result);
-		if(result == 1) {
-			return 1;
+		if(result == 1) { //아이디,비번 동일하고 회원삭제 하면 1 리턴.
+			Object object = session.getAttribute("login");
+			// 세션에 로그인 정보가 있다면
+			if(object != null) {
+				// "login" 세션 삭제
+				session.removeAttribute("login");
+				// 세션 정보 초기화
+				session.invalidate();
+				return 1;
+			}
+			return -2;
 		}
 		else return 0;
-		
+
 
 	}
 
@@ -113,22 +121,22 @@ public class UserController {
 		sv.updateUser(vo);
 		return "redirect:/user/userMypage";
 	}
-	
+
 	// 로그아웃
-    // DB 작업 없으므로 따로 service나 maapper 작업 필요 없음
-    @GetMapping("/userLogout")
-    public ModelAndView logout(HttpSession session) {
-        Object object = session.getAttribute("login");
+	// DB 작업 없으므로 따로 service나 maapper 작업 필요 없음
+	@GetMapping("/userLogout")
+	public ModelAndView logout(HttpSession session) {
+		Object object = session.getAttribute("login");
 
-        // 세션에 로그인 정보가 있다면
-        if(object != null) {
-            // "login" 세션 삭제
-            session.removeAttribute("login");
-            // 세션 정보 초기화
-            session.invalidate();
-        } 
+		// 세션에 로그인 정보가 있다면
+		if(object != null) {
+			// "login" 세션 삭제
+			session.removeAttribute("login");
+			// 세션 정보 초기화
+			session.invalidate();
+		} 
 
-        return new ModelAndView("redirect:/");
-    }
+		return new ModelAndView("redirect:/");
+	}
 
 }

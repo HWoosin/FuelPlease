@@ -25,7 +25,12 @@
     </section>
 	<%@ include file="../include/footer.jsp" %>
 <script>
-	
+	const loginId = '${login}'
+    console.log(loginId);
+    if(loginId === '') {
+        history.back();
+        alert('로그인 후 이용가능합니다.');
+    }
 	
 	const msg = document.getElementById('msgId');
     document.getElementById('delBtn').onclick =function(){
@@ -47,11 +52,14 @@
                 .then(data => {//텍스트만 뺀 Promise 객체로부터 data전달받음.
                     if(data === '1'){
                         console.log(data);
-                        alert("탈퇴가 완료되었습니다.")
-                        document.deleteForm.submit();
+                        alert("탈퇴가 완료되었습니다.");
+                        location.href='${pageContext.request.contextPath}/';
+                        // document.deleteForm.submit();
                     }
                     else{
                         console.log(data);
+                        console.log(pw);
+                        document.getElementById("userPw").value = '';
                         msg.textContent = '비밀번호 불일치';
                     }
                 });

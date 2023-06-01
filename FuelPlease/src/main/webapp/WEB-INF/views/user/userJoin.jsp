@@ -28,7 +28,7 @@
 
 
 <section>
-	<div class="container">
+	<div class="container-fluid">
 
 	<!-- Vendor CSS Files -->
 	<!--  <link href="/vendor/aos/aos.css" rel="stylesheet">-->

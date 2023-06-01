@@ -1,11 +1,12 @@
 package com.spring.fuelplease.user.service;
 
+import com.spring.fuelplease.util.PageVO;
 import com.spring.fuelplease.voCenter.UserVO;
 
 public interface IUserService {
 
 	//회원정보 얻어오기
-	UserVO getInfo(String id);
+	UserVO getInfo(String id, PageVO vo);
 
 	//로그인
 	String userLogin(String id, String pw);

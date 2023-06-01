@@ -8,33 +8,81 @@
 
 </head>
 <body>
-	<p style="margin-top: -12px">
+	<!-- <p style="margin-top: -12px">
 		<em class="link"> <a href="javascript:void(0);"
 			onclick="window.open('http://fiy.daum.net/fiy/map/CsGeneral.daum', '_blank', 'width=981, height=650')">
 				혹시 주소 결과가 잘못 나오는 경우에는 여기에 제보해주세요. </a>
 		</em>
-	</p>
+	</p> -->
+
+	<h2>주유소 찾기</h2>
 	<div id="map" style="width: 100%; height: 700px;"></div>
 
 	<div>
-		<select class="form-control input-sm sel" name="selectCounty">
-			<option >서울특별시</option>
-			<option >경기도</option>
-			<option >강원도</option>
-			<option >경상북도</option>
-			<option >경상남도</option>
-			<option >전라북도</option>
-			<option >전라남도</option>
-			<option >충청북도</option>
-			<option >충청남도</option>
+		<select class="form-control input-sm sel" id="selectCounty" name="selectCounty">
+			<option >강남구</option>
+			<option >강동구</option>
+			<option >강서구</option>
+			<option >강북구</option>
+			<option >관악구</option>
+			<option >광진구</option>
+			<option >구로구</option>
+			<option >금천구</option>
+			<option >노원구</option>
+			<option >동대문구</option>
+			<option >도봉구</option>
+			<option >동작구</option>
+			<option >마포구</option>
+			<option >서대문구</option>
+			<option >성동구</option>
+			<option >성북구</option>
+			<option >서초구</option>
+			<option >송파구</option>
+			<option >영등포구</option>
+			<option >용산구</option>
+			<option >양천구</option>
+			<option >은평구</option>
+			<option >종로구</option>
+			<option >중구</option>
+			<option >중랑구</option>
 		</select>
-		<input type="text" id="selectCity" placeholder="입력">
+		<!-- <input type="text" id="selectCity" placeholder="입력"> -->
+		<select class="form-control input-sm sel" id="selectLoad" name="selectLoad">
+			<option >도로명을 선택해주세요</option>
+		</select>
 		<button type="button" id="searchBtn">검색</button>
 	</div>
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=405e0d5fd34220069ac5fe74d4c49e23&libraries=services"></script>
 	<script>
-	
+		//키워드 넘기기
+		document.getElementById('selectCounty').onchange =function(){
+			let selectCounty = document.getElementById('selectCounty').value;
+			console.log(selectCounty);
+
+			fetch('${pageContext.request.contextPath}/mapview/gasolineMap', {
+			
+			method: 'post',
+			headers: {
+			   'Content-type':'text/plain'
+
+				},
+			body : selectCounty
+	   		})
+			.then(res =>res.text())
+			.then(data=>{
+				alert(data);
+			})
+		}
+
+
+
+
+
+
+
+		//카카오지도에서 검색하기 시작
+		var selectCounty = document.getElementById('selectCounty');
 		var searchIn = document.getElementById('selectCity');//검색input
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		mapOption = {
@@ -52,11 +100,12 @@
 		// 주소로 좌표를 검색합니다
 		document.getElementById('searchBtn').onclick= function(){
 			var searchSpot = searchIn;
-			console.log(searchIn.value);
-			console.log(searchSpot.value);
+			// console.log(searchIn.value);
+			// console.log(searchSpot.value);
+			// console.log(selectCounty.value + searchIn.value);
 		geocoder
 				.addressSearch(
-					searchSpot.value,
+					selectCounty.value + searchIn.value,
 						function(result, status) {
 
 							// 정상적으로 검색이 완료됐으면 

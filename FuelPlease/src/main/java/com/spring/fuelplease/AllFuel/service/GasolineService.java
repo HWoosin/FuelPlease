@@ -18,19 +18,20 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Slf4j
 public class GasolineService implements IGasolineService{
-	
+
 	@Autowired
 	private IGasolineMapper mp;
 
+	@Override
 	public void inputGasoline() {
 		List<GasolineVO> storeList = new ArrayList<>();
 		List<GasolineVO> filteredList = new ArrayList<GasolineVO>();
 
 		try {
 			ObjectMapper objectMapper = new ObjectMapper();
-			JsonNode rootNode = objectMapper.readTree(new File("C:\\Work\\fuelplease\\FuelPlease\\seoul_gasoline.json"));
+			JsonNode rootNode = objectMapper.readTree(new File("C:\\Work\\middle_Project\\FuelPlease\\seoul_gasoline.json"));
 			JsonNode dataNode = rootNode.get("DATA");
-			
+
 			if (dataNode.isArray()) {
 				for (JsonNode node : dataNode) {
 					GasolineVO spot = objectMapper.convertValue(node, GasolineVO.class);

@@ -144,11 +144,7 @@
 						<button type="button" id="joinBtn"
 						class="btn btn-lg btn-success btn-block">회원가입</button>
 					</div>
-
-					<div class="form-group">
-						<button type="button" id="loginBtn"
-						class="btn btn-lg btn-info btn-block">로그인</button>
-					</div>
+					
 				</form>
 			</div>
 		</div>

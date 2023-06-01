@@ -28,7 +28,7 @@
 
 
 <section>
-	<div class="container">
+	<div class="container-fluid">
 
 	<!-- Vendor CSS Files -->
 	<!--  <link href="/vendor/aos/aos.css" rel="stylesheet">-->
@@ -158,6 +158,12 @@
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
+		const loginId = '${login}'
+		console.log(loginId);
+		if(loginId !== '') {
+			history.back();
+			alert('이미 회원입니다. 로그아웃 후 이용해 주세요.');
+		}
 		
 		let code = ''; //이메일 전송 인증번호 저장을 위한 변수
 	let idFlag, pwFlag; // 유효성 검사 여부 판단.

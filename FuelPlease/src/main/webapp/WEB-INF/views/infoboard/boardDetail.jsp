@@ -244,7 +244,6 @@
                                     <div class='reply-group'>
                                         <strong class='left' id="reply-id" >` + replyList[i].replyId + `</strong> 
                                         <small class='left'>` + (replyList[i].updateDate != null ? parseTime(replyList[i].updateDate) + '(수정됨)' : parseTime(replyList[i].replyDate)) + `</small>
-                                        <a href='` + replyList[i].rno + `' class='right replyModify' data-id="`+ replyList[i].replyId +`"><span class='glyphicon glyphicon-pencil'></span>수정</a>
                                         <a href='` + replyList[i].rno + `' class='right replyDelete' data-id="`+ replyList[i].replyId +`"><span class='glyphicon glyphicon-remove'></span>삭제</a> &nbsp;
                                     </div>
                                     <p class='clearfix'>` + replyList[i].reply + `</p>
@@ -265,7 +264,7 @@
 
         } //getList() end
 
-        //댓글 수정 로직
+        //댓글 삭제 로직
         document.getElementById('replyList').addEventListener('click', e => {
             e.preventDefault();
             if(!e.target.matches('a')) {

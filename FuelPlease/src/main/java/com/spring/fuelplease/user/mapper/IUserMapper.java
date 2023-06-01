@@ -2,6 +2,7 @@ package com.spring.fuelplease.user.mapper;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.spring.fuelplease.util.PageVO;
 import com.spring.fuelplease.voCenter.UserVO;
 
 public interface IUserMapper {
@@ -17,7 +18,7 @@ public interface IUserMapper {
 	int idCheck(String id);
 
 	//회원정보 얻어오기
-	UserVO getInfo(@Param("userId") String id);
+	UserVO getInfo(@Param("userId") String id, @Param("paging") PageVO vo);
 
 	//회원정보 수정
 	void updateUser(UserVO vo);

@@ -13,22 +13,20 @@
     
     <!-- Favicons -->
     <link href="${pageContext.request.contextPath }/img/favicon.png" rel="icon">
-    <link href="${pageContext.request.contextPath }/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-      <!--
+      
           <style>
               @font-face {
                   font-family: 'KIMM_Bold';
                   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
                   font-weight: 700;
                   font-style: normal;
-  }
+                  }
           </style>
   
-      -->
+     
       
     <!-- Vendor CSS Files -->
     <!--  <link href="/vendor/aos/aos.css" rel="stylesheet">-->
@@ -55,7 +53,13 @@
 	<header id="header" class="d-flex flex-column justify-content-center">
     
         <div class="logo">
-            <img src="${pageContext.request.contextPath}/img/FuelPlease_logo.png" alt="로고이미지">
+<<<<<<< HEAD
+            <img src="${pageContext.request.contextPath}/img/FuelPlease_300.png" alt="로고이미지">
+=======
+            <a href="${pageContext.request.contextPath}/">  
+              <img src="${pageContext.request.contextPath}/img/FuelPlease_logo.png" alt="로고이미지">
+            </a>
+>>>>>>> feat/choi
         </div>
 
         <nav id="navbar" class="navbar nav-menu">
@@ -63,7 +67,7 @@
           <ul>
 
             <li><a href="${pageContext.request.contextPath}/" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-            <li><a href="#about" class="nav-link scrollto"> <span>주유소</span></a></li>
+            <li><a href="${pageContext.request.contextPath}/mapview/gasolineMap" class="nav-link scrollto"> <span>주유소</span></a></li>
             <li><a href="#resume" class="nav-link scrollto"> <span>전기충전소</span></a></li>
             <li><a href="#portfolio" class="nav-link scrollto"> <span>LPG충전소</span></a></li>
             <li><a href="#services" class="nav-link scrollto"> <span>Board</span></a></li>

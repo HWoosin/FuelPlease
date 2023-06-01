@@ -4,22 +4,69 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ include file="../include/header.jsp" %>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+	<title>Fuel Please</title>
+	<meta content="" name="description">
+	<meta content="" name="keywords">
+  
+	<!-- Favicons -->
+	<link href="${pageContext.request.contextPath }/img/favicon.png" rel="icon">
+  
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    
+        <style>
+            @font-face {
+                font-family: 'KIMM_Bold';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
+                font-weight: 700;
+                font-style: normal;
+			}
+        </style>
 
+
+
+<section>
+	<div class="container-fluid">
+
+	<!-- Vendor CSS Files -->
+	<!--  <link href="/vendor/aos/aos.css" rel="stylesheet">-->
+	<link href="${pageContext.request.contextPath }/vendor/aos/aos.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath }/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath }/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath }/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath }/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath }/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  
+	<!-- Template Main CSS File -->
+	<link href="${pageContext.request.contextPath }/css/style.css" rel="stylesheet">
+  
+	<!-- =======================================================
+	* Template Name: MyResume
+	* Updated: Mar 10 2023 with Bootstrap v5.2.3
+	* Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
+	* Author: BootstrapMade.com
+	* License: https://bootstrapmade.com/license/
+	======================================================== -->
+  </head>
 	<section>
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-12 col-md-10 col-lg-9 myInfo">
+				<div class="col-lg-6 col-md-9 col-sm-12 myInfo">
 					<div class="titlebox">MEMBER INFO</div>
 
-					<ul class="nav nav-tabs tabs-style">
+					<!-- <ul class="nav nav-tabs tabs-style">
 						<li class="active"><a data-toggle="tab" href="#info">내정보</a></li>
 						<li><a data-toggle="tab" href="#myBoard">내글</a></li>
 						<li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
-					</ul>
+					</ul> -->
 					<div class="tab-content">
-						<div id="info" class="tab-pane fade in active">
+						<div id="info" class="tab-pane in active">
 
-							<p>*표시는 필수 입력 표시입니다</p>
+							<!-- <p>*표시는 필수 입력 표시입니다</p> -->
 							<form action="${pageContext.request.contextPath}/user/updateUser" method="post"
 								name="updateForm">
 								<table class="table">
@@ -110,6 +157,8 @@
 							<div class="titlefoot">
 								<button class="btn" id="updateBtn">수정</button>
 								<button class="btn" id="listBtn">목록</button>
+								<button class="btn" id="userdelBtn">회원탈퇴</button>
+
 							</div>
 						</div>
 						<!-- 첫번째 토글 끝 -->
@@ -182,6 +231,7 @@
 	<%@ include file="../include/footer.jsp" %>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
+		console.log('${login}');
 		let code = '';
 		let pwFlag;
 

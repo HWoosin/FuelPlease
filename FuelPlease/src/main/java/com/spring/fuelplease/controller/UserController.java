@@ -7,14 +7,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.spring.fuelplease.infoboard.service.IInfoBoardService;
 import com.spring.fuelplease.user.service.IUserService;
 import com.spring.fuelplease.util.MailSenderService;
+import com.spring.fuelplease.util.PageCreator;
+import com.spring.fuelplease.util.PageVO;
 import com.spring.fuelplease.voCenter.UserVO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +29,8 @@ public class UserController {
 
 	@Autowired
 	private IUserService sv;
+	@Autowired
+	private IInfoBoardService bsv;
 	@Autowired
 	private MailSenderService mailsv;
 
@@ -73,9 +78,12 @@ public class UserController {
 
 	// 마이페이지 이동 요청
 	@GetMapping("/userMypage")
-	public void userMypage(HttpSession session, Model model) {
+	public void userMypage(HttpSession session, Model model, PageVO vo) {
 		String id = (String) session.getAttribute("login");
-		model.addAttribute("userInfo", sv.getInfo(id));
+		vo.setLoginId(id);
+		PageCreator pc = new PageCreator(vo, bsv.getTotal(vo));
+		model.addAttribute("userInfo", sv.getInfo(id, vo));
+		model.addAttribute("pc", pc);
 	}
 	
 	@GetMapping("/userDelete")
@@ -106,6 +114,21 @@ public class UserController {
 		return "redirect:/user/userMypage";
 	}
 	
+	// 로그아웃
+    // DB 작업 없으므로 따로 service나 maapper 작업 필요 없음
+    @GetMapping("/userLogout")
+    public ModelAndView logout(HttpSession session) {
+        Object object = session.getAttribute("login");
 
+        // 세션에 로그인 정보가 있다면
+        if(object != null) {
+            // "login" 세션 삭제
+            session.removeAttribute("login");
+            // 세션 정보 초기화
+            session.invalidate();
+        } 
+
+        return new ModelAndView("redirect:/");
+    }
 
 }

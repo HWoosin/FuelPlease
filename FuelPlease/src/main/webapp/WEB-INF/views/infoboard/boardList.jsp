@@ -17,19 +17,19 @@
 					<!--form select를 가져온다 -->
 					<form action="<c:url value='/infoboard/boardList' />">
 						<div class="search-wrap">
-							<button type="submit" class="btn btn-info search-btn">검색</button>
-							<input type="text" name="keyword"
-								class="form-control search-input" value="${pc.paging.keyword}">
 							<select name="condition" class="form-control search-select">
 								<option value="title"
-									${pc.paging.condition == 'title' ? 'selected' : ''}>제목</option>
+								${pc.paging.condition == 'title' ? 'selected' : ''}>제목</option>
 								<option value="content"
-									${pc.paging.condition == 'content' ? 'selected' : ''}>내용</option>
+								${pc.paging.condition == 'content' ? 'selected' : ''}>내용</option>
 								<option value="writer"
-									${pc.paging.condition == 'writer' ? 'selected' : ''}>작성자</option>
+								${pc.paging.condition == 'writer' ? 'selected' : ''}>작성자</option>
 								<option value="titleContent"
-									${pc.paging.condition == 'titleContent' ? 'selected' : ''}>제목+내용</option>
+								${pc.paging.condition == 'titleContent' ? 'selected' : ''}>제목+내용</option>
 							</select>
+							<input type="text" name="keyword"
+								class="form-control search-input" value="${pc.paging.keyword}">
+							<button type="submit" class="btn btn-info search-btn">검색</button>
 						</div>
 					</form>
 
@@ -106,8 +106,24 @@
 	<%@ include file="../include/footer.jsp" %>
 
 	<script>
-		// const $baord1 = document.querySelector('#board1');
-		// const $baord2 = document.querySelector('#board2');
+		window.onload = function() {
+			document.getElementById('pagination').addEventListener('click', e => {
+				e.preventDefault(); 
+				if(!e.target.matches('a')) {
+                    return;
+                }
+
+                const value = e.target.dataset.pagenum;
+				document.pageForm.pageNum.value = value;
+                document.pageForm.submit();
+			})
+
+
+
+
+
+
+		} //window.onload end
 
 
 	</script>

@@ -114,7 +114,7 @@
 		</div>
 	  </section><!-- End Services Section -->
   
-  
+  	  
 	
 
       <%@ include file="include/footer.jsp" %>
@@ -142,6 +142,12 @@
 	<!-- Template Main JS File -->
 	<script src="${pageContext.request.contextPath }/js/main.js"></script>
   
+	<script>
+		const id = '${login}';
+		console.log(id);
+	</script>
+
+
   </body>
   
   

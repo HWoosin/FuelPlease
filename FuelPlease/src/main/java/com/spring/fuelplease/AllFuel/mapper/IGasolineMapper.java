@@ -12,7 +12,6 @@ public interface IGasolineMapper {
 	void inputGasoline(GasolineVO vo);
 	
 	//주유소 찾기
-
 	List<String> findGasoline(@Param("keyword") String keyword);
 
 }

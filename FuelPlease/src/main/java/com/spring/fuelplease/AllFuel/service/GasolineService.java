@@ -28,7 +28,7 @@ public class GasolineService implements IGasolineService{
 
 		try {
 			ObjectMapper objectMapper = new ObjectMapper();
-			JsonNode rootNode = objectMapper.readTree(new File("C:\\Work\\fuelplease\\FuelPlease\\seoul_gasoline.json"));
+			JsonNode rootNode = objectMapper.readTree(new File("C:\\woosin\\FuelFuelPlease\\seoul_gasoline.json"));
 			JsonNode dataNode = rootNode.get("DATA");
 			
 			if (dataNode.isArray()) {
@@ -49,7 +49,7 @@ public class GasolineService implements IGasolineService{
 			mp.inputGasoline(vo);
 		}
 	}
-
+	
 	@Override
 	public List<String> findGasoline(String keyword) {
 		log.info(keyword);

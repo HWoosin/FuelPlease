@@ -60,21 +60,21 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public int deleteUser(String id, String userPw) {
-		log.info("사용자 세션 아이디: "+ id);
-		String dbPw = mp.userLogin(id);
-		log.info("DB저장 비번:"+ dbPw);
-		log.info("결과: {}",encoder.matches(userPw, dbPw));
-		if(dbPw != null) {
-			if(encoder.matches(userPw, dbPw)) {
-				mp.deleteUser(id,dbPw);
-				return 1;
-			}
-			return 0;
-		}
-		return -2;
-		
-	}
+    public int deleteUser(String id, String userPw) {
+        log.info("사용자 세션 아이디: "+ id);
+        String dbPw = mp.userLogin(id);
+        log.info("DB저장 비번:"+ dbPw);
+        log.info("결과: {}",encoder.matches(userPw, dbPw));
+        if(dbPw != null) {
+            if(encoder.matches(userPw, dbPw)) {
+                mp.deleteUser(id,dbPw);
+                return 1;
+            }
+            return 0;
+        }
+        return -2;
+        
+    }
 
 
 }

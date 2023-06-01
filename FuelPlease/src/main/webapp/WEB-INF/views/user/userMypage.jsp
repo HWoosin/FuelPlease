@@ -17,7 +17,7 @@
 						<li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
 					</ul>
 					<div class="tab-content">
-						<div id="info" class="tab-pane fade in active">
+						<div id="info" class="tab-pane in active">
 
 							<p>*표시는 필수 입력 표시입니다</p>
 							<form action="${pageContext.request.contextPath}/user/updateUser" method="post"
@@ -108,8 +108,8 @@
 							</form>
 
 							<div class="titlefoot">
-								<button class="btn" id="updateBtn">수정</button>
-								<button class="btn" id="listBtn">목록</button>
+								<button class="btn btn-primary" id="updateBtn">수정</button>
+								<button class="btn btn-primary" id="listBtn" onclick="location.href='${pageContext.request.contextPath}/user/userDelete'">회원탈퇴</button>
 							</div>
 						</div>
 						<!-- 첫번째 토글 끝 -->

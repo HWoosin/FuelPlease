@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.fuelplease.user.service.IUserService;
@@ -83,20 +84,31 @@ public class UserController {
 		
 	}
 	@PostMapping("/userDelete")
-	@ResponseBody
-	public int userDelete(HttpSession session, @RequestBody String userPw) {
-		String id = (String)session.getAttribute("login");
-		log.info("id: " + id);
-		log.info("pw: " + userPw);
-		int result = sv.deleteUser(id, userPw);
-//		log.info("result: " + result);
-		if(result == 1) {
-			return 1;
-		}
-		else return 0;
+    @ResponseBody
+    public int userDelete(HttpSession session, @RequestBody String userPw) {
+        String id = (String)session.getAttribute("login");
+        log.info("id: " + id);
+        log.info("pw: " + userPw);
+        int result = sv.deleteUser(id, userPw);
+        if(result == 1) { //아이디,비번 동일하고 회원삭제 하면 1 리턴.
+            Object object = session.getAttribute("login");
+            // 세션에 로그인 정보가 있다면
+            if(object != null) {
+                // "login" 세션 삭제
+                session.removeAttribute("login");
+                // 세션 정보 초기화
+                session.invalidate();
+                return 1;
+            }
+            return -2;
+        }
+        else return 0;
+
+
+    }
 		
 
-	}
+	
 
 
 	// 회원정보 수정
@@ -104,6 +116,23 @@ public class UserController {
 	public String updateUser (UserVO vo) {
 		sv.updateUser(vo);
 		return "redirect:/user/userMypage";
+	}
+	
+	// 로그아웃
+	// DB 작업 없으므로 따로 service나 maapper 작업 필요 없음
+	@GetMapping("/userLogout")
+	public ModelAndView logout(HttpSession session) {
+		Object object = session.getAttribute("login");
+		
+		// 세션에 로그인 정보가 있다면
+		if(object != null) {
+			// "login" 세션 삭제
+			session.removeAttribute("login");
+			// 세션 정보 초기화
+			session.invalidate();
+		}
+		
+		return new ModelAndView("redirect:/");
 	}
 	
 

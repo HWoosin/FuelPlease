@@ -1,5 +1,7 @@
 package com.spring.fuelplease.AllFuel.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.spring.fuelplease.voCenter.GasolineVO;
@@ -10,5 +12,5 @@ public interface IGasolineMapper {
 	void inputGasoline(GasolineVO vo);
 	
 	//주유소 찾기
-	String findGasoline(@Param("selectCounty") String keyword);
+	List<String> findGasoline(@Param("keyword") String keyword);
 }

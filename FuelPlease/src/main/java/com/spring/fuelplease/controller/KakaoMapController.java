@@ -1,5 +1,7 @@
 package com.spring.fuelplease.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,9 +31,11 @@ public class KakaoMapController {
 	//~~구의 도로명들 가져오기
 	@PostMapping("/gasolineMap")
 	@ResponseBody
-	public void findGasoline(@RequestBody String keyword) {
-		String spot = gsv.findGasoline(keyword);
-		log.info(spot);
+	public List<String> findGasoline(@RequestBody String keyword, Model model) {
+		List<String> spot = gsv.findGasoline(keyword);
+//		log.info(spot);
+//		model.addAttribute("spot",spot);
+		return spot;
 	}
 	
 	@GetMapping("/inputGasoline")

@@ -72,6 +72,10 @@
 			.then(res =>res.text())
 			.then(data=>{
 				alert(data);
+				for(var w=1; w <= data.length; w++){
+					document.getElementById('selectLoad').value = data;
+				}
+				
 			})
 		}
 

@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.fuelplease.AllFuel.mapper.IGasolineMapper;
-import com.spring.fuelplease.user.mapper.IUserMapper;
 import com.spring.fuelplease.voCenter.GasolineVO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -52,7 +51,8 @@ public class GasolineService implements IGasolineService{
 	}
 
 	@Override
-	public String findGasoline(String keyword) {
+	public List<String> findGasoline(String keyword) {
+		log.info(keyword);
 		return mp.findGasoline(keyword);
 	}
 }

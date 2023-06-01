@@ -13,7 +13,8 @@
 		select substring_index(rdnwhladdr,'구 ',-1) 
 		as rdnwhladdr
 		from gasolineInfo 
-		where rdnwhladdr like '%#{keyword}%';
+		where rdnwhladdr like concat('%', #{keyword}, '%')
+		order by rdnwhladdr asc;
 	</select>
 	
 </mapper>

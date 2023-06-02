@@ -8,10 +8,12 @@ import com.spring.fuelplease.voCenter.LpgVO;
 
 public interface ILpgMapper {
 
-	//전기차 충전소 정보 넣기
+	//LPG 충전소 정보 넣기
 	void inputLpg(LpgVO vo);
 	
-	//전기차 충전소 찾기
+	//LPG 충전소 찾기
 	List<String> findLpg(@Param("keyword") String keyword);
 	
+	//LPG 충전소 정보 찾기
+	LpgVO getInfo(@Param("loadId") String loadId);
 }

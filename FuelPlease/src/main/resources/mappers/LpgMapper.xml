@@ -2,19 +2,38 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.spring.fuelplease.AllFuel.mapper.ILpgMapper">
+<mapper
+	namespace="com.spring.fuelplease.AllFuel.mapper.ILpgMapper">
 
 	<insert id="inputLpg">
 		insert into lpgInfo
-		VALUES(#{lno}, #{lpgBsinSortCode}, #{siteAddr}, #{offTelno}, #{trnmNm})
+		VALUES(#{lno}, #{lpgBsinSortCode},
+		#{siteAddr}, #{offTelno}, #{trnmNm})
 	</insert>
-	
+
 	<select id="findLpg" resultType="string">
-		select substring_index(site_addr,'구 ',-1) 
+		select distinct
+		substring_index(site_addr,'구 ',-1)
 		as site_addr
-		from lpgInfo 
-		where site_addr like concat('%',#{keyword}, '%')
+		from lpgInfo
+		where
+		site_addr like concat('%',#{keyword}, '%')
+		and off_telno is not null
 		order by site_addr asc;
 	</select>
-	
+
+	<select id="getInfo" resultType="lpg">
+		select * from lpginfo
+		where
+		site_addr like concat('%',#{loadId}, '%') and off_telno is not null;
+	</select>
+
 </mapper>
+
+
+
+
+
+
+
+

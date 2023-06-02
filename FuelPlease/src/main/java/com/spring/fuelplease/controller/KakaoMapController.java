@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.spring.fuelplease.AllFuel.service.IElecService;
 import com.spring.fuelplease.AllFuel.service.IGasolineService;
 import com.spring.fuelplease.AllFuel.service.ILpgService;
+import com.spring.fuelplease.voCenter.LpgVO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -92,6 +93,15 @@ public class KakaoMapController {
 //		model.addAttribute("spot",spot);
 		return spot;
 	}
+	
+	@PostMapping("/lpgMapInfo")
+	@ResponseBody
+	public LpgVO getInfo(@RequestBody String loadId) {
+		
+		return lsv.getInfo(loadId);
+	}
+	
+	
 	
 	
 }

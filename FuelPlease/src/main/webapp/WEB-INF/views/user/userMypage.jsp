@@ -69,7 +69,7 @@
 							<!-- <p>*표시는 필수 입력 표시입니다</p> -->
 							<form action="${pageContext.request.contextPath}/user/updateUser" method="post"
 								name="updateForm">
-								<table class="table">
+								<table class="table-fluid">
 									<tbody class="m-control">
 										<tr>
 											<td class="m-title">*ID</td>
@@ -83,7 +83,7 @@
 										</tr>
 										<tr>
 											<td class="m-title">*비밀번호</td>
-											<td><input type="password" class="form-control input-sm" name="userPw" id="userPw">
+											<td><input type="password" class="form-control input-sm text-black" name="userPw" id="userPw">
 											<span id="msgPw"></span></td>
 										</tr>
 										<tr>
@@ -152,14 +152,12 @@
 										</tr>
 									</tbody>
 								</table>
+								<div class="titlefoot">
+									<button class="btn btn-primary" id="updateBtn">수정</button>
+									<button class="btn btn-primary" id="listBtn" onclick="location.href='${pageContext.request.contextPath}/user/userDelete'">회원탈퇴</button>
+	
+								</div>
 							</form>
-
-							<div class="titlefoot">
-
-								<button class="btn btn-primary" id="updateBtn">수정</button>
-								<button class="btn btn-primary" id="listBtn" onclick="location.href='${pageContext.request.contextPath}/user/userDelete'">회원탈퇴</button>
-
-							</div>
 						</div>
 						<!-- 첫번째 토글 끝 -->
 
@@ -378,6 +376,15 @@
 				document.getElementById("msgPw-c").innerHTML = "비밀번호 확인란을 확인하세요";
 			}
 		}
+		
+
+		
+
+
+
+
+
+
 	</script>
 
 

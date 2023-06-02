@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.fuelplease.AllFuel.service.IElecService;
 import com.spring.fuelplease.AllFuel.service.IGasolineService;
+import com.spring.fuelplease.AllFuel.service.ILpgService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -26,6 +27,9 @@ public class KakaoMapController {
 	@Autowired
 	private IElecService esv;
 	
+	@Autowired
+	private ILpgService lsv;
+	
 	@GetMapping("/inputGasoline")
 	public void inputG() {
 		log.info("주유소 정보 주입");
@@ -36,6 +40,12 @@ public class KakaoMapController {
 	public void inputE() {
 		log.info("전기차 정보 주입");
 		esv.inputElec();
+	}
+
+	@GetMapping("/inputLpg")
+	public void inputL() {
+		log.info("LPG 정보 주입");
+		lsv.inputLpg();
 	}
 
 	//주유소
@@ -68,5 +78,20 @@ public class KakaoMapController {
 //		model.addAttribute("spot",spot);
 		return spot;
 	}
+	
+	@GetMapping("/lpgMap")
+	public void findLpg() {
+		log.info("LPG 충전소 맵으로~");
+	}
+	
+	@PostMapping("/lpgMap")
+	@ResponseBody
+	public List<String> findLpg(@RequestBody String keyword) {
+		List<String> spot = lsv.findLpg(keyword);
+//		log.info(spot);
+//		model.addAttribute("spot",spot);
+		return spot;
+	}
+	
 	
 }

@@ -60,9 +60,18 @@
     </update>
     
     <delete id="deleteUser">
-
     	delete from users
     	where user_id = #{userId} and user_pw = #{userPw}
     </delete>
+    
+    <select id="userBookmark" resultType="string">
+    	select bkaddr from bookmark
+    	where bkuser_id = #{id};
+    </select>
+    
+    <select id="showBookmark" resultType="bookmark">
+    	select bkaddr, bktel, bkname from bookmark
+    	where bkaddr = #{bkaddr};
+    </select>
     
 </mapper>

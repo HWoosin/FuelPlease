@@ -1,6 +1,9 @@
 package com.spring.fuelplease.user.service;
 
+import java.util.List;
+
 import com.spring.fuelplease.util.PageVO;
+import com.spring.fuelplease.voCenter.BookMarkVO;
 import com.spring.fuelplease.voCenter.UserVO;
 
 public interface IUserService {
@@ -22,5 +25,11 @@ public interface IUserService {
 	
 	//회원 삭제
 	int deleteUser(String id, String pw);
+	
+	//회원의 북마크 조회
+	List<String> userBookmark(String id);
+	
+	//회원의 조회한데이터 상세보기
+	BookMarkVO showBookmark(String bkaddr);
 
 }

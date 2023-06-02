@@ -3,6 +3,8 @@ package com.spring.fuelplease.util;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -13,9 +15,10 @@ import lombok.extern.slf4j.Slf4j;
 
 @Component
 @Slf4j
+@PropertySource("classpath:properties/fuelApiKey.properties")
 public class FuelAvg {
-
-	String key = "";
+	@Value("${ApiKey}")
+	private String ApiKey;
 	
 	// tag값의 정보를 가져오는 함수
 	public static String getTagValue(String tag, Element eElement) {
@@ -45,7 +48,7 @@ public class FuelAvg {
 
 		try {
 			// parsing할 url 지정(API 키 포함해서)
-			String url = "https://www.opinet.co.kr/api/avgLastWeek.do?prodcd=B027&code=&sido=01&out=xml";
+			String url = "https://www.opinet.co.kr/api/avgLastWeek.do?prodcd=B027&code="+ApiKey+"&sido=01&out=xml";
 
 			DocumentBuilderFactory dbFactoty = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactoty.newDocumentBuilder();
@@ -79,7 +82,7 @@ public class FuelAvg {
 
 		try {
 			// parsing할 url 지정(API 키 포함해서)
-			String url = "https://www.opinet.co.kr/api/avgLastWeek.do?prodcd=D047&code=&sido=01&out=xml";
+			String url = "https://www.opinet.co.kr/api/avgLastWeek.do?prodcd=D047&code="+ApiKey+"&sido=01&out=xml";
 
 			DocumentBuilderFactory dbFactoty = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactoty.newDocumentBuilder();
@@ -110,7 +113,7 @@ public class FuelAvg {
 
 		try {
 			// parsing할 url 지정(API 키 포함해서)
-			String url = "https://www.opinet.co.kr/api/avgLastWeek.do?prodcd=B034&code=&sido=01&out=xml";
+			String url = "https://www.opinet.co.kr/api/avgLastWeek.do?prodcd=B034&code="+ApiKey+"&sido=01&out=xml";
 
 			DocumentBuilderFactory dbFactoty = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactoty.newDocumentBuilder();

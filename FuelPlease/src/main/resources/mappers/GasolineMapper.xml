@@ -17,4 +17,6 @@
 		order by rdnwhladdr asc;
 	</select>
 	
+	
+	
 </mapper>

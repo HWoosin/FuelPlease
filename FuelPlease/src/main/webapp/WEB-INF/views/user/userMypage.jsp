@@ -155,10 +155,8 @@
 							</form>
 
 							<div class="titlefoot">
-								<button class="btn" id="updateBtn">수정</button>
-								<button class="btn" id="listBtn">목록</button>
-								<button class="btn" id="userdelBtn">회원탈퇴</button>
-
+								<button class="btn btn-primary" id="updateBtn">수정</button>
+								<button class="btn btn-primary" id="listBtn" onclick="location.href='${pageContext.request.contextPath}/user/userDelete'">회원탈퇴</button>
 							</div>
 						</div>
 						<!-- 첫번째 토글 끝 -->
@@ -378,6 +376,15 @@
 				document.getElementById("msgPw-c").innerHTML = "비밀번호 확인란을 확인하세요";
 			}
 		}
+		
+
+		
+
+
+
+
+
+
 	</script>
 
 

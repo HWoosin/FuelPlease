@@ -65,9 +65,9 @@
                     <p id="reply-titlebox">댓글</p>
                 </div>
                 <form class="reply-wrap">
-                    <div class="reply-image">
+                    <!-- <div class="reply-image">
                         <img src="${pageContext.request.contextPath}/img/profile.png">
-                    </div>
+                    </div> -->
                     <!--form-control은 부트스트랩의 클래스입니다-->
                     <div class="reply-content">
                         <div class="reply-group">
@@ -237,9 +237,7 @@
                     for (let i = 0; i < replyList.length; i++) {
                         str +=
                             `<div class='reply-wrap'>
-                                <div class='reply-image'>
-                                    <img src='${pageContext.request.contextPath}/img/apple-touch-icon.png'>
-                                </div>
+                                
                                 <div class='reply-content'>
                                     <div class='reply-group'>
                                         <strong class='left' id="reply-id" >` + replyList[i].replyId + `</strong> 

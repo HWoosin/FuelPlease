@@ -49,7 +49,7 @@ public class GasolineService implements IGasolineService{
 			mp.inputGasoline(vo);
 		}
 	}
-
+	
 	@Override
 	public List<String> findGasoline(String keyword) {
 		log.info(keyword);

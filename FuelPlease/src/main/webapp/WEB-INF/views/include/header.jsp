@@ -53,13 +53,9 @@
 	<header id="header" class="d-flex flex-column justify-content-center">
     
         <div class="logo">
-<<<<<<< HEAD
-            <img src="${pageContext.request.contextPath}/img/FuelPlease_300.png" alt="로고이미지">
-=======
-            <a href="${pageContext.request.contextPath}/">  
-              <img src="${pageContext.request.contextPath}/img/FuelPlease_logo.png" alt="로고이미지">
-            </a>
->>>>>>> feat/choi
+          <a href="${pageContext.request.contextPath}/">  
+              <img src="${pageContext.request.contextPath}/img/FuelPlease_300.png" alt="로고이미지">
+          </a>
         </div>
 
         <nav id="navbar" class="navbar nav-menu">
@@ -70,25 +66,28 @@
             <li><a href="${pageContext.request.contextPath}/mapview/gasolineMap" class="nav-link scrollto"> <span>주유소</span></a></li>
             <li><a href="#resume" class="nav-link scrollto"> <span>전기충전소</span></a></li>
             <li><a href="#portfolio" class="nav-link scrollto"> <span>LPG충전소</span></a></li>
-            <li><a href="#services" class="nav-link scrollto"> <span>Board</span></a></li>
+            <li><a href="${pageContext.request.contextPath}/caraccount/carAccount" class="nav-link scrollto"> <span>Car Account</span></a></li>
             <li><a href="${pageContext.request.contextPath}/infoboard/boardList" class="nav-link scrollto"> <span>Board</span></a></li>
             <li><a href="${pageContext.request.contextPath}/user/userMypage" class="nav-link scrollto"> <span>MyPage</span></a></li>
-
+            
           </ul>
           
           <div class="search-bar" role="search">
             <input type="search" class="form-contorl" placeholder="search" aria-label="search" size="45">
           </div>
-
-          <ul>
-            <li><a href="${pageContext.request.contextPath}/user/userLogin" class="member"> <span>Login</span></a></li>
-            <li><a href="${pageContext.request.contextPath}/user/userLogout" class="member"> <span>Logout</span></a></li>
-            <li><a href="${pageContext.request.contextPath}/user/userJoin" class="member"> <span>회원가입</span></a></li>
+          
+          <ul>            
+            
+              <li><a href="${pageContext.request.contextPath}/user/userLogin" class="member"> <span>Login</span></a></li>
+              <li><a href="${pageContext.request.contextPath}/user/userLogout" class="member" id="logout"> <span>Logout</span></a></li>
+	          <li><a href="${pageContext.request.contextPath}/user/userJoin" class="member"> <span>회원가입</span></a></li>
+            
           </ul>
         </nav>
         
         
 
       </header><!-- End Header -->
+     
 </body>
 </html>

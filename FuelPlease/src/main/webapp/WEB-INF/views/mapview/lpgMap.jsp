@@ -15,7 +15,7 @@
 		</em>
 	</p> -->
 
-	<h2>주유소 찾기</h2>
+	<h2>LPG 충전소 찾기</h2>
 	<div id="map" style="width: 100%; height: 700px;"></div>
 
 	<div>
@@ -67,7 +67,7 @@
 			let selectCounty = document.getElementById('selectCounty').value;
 			console.log(selectCounty);
 
-			fetch('${pageContext.request.contextPath}/mapview/gasolineMap', {
+			fetch('${pageContext.request.contextPath}/mapview/lpgMap', {
 
 			method: 'post',
 			headers: {
@@ -146,6 +146,9 @@
 
 								// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 								map.setCenter(coords);
+							}
+							else{
+								alert('사라진 주소');
 							}
 						});
 

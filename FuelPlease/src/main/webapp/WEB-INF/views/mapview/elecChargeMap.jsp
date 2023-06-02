@@ -15,7 +15,7 @@
 		</em>
 	</p> -->
 
-	<h2>주유소 찾기</h2>
+	<h2>전기차 충전소 찾기</h2>
 	<div id="map" style="width: 100%; height: 700px;"></div>
 
 	<div>
@@ -67,7 +67,7 @@
 			let selectCounty = document.getElementById('selectCounty').value;
 			console.log(selectCounty);
 
-			fetch('${pageContext.request.contextPath}/mapview/gasolineMap', {
+			fetch('${pageContext.request.contextPath}/mapview/elecChargeMap', {
 
 			method: 'post',
 			headers: {
@@ -85,8 +85,6 @@
 					opt.textContent = data[i];
 					opt.setAttribute('value', data[i])
 					document.getElementById('selectLoad').appendChild(opt);
-
-
 				}
 				
 			})

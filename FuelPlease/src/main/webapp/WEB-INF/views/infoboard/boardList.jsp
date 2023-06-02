@@ -12,7 +12,6 @@
 					<div class="titlebox">
 						<p>자유게시판</p>
 					</div>
-					<hr>
 
 					<!--form select를 가져온다 -->
 					<form action="<c:url value='/infoboard/boardList' />">

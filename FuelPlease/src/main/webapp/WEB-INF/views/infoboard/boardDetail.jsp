@@ -57,6 +57,7 @@
 </section>
 
 <!-- 댓글 영역 시작부분 -->
+<hr>
 <section style="margin-top: 80px;">
     <div class="container">
         <div class="row">
@@ -65,9 +66,6 @@
                     <p id="reply-titlebox">댓글</p>
                 </div>
                 <form class="reply-wrap">
-                    <!-- <div class="reply-image">
-                        <img src="${pageContext.request.contextPath}/img/profile.png">
-                    </div> -->
                     <!--form-control은 부트스트랩의 클래스입니다-->
                     <div class="reply-content">
                         <div class="reply-group">
@@ -237,7 +235,6 @@
                     for (let i = 0; i < replyList.length; i++) {
                         str +=
                             `<div class='reply-wrap'>
-                                
                                 <div class='reply-content'>
                                     <div class='reply-group'>
                                         <strong class='left' id="reply-id" >` + replyList[i].replyId + `</strong> 

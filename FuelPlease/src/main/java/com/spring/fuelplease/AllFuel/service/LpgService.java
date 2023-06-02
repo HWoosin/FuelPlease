@@ -61,6 +61,12 @@ public class LpgService implements ILpgService {
 		return mp.findLpg(keyword);
 	}
 
+	@Override
+	public LpgVO getInfo(String loadId) {
+		log.info(loadId);
+		return mp.getInfo(loadId);
+	}
+
 
 
 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ include file="../include/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,10 +17,9 @@
 	</p> -->
 
 	<h2>LPG 충전소 찾기</h2>
-	<div id="map" style="width: 100%; height: 700px;"></div>
-
+	
 	<div>
-		<select class="form-control input-sm sel" id="selectCounty" name="selectCounty">
+		<select class="form-control input-sm sel" id="selectCounty" name="selectCounty" style="width: 200px;">
 			<option >강남구</option>
 			<option >강동구</option>
 			<option >강서구</option>
@@ -47,11 +47,29 @@
 			<option >중랑구</option>
 		</select>
 		<!-- <input type="text" id="selectCity" placeholder="입력"> -->
-		<select class="form-control input-sm sel" id="selectLoad" name="selectLoad">
+		<select class="form-control input-sm sel" id="selectLoad" name="selectLoad" style="width: 200px;">
 			<option >도로명을 선택해주세요</option>
 		</select>
 		<button type="button" id="searchBtn">검색</button>
 	</div>
+	
+	<div id="map" style="width: 50%; height: 700px;"></div>
+
+	<div>
+		<h2>검색한 충전소 정보</h2>
+		<h4>충전소 이름</h4>
+		<p id="lpgName"></p>
+		<h4>충전소 주소</h4>
+		<p id="lpgAddr"></p>
+		<h4>충전소 번호(TEL)</h4>
+		<p id="lpgNo"></p>
+	</div>
+
+
+
+	<%@ include file="../include/footer.jsp" %>
+
+
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=405e0d5fd34220069ac5fe74d4c49e23&libraries=services"></script>
 	<script>
@@ -79,7 +97,6 @@
 			.then(res =>res.json())
 			.then(data=>{
 				console.log(data);
-				console.log(data[0]);
 				for(var i=0; i <= data.length; i++){
 					var opt = document.createElement('option')
 					opt.textContent = data[i];
@@ -92,8 +109,7 @@
 			})
 		}
 
-
-
+		
 
 
 
@@ -146,22 +162,51 @@
 
 								// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 								map.setCenter(coords);
-							}
-							else{
-								alert('사라진 주소');
+
+								//이용자가 선택한 주소에 맞는 정보 불러오기
+								getLpginfo();
+							} else if(searchIn.value === '도로명을 선택해주세요') {
+								alert('도로명 선택칸을 확인해주세요.');
+							} else{
+								alert('사라진 충전소 입니다. 빠른 시일내에 업데이트 하겠습니다.');
 							}
 						});
 
 
 		//서치버튼 클릭
-		
-			
-		// }
 
-		
-			
+
 			
 		}
+
+		function getLpginfo() {
+			const loadId = document.getElementById('selectLoad').value;
+			console.log(loadId); //사용자가 선택한 도로명 주소 추출
+
+			fetch('${pageContext.request.contextPath}/mapview/lpgMapInfo', {
+			method: 'post',
+			headers: {
+			'Content-type':'text/plain'
+				},
+			body : loadId
+			})
+			.then(res =>res.json())
+			.then(data=>{
+				console.log(data);
+				console.log(data.lno);
+				console.log(data.lpg_bsin_sort_code);
+				console.log(data.off_telno);
+				console.log(data.site_addr);
+				console.log(data.trnm_nm);
+				
+				document.getElementById('lpgName').textContent = data.trnm_nm;
+				document.getElementById('lpgAddr').textContent = data.site_addr;
+				document.getElementById('lpgNo').textContent = data.off_telno;
+			})
+		}
+
+
+
 	</script>
 </body>
 </html>

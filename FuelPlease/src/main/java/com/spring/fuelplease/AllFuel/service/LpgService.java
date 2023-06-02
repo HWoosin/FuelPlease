@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.fuelplease.AllFuel.mapper.ILpgMapper;
-import com.spring.fuelplease.voCenter.ElecVO;
 import com.spring.fuelplease.voCenter.LpgVO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +29,7 @@ public class LpgService implements ILpgService {
 
 		try {
 			ObjectMapper objectMapper = new ObjectMapper();
-			JsonNode rootNode = objectMapper.readTree(new File("C:\\Work\\fuelplease\\FuelPlease\\seoul_lpg.json"));
+			JsonNode rootNode = objectMapper.readTree(new File("C:\\Work\\middle_Project\\FuelPlease\\seoul_lpg.json"));
 			JsonNode dataNode = rootNode.get("DATA");
 
 			if (dataNode.isArray()) {

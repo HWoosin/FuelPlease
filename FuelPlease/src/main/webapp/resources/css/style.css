@@ -130,7 +130,7 @@ h6 {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: 60px 0;
+  margin-top: 20px;
   overflow: hidden;
 }
 
@@ -143,6 +143,7 @@ section {
   font-size: 32px;
   font-weight: bold;
   text-transform: uppercase;
+  margin-top: 20px;
   margin-bottom: 50px;
   padding-bottom: 30px;
   position: relative;
@@ -232,6 +233,8 @@ section {
 .services .row {
   margin-bottom: 25%;
 }
+
+
 .services .icon-box {
   text-align: center;
   padding: 70px 20px 80px 20px;
@@ -313,7 +316,7 @@ section {
 
 
 /*--------------------------------------------------------------
-# UserLogin
+# User
 --------------------------------------------------------------*/
 
 .titlebox {
@@ -330,16 +333,20 @@ section {
   background: #fff;
   border-radius: 2%;
   border: 1px solid #7998ff;
-  margin-left: 60%;
-  margin-bottom: 250px;
+  margin-left: 55%;
+  margin-bottom: 150px;
   
   padding: 30px;
 
 }
 
+.container .form-group {
+  padding: 12px;
+}
+
 .container #loginBtn {
   margin-top: 30px;
-  padding: 10px;
+  padding: 3px;
   background: #5c7ce2;
   border: 1px solid #fff; 
   color: #fff;
@@ -348,23 +355,48 @@ section {
 .container #joinBtn {
   margin-top: 30px;
   padding: 3px;
-  background: #cfcfcf;
+  background: hsl(0, 0%, 91%);
   border: 1px solid #7998ff;
+  color: #5c7ce2;
  }
 
+ input [type=password] {
+  font-family: '맑은 고딕', 'malgun gothic', 'sans-serif';
+ }
 
- /*--------------------------------------------------------------
-# UserJoin
---------------------------------------------------------------*/
-/*큰 틀의 박스는 userLogin에서 해결*/
+ .titlefoot {
+ }
 
+.titlefoot #updateBtn{
+  margin-right: 15px;
+}
 
 
 /*--------------------------------------------------------------
 # Board
 --------------------------------------------------------------*/
+/*boardList*/
+.search-wrap {
+  padding: 50px;
+  margin-left: 598px;
+}
+
+.table-bordered {
+  padding: none;
+  margin-left: 290px;
+}
+
+.text-center .btn-info {
+
+}
+
+/*BoardRegist*/
+.t-control {
+  padding: 10px;
+}
 
 
+/*BoardDetail*/
 
 /*--------------------------------------------------------------
 # MyPage
@@ -382,6 +414,7 @@ section {
   font-size: 14px;
   text-align: center;
   padding: 20px 0;
+  margin-top: 20px;
 }
 
 #footer h3 {

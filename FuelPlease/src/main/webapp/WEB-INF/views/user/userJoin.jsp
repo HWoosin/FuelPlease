@@ -144,7 +144,6 @@
 						<button type="button" id="joinBtn"
 						class="btn btn-lg btn-info btn-block">회원가입</button>
 					</div>
-
 				</form>
 			</div>
 		</div>

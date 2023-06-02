@@ -53,9 +53,9 @@
 	<header id="header" class="d-flex flex-column justify-content-center">
     
         <div class="logo">
-
-            <img src="${pageContext.request.contextPath}/img/FuelPlease_300.png" alt="로고이미지">
-
+          <a href="${pageContext.request.contextPath}/">  
+              <img src="${pageContext.request.contextPath}/img/FuelPlease_300.png" alt="로고이미지">
+          </a>
         </div>
 
         <nav id="navbar" class="navbar nav-menu">

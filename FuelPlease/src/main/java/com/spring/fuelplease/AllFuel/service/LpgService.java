@@ -30,7 +30,7 @@ public class LpgService implements ILpgService {
 
 		try {
 			ObjectMapper objectMapper = new ObjectMapper();
-			JsonNode rootNode = objectMapper.readTree(new File("C:\\Work\\fuelplease\\FuelPlease\\seoul_lpg.json"));
+			JsonNode rootNode = objectMapper.readTree(new File("C:\\woosin\\FuelFuelPlease\\seoul_lpg.json"));
 			JsonNode dataNode = rootNode.get("DATA");
 
 			if (dataNode.isArray()) {

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.spring.fuelplease.AllFuel.service.IElecService;
 import com.spring.fuelplease.AllFuel.service.IGasolineService;
 import com.spring.fuelplease.AllFuel.service.ILpgService;
+import com.spring.fuelplease.util.FuelAvg;
 
 import lombok.extern.slf4j.Slf4j;
 

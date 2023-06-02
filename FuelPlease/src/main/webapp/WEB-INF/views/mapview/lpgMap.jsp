@@ -20,6 +20,7 @@
 
 	<div>
 		<select class="form-control input-sm sel" id="selectCounty" name="selectCounty">
+			<option >구 선택</option>
 			<option >강남구</option>
 			<option >강동구</option>
 			<option >강서구</option>

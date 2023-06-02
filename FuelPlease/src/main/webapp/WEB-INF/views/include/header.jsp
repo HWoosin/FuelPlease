@@ -64,8 +64,8 @@
 
             <li><a href="${pageContext.request.contextPath}/" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
             <li><a href="${pageContext.request.contextPath}/mapview/gasolineMap" class="nav-link scrollto"> <span>주유소</span></a></li>
-            <li><a href="#resume" class="nav-link scrollto"> <span>전기충전소</span></a></li>
-            <li><a href="#portfolio" class="nav-link scrollto"> <span>LPG충전소</span></a></li>
+            <li><a href="${pageContext.request.contextPath}/mapview/elecChargeMap" class="nav-link scrollto"> <span>전기충전소</span></a></li>
+            <li><a href="${pageContext.request.contextPath}/mapview/lpgMap" class="nav-link scrollto"> <span>LPG충전소</span></a></li>
             <li><a href="${pageContext.request.contextPath}/caraccount/carAccount" class="nav-link scrollto"> <span>Car Account</span></a></li>
             <li><a href="${pageContext.request.contextPath}/infoboard/boardList" class="nav-link scrollto"> <span>Board</span></a></li>
             <li><a href="${pageContext.request.contextPath}/user/userMypage" class="nav-link scrollto"> <span>MyPage</span></a></li>

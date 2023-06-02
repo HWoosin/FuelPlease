@@ -16,12 +16,15 @@
 		</em>
 	</p> -->
 
+
 	<div class="gasTitle">
 		<h2>주유소 찾기</h2>
 	</div>
 	
 	<div class="stationBar">
 		<select class="form-control input-sm sel" id="selectCounty" name="selectCounty" style="width: 200px;">
+
+			<option >구 선택</option>
 			<option >강남구</option>
 			<option >강동구</option>
 			<option >강서구</option>

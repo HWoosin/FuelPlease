@@ -110,6 +110,18 @@
 		  </div>
   
 		</div>
+
+		<!-- 평균가격 뽑아내기 -->
+		<div>
+			<p>이번주의 평균가격</p>
+			<p>휘발유</p>
+			<p>${gas}</p>
+			<p>고급휘발유</p>
+			<p>${preGas}</p>
+			<p>경유</p>
+			<p>${dis}</p>
+		</div>
+
 	  </section><!-- End Services Section -->
   
   	  

@@ -10,7 +10,7 @@
 	</insert>
 	
 	<select id="findElec" resultType="string">
-		select substring_index(substring_index(addr,'(',1),'구 ',-1) 
+		select distinct substring_index(substring_index(addr,'(',1),'구 ',-1) 
 		as addr
 		from elecInfo 
 		where addr like concat('%', #{keyword}, '%')

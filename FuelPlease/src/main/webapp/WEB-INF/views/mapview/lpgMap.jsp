@@ -15,10 +15,11 @@
 				혹시 주소 결과가 잘못 나오는 경우에는 여기에 제보해주세요. </a>
 		</em>
 	</p> -->
-
-	<h2>LPG 충전소 찾기</h2>
+	<div class="gasTitle">
+		<h2>LPG 충전소 찾기</h2>
+	</div>
 	
-	<div>
+	<div class="stationBar">
 
 		<select class="form-control input-sm sel" id="selectCounty" name="selectCounty" style="width: 200px;">
 
@@ -50,24 +51,26 @@
 			<option >중랑구</option>
 		</select>
 		<!-- <input type="text" id="selectCity" placeholder="입력"> -->
-		<select class="form-control input-sm sel" id="selectLoad" name="selectLoad" style="width: 200px;">
+		<select class="form-control input-sm sel" id="selectLoad" name="selectLoad" style="width: 270px;">
 			<option >도로명을 선택해주세요</option>
 		</select>
 		<button type="button" id="searchBtn">검색</button>
 	</div>
-	
-	<div id="map" style="width: 50%; height: 700px;"></div>
-
-	<div>
-		<h2>검색한 충전소 정보</h2>
-		<h4>충전소 이름</h4>
-		<p id="lpgName"></p>
-		<h4>충전소 주소</h4>
-		<p id="lpgAddr"></p>
-		<h4>충전소 번호(TEL)</h4>
-		<p id="lpgNo"></p>
+	<div class="mapBox">
+		<div id="map" style="width: 40%; height: 650px;"></div>
+		<div class="mapInfo" style="width: 28%; height: 650px; display: flex;">
+			<div class="mapInfotxt">
+				<h2>검색한 LPG 충전소 정보</h2>
+				<hr>
+				<h4>LPG 충전소 이름</h4>
+				<p id="lpgName">→</p>
+				<h4>LPG 충전소 주소</h4>
+				<p id="lpgAddr">→</p>
+				<h4>LPG 충전소 번호(TEL)</h4>
+				<p id="lpgNo">→</p>
+			</div>
+		</div>
 	</div>
-
 
 
 	<%@ include file="../include/footer.jsp" %>
@@ -100,7 +103,7 @@
 			.then(res =>res.json())
 			.then(data=>{
 				console.log(data);
-				for(var i=0; i <= data.length; i++){
+				for(var i=0; i <= data.length-1; i++){
 					var opt = document.createElement('option')
 					opt.textContent = data[i];
 					opt.setAttribute('value', data[i])
@@ -202,9 +205,9 @@
 				console.log(data.site_addr);
 				console.log(data.trnm_nm);
 				
-				document.getElementById('lpgName').textContent = data.trnm_nm;
-				document.getElementById('lpgAddr').textContent = data.site_addr;
-				document.getElementById('lpgNo').textContent = data.off_telno;
+				document.getElementById('lpgName').textContent = '→ ' + data.trnm_nm;
+				document.getElementById('lpgAddr').textContent = '→ ' + data.site_addr;
+				document.getElementById('lpgNo').textContent = '→ ' + data.off_telno;
 			})
 		}
 

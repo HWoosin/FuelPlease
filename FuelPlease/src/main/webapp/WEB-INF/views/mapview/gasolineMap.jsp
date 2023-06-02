@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="../include/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>주소로 장소 표시하기</title>
+<title>gasoline</title>
 
 </head>
 <body>
@@ -15,11 +16,12 @@
 		</em>
 	</p> -->
 
-	<h2>주유소 찾기</h2>
-	<div id="map" style="width: 100%; height: 700px;"></div>
-
-	<div>
-		<select class="form-control input-sm sel" id="selectCounty" name="selectCounty">
+	<div class="gasTitle">
+		<h2>주유소 찾기</h2>
+	</div>
+	
+	<div class="stationBar">
+		<select class="form-control input-sm sel" id="selectCounty" name="selectCounty" style="width: 200px;">
 			<option >강남구</option>
 			<option >강동구</option>
 			<option >강서구</option>
@@ -47,11 +49,27 @@
 			<option >중랑구</option>
 		</select>
 		<!-- <input type="text" id="selectCity" placeholder="입력"> -->
-		<select class="form-control input-sm sel" id="selectLoad" name="selectLoad">
+		<select class="form-control input-sm sel" id="selectLoad" name="selectLoad" style="width: 270px;">
 			<option >도로명을 선택해주세요</option>
 		</select>
 		<button type="button" id="searchBtn">검색</button>
 	</div>
+	<div class="mapBox">
+		<div id="map" style="width: 40%; height: 650px;"></div>
+		<div class="mapInfo" style="width: 28%; height: 650px; display: flex;">
+			<div class="mapInfotxt">
+				<h2>검색한 충전소 정보</h2>
+				<hr>
+				<h4>충전소 이름</h4>
+				<p id="lpgName">→</p>
+				<h4>충전소 주소</h4>
+				<p id="lpgAddr">→</p>
+				<h4>충전소 번호(TEL)</h4>
+				<p id="lpgNo">→</p>
+			</div>
+		</div>
+	</div>
+	<%@ include file="../include/footer.jsp" %>
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=405e0d5fd34220069ac5fe74d4c49e23&libraries=services"></script>
 	<script>

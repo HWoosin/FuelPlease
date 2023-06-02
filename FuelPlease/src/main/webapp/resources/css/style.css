@@ -161,11 +161,10 @@ section {
   left: calc(50% - 60px);
 }
 
-
 /*--------------------------------------------------------------
 # Portfolio Details
 --------------------------------------------------------------*/
-.portfolio-details {
+/* .portfolio-details {
   padding-top: 40px;
 }
 
@@ -225,7 +224,7 @@ section {
 
 .portfolio-details .portfolio-description p {
   padding: 0;
-}
+}  */
 
 /*--------------------------------------------------------------
 # Services
@@ -233,7 +232,6 @@ section {
 .services .row {
   margin-bottom: 25%;
 }
-
 
 .services .icon-box {
   text-align: center;
@@ -364,9 +362,6 @@ section {
   font-family: '맑은 고딕', 'malgun gothic', 'sans-serif';
  }
 
- .titlefoot {
- }
-
 .titlefoot #updateBtn{
   margin-right: 15px;
 }
@@ -405,9 +400,75 @@ section {
 
 
 /*--------------------------------------------------------------
+# gasolineMap
+--------------------------------------------------------------*/
+.gasTitle {
+  color: #7998ff;
+  padding: 20px;
+  text-align: center;
+}
+
+#map {
+ margin-top: 20px;
+ margin-left: 180px !important;
+}
+
+#searchBtn {
+  background: #7998ff;
+  color: #fff;
+  border: none;
+  border-radius: 2%;
+}
+
+.stationBar {
+  display: flex;
+  padding: 10px;
+  margin-left: 180px;
+}
+
+#selectLoad {
+  margin-left: 18px;
+  margin-right: 18px;
+}
+
+.mapBox {
+  display: flex;
+}
+
+.mapInfo {
+  margin-left: 250px;
+  margin-right: 35px;
+  margin-top: 20px;
+  border-radius: 2%;
+  border: 1px solid #7998ff;
+  background: #fff;
+  padding: 40px;
+}
+
+.mapInfo h2 {
+  
+}
+
+.mapInfotxt {
+  padding: 20px;
+}
+
+.mapInfotxt hr {
+  width: 580px;
+}
+
+
+/*--------------------------------------------------------------
+# electricChargeMap
+--------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 #footer {
+  font-family: 'KIMM_Bold', 'sans-serif';
   width: 100vw;
   background: #f2f3f5;
   color: #7998ff;

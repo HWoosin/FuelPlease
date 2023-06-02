@@ -20,23 +20,23 @@ public class ElecService implements IElecService {
 
 	@Autowired
 	private IElecMapper mp;
-	
+
 	@Override
 	public void inputElec() {
 		List<ElecVO> storeList = new ArrayList<>();
 
 		try {
 			ObjectMapper objectMapper = new ObjectMapper();
-			JsonNode rootNode = objectMapper.readTree(new File("C:\\Work\\fuelplease\\FuelPlease\\seoul_elec.json"));
+			JsonNode rootNode = objectMapper.readTree(new File("C:\\Work\\middle_Project\\FuelPlease\\seoul_elec.json"));
 			JsonNode dataNode = rootNode.get("DATA");
-			
+
 			if (dataNode.isArray()) {
 				for (JsonNode node : dataNode) {
 					ElecVO spot = objectMapper.convertValue(node, ElecVO.class);
 					storeList.add(spot);
 					//여기서 로그 찍을 생각 마세요. 난 분명히 말했어.
 				}
-				
+
 			}
 
 		} catch (Exception e) {

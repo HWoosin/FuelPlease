@@ -10,13 +10,19 @@
 	</insert>
 	
 	<select id="findGasoline" resultType="string">
-		select substring_index(rdnwhladdr,'구 ',-1) 
+		select distinct substring_index(rdnwhladdr,'구 ',-1) 
 		as rdnwhladdr
 		from gasolineInfo 
 		where rdnwhladdr like concat('%', #{keyword}, '%')
 		order by rdnwhladdr asc;
 	</select>
 	
-	
+
+	<select id="getGasolineInfo" resultType="gasoline">
+		select * from gasolineInfo
+		where
+		rdnwhladdr like concat('%',#{loadId}, '%');
+	</select>
+
 	
 </mapper>

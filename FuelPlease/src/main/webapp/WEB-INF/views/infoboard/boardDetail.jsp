@@ -171,22 +171,26 @@
                 return;
             }
 
-            fetch('${pageContext.request.contextPath}/reply/regist', {
-                method: 'post',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    'bno': bno,
-                    'reply': reply,
-                    'replyId': replyId
+            if(confirm('댓글을 등록하시겠습니까?')) {
+                fetch('${pageContext.request.contextPath}/reply/regist', {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        'bno': bno,
+                        'reply': reply,
+                        'replyId': replyId
+                    })
+                }).then(res => res.text())
+                .then(data => {
+                    document.getElementById('reply').value = '';
+                    // document.getElementById('replyId').value = '';
+                    getList(1, true);
                 })
-            }).then(res => res.text())
-            .then(data => {
-                document.getElementById('reply').value = '';
-                // document.getElementById('replyId').value = '';
-                getList(1, true);
-            })
+
+            }
+
 
 
         } //댓글 등록하기 로직 끝
@@ -287,42 +291,19 @@
             };
 
             if(e.target.classList.contains('replyDelete')) {
-                console.log(rno);
-                fetch('${pageContext.request.contextPath}/reply/' + rno, reqObj)
-                    .then(res => res.text())
-                    .then(data => {
-                        console.log(data);
-                        
+                if(confirm('댓글을 삭제하시겠습니까?')) {
+                    console.log(rno);
+                    fetch('${pageContext.request.contextPath}/reply/' + rno, reqObj)
+                        .then(res => res.text())
+                        .then(data => {
+                            console.log(data);
                             alert('댓글이 삭제되었습니다.');
                             getList(1, true);
-                        
-                    });
-
+                            
+                        });
+                }
             }
 
-            /*
-            //안되는 로직..
-            if(e.target.classList.contains('replyModify')) {
-                
-                document.querySelector('.modal-title').textContent = '댓글 수정';
-                document.getElementById('modalReply').style.display = 'inline'; //댓글 창
-                document.getElementById('modalReply').value = content;
-                document.getElementById('modalModBtn').style.display = 'inline';
-                document.getElementById('modalDelBtn').style.display = 'none';
-                
-                //제이쿼리를 이용해서 bootstrap 모달을 여는 방법.
-                // $('#replyModal').modal('show');
-                
-            } else {
-
-                //삭제 버튼을 눌렀으므로 삭제 모달 형식으로 꾸며줌.
-                document.querySelector('.modal-title').textContent = '댓글 삭제';
-                document.getElementById('modalReply').style.display = 'none'; //댓글 창
-                document.getElementById('modalModBtn').style.display = 'none';
-                document.getElementById('modalDelBtn').style.display = 'inline';
-                // $('#replyModal').modal('show');
-            }
-            */
         });
 
 

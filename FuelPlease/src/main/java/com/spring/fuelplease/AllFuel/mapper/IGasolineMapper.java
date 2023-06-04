@@ -14,4 +14,6 @@ public interface IGasolineMapper {
 	//주유소 찾기
 	List<String> findGasoline(@Param("keyword") String keyword);
 
+	//주유소 정보 찾기
+	GasolineVO getGasolineInfo(@Param("loadId") String loadId);
 }

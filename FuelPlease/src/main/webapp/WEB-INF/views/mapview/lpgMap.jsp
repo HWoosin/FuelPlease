@@ -125,7 +125,7 @@
 		var searchIn = document.getElementById('selectLoad');//검색input
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		mapOption = {
-			center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+			center : new kakao.maps.LatLng(37.552547047528066, 126.93795228439572), // 지도의 중심좌표
 			level : 3
 		// 지도의 확대 레벨
 		};
@@ -162,7 +162,7 @@
 								// 인포윈도우로 장소에 대한 설명을 표시합니다
 								var infowindow = new kakao.maps.InfoWindow(
 										{
-											content : '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+											content : '<div style="width:150px;text-align:center;padding:6px 0;">LPG 충전소</div>'
 										});
 								infowindow.open(map, marker);
 

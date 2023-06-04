@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.spring.fuelplease.voCenter.BookMarkVO;
 import com.spring.fuelplease.voCenter.GasolineVO;
 
 public interface IGasolineService {
@@ -16,4 +17,7 @@ public interface IGasolineService {
 	
 	//주유소 정보 찾기
 	GasolineVO getGasolineInfo(@Param("loadId") String loadId);
+	
+	//즐겨찾기 추가
+	void addBookmarkGas(BookMarkVO vo);
 }

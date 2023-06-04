@@ -2,6 +2,8 @@ package com.spring.fuelplease.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.spring.fuelplease.AllFuel.service.IElecService;
 import com.spring.fuelplease.AllFuel.service.IGasolineService;
 import com.spring.fuelplease.AllFuel.service.ILpgService;
+import com.spring.fuelplease.voCenter.BookMarkVO;
 import com.spring.fuelplease.voCenter.ElecVO;
 import com.spring.fuelplease.voCenter.GasolineVO;
 import com.spring.fuelplease.voCenter.LpgVO;
@@ -114,6 +117,13 @@ public class KakaoMapController {
 	@ResponseBody
 	public ElecVO getElecInfo(@RequestBody String loadId) {
 		return esv.getElecInfo(loadId);
+	}
+	
+	@PostMapping("/addBookmarkGas")
+	@ResponseBody
+	public void addBookmarkGas(@RequestBody BookMarkVO vo, HttpSession session) {
+		vo.setBkuserId((String)session.getAttribute("login"));
+		gsv.addBookmarkGas(vo);
 	}
 	
 	

@@ -63,11 +63,15 @@
 				<h2>검색한 주유소 정보</h2>
 				<hr>
 				<h4>주유소 이름</h4>
-				<p id="lpgName">→</p>
+				<p id="gasName">→</p>
 				<h4>주유소 주소</h4>
-				<p id="lpgAddr">→</p>
+				<p id="gasAddr">→</p>
 				<h4>주유소 번호(TEL)</h4>
-				<p id="lpgNo">→</p>
+				<p id="gasNo">→</p>
+			</div>
+
+			<div>
+				<button type="button" id="addBtn">즐겨찾기 추가</button>
 			</div>
 		</div>
 	</div>
@@ -75,6 +79,30 @@
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=405e0d5fd34220069ac5fe74d4c49e23&libraries=services"></script>
 	<script>
+		// //즐겨찾기 추가
+		document.getElementById('addBtn').onclick = function(){
+			let gasName = document.getElementById('gasName').textContent
+			let gasAddr = document.getElementById('gasAddr').textContent
+			let gasNo = document.getElementById('gasNo').textContent
+
+			fetch('${pageContext.request.contextPath}/mapview/addBookmarkGas',{
+				method:'post',
+				headers:{
+					'Content-type':'application/json'
+				},
+				body: JSON.stringify({
+                        'bkname': gasName,
+                        'bkaddr': gasAddr,
+                        'bktel': gasNo
+                    })
+
+			})
+			.then(res => res.json())
+			.then(data => {
+				console.log(data);
+			})
+		}
+
 		//키워드 넘기기
 		document.getElementById('selectCounty').onclick =function(){
 			document.getElementById('selectLoad').replaceChildren();
@@ -202,9 +230,9 @@
 				// console.log(data.site_addr);
 				// console.log(data.trnm_nm);
 				
-				document.getElementById('lpgName').textContent = '→ ' + data.bplcnm;
-				document.getElementById('lpgAddr').textContent = '→ ' + data.rdnwhladdr;
-				document.getElementById('lpgNo').textContent = '→ ' + data.sitetel;
+				document.getElementById('gasName').textContent = data.bplcnm;
+				document.getElementById('gasAddr').textContent = data.rdnwhladdr;
+				document.getElementById('gasNo').textContent = data.sitetel;
 			})
 
 		

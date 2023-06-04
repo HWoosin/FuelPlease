@@ -1,18 +1,12 @@
-* {
+section {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: "Quicksand", sans-serif;
+    box-sizing: border-box;    
 }
 
-html {
-    font-size: 80%;
-}
-
-.container {
+.calendar-container {
     width: 100%;
     height: 100vh;
-    
     display: flex;
     justify-content: center;
     align-items: center;    
@@ -59,7 +53,7 @@ html {
     height: 5rem;
     padding: 0 0.4rem;
     display: flex;
-    align-items: center;
+    align-items: center;    
 }
 
 .weekdays div {
@@ -71,6 +65,14 @@ html {
     justify-content: center;
     align-items: center;
     text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.weekdays .sunday {
+    color: red;
+}
+
+.weekdays .saturday {
+    color: rgb(59, 59, 221);
 }
 
 .days {
@@ -92,7 +94,7 @@ html {
     transition: background-color 0.2s;
 }
 
-.days div:hover:not(.today) {
+.days div:hover {
     background-color: #97b9ec;
     border: 0.2rem solid #777;
     cursor: pointer;
@@ -104,5 +106,6 @@ html {
 }
 
 .today {
-    background-color: #167e56;
+    
+    cursor: pointer;
 }

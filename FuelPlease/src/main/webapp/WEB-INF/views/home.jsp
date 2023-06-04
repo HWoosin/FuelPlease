@@ -74,42 +74,56 @@
   
 		  <div class="row">
   
-			<div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+			<div id="gasolineBox" class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
 			  <div class="icon-box iconbox-blue">
 				<div class="icon">
 				  <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
 				  </svg>
 				  <i class="bx bxl-dribbble"></i>
 				</div>
-				<h4><a href="">주유소</a></h4>
+				<h4><a href="${pageContext.request.contextPath}/mapview/gasolineMap">주유소</a></h4>
 			  </div>
 			</div>
   
-			<div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-			  <div class="icon-box iconbox-green">
-				<div class="icon">
-				  <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-				  </svg>
-				  <i class="bx bx-file"></i>
+
+			<div id="elecBox" class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+				<div class="icon-box iconbox-green">
+					<div class="icon">
+						<svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+						</svg>
+						<i class="bx bx-file"></i>
+					</div>
+					<h4><a href="${pageContext.request.contextPath}/mapview/elecChargeMap">전기충전소</a></h4>
 				</div>
-				<h4><a href="">전기충전소</a></h4>
-			  </div>
 			</div>
+			
   
-			<div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+			<div id="lpgBox" class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
 			  <div class="icon-box iconbox-pink">
 				<div class="icon">
 				  <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
 				  </svg>
 				  <i class="bx bx-tachometer"></i>
 				</div>
-				<h4><a href="">LPG충전소</a></h4>
+				<h4><a href="${pageContext.request.contextPath}/mapview/lpgMap">LPG충전소</a></h4>
 			  </div>
 			</div>
 
 		  </div>
   
+		  <!-- 평균가격 뽑아내기 -->
+		  <div>
+			  <h4>이번주의 평균가격</h4>
+			  <h5>휘발유</h5>
+			  <p>${gas} 원</p>
+			  <h5>고급휘발유</h5>
+			  <p>${preGas} 원</p>
+			  <h5>경유</h5>
+			  <p>${dis} 원</p>
+		  </div>
 		</div>
+
+
 	  </section><!-- End Services Section -->
   
   	  
@@ -143,6 +157,17 @@
 	<script>
 		const id = '${login}';
 		console.log(id);
+		
+		document.getElementById('gasolineBox').onclick = () => {
+			location.href = '${pageContext.request.contextPath}/mapview/gasolineMap';
+		}
+		document.getElementById('elecBox').onclick = () => {
+			location.href = '${pageContext.request.contextPath}/mapview/elecChargeMap';
+		}
+		document.getElementById('lpgBox').onclick = () => {
+			location.href = '${pageContext.request.contextPath}/mapview/lpgMap';
+		}
+
 	</script>
 
 

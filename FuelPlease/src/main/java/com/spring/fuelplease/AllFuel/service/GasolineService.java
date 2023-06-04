@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.fuelplease.AllFuel.mapper.IGasolineMapper;
 import com.spring.fuelplease.voCenter.GasolineVO;
+import com.spring.fuelplease.voCenter.LpgVO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -56,4 +57,12 @@ public class GasolineService implements IGasolineService{
 		log.info(keyword);
 		return mp.findGasoline(keyword);
 	}
+	
+	@Override
+	public GasolineVO getGasolineInfo(String loadId) {
+		log.info(loadId);
+		return mp.getGasolineInfo(loadId);
+	}
+
+	
 }

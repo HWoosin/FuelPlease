@@ -54,4 +54,12 @@ public class ElecService implements IElecService {
 		return mp.findElec(keyword);
 	}
 
+	@Override
+	public ElecVO getElecInfo(String loadId) {
+		log.info(loadId);
+		return mp.getElecInfo(loadId);
+	}
+	
+	
+
 }

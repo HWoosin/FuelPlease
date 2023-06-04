@@ -16,4 +16,10 @@
 		where addr like concat('%', #{keyword}, '%')
 	</select>
 	
+	<select id="getElecInfo" resultType="elec">
+		select * from elecInfo
+		where
+		addr like concat('%',#{loadId}, '%') limit 1;
+	</select>
+	
 </mapper>

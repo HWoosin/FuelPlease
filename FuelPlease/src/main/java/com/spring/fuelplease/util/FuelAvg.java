@@ -50,6 +50,7 @@ public class FuelAvg {
 			// parsing할 url 지정(API 키 포함해서)
 			String url = "https://www.opinet.co.kr/api/avgLastWeek.do?prodcd=B027&code="+ApiKey+"&sido=01&out=xml";
 
+
 			DocumentBuilderFactory dbFactoty = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactoty.newDocumentBuilder();
 			Document doc = dBuilder.parse(url);
@@ -82,7 +83,9 @@ public class FuelAvg {
 
 		try {
 			// parsing할 url 지정(API 키 포함해서)
+
 			String url = "https://www.opinet.co.kr/api/avgLastWeek.do?prodcd=D047&code="+ApiKey+"&sido=01&out=xml";
+
 
 			DocumentBuilderFactory dbFactoty = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactoty.newDocumentBuilder();
@@ -113,7 +116,9 @@ public class FuelAvg {
 
 		try {
 			// parsing할 url 지정(API 키 포함해서)
+
 			String url = "https://www.opinet.co.kr/api/avgLastWeek.do?prodcd=B034&code="+ApiKey+"&sido=01&out=xml";
+
 
 			DocumentBuilderFactory dbFactoty = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactoty.newDocumentBuilder();

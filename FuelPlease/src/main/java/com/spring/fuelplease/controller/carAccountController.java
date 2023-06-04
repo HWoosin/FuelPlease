@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @RequestMapping("/caraccount")
 @Slf4j
-public class CarAccountController {
+public class carAccountController {
 
 	// Car Account 페이지 이동 요청
 	@GetMapping("/carAccount")

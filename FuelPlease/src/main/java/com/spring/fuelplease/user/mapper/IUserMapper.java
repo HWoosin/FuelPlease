@@ -1,8 +1,11 @@
 package com.spring.fuelplease.user.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.spring.fuelplease.util.PageVO;
+import com.spring.fuelplease.voCenter.BookMarkVO;
 import com.spring.fuelplease.voCenter.UserVO;
 
 public interface IUserMapper {
@@ -11,6 +14,7 @@ public interface IUserMapper {
 
 	//로그인
 	String userLogin(String id);
+	
 	//회원가입
 	void userJoin(UserVO vo);
 
@@ -26,4 +30,9 @@ public interface IUserMapper {
 	//회원 탈퇴
 	void deleteUser(@Param("userId")String id, @Param("userPw")String userPw);
 
+	//회원의 북마크 조회
+	List<String> userBookmark(String id);
+	
+	//회원의 조회한데이터 상세보기
+	BookMarkVO showBookmark(@Param("bkaddr") String bkaddr);
 }

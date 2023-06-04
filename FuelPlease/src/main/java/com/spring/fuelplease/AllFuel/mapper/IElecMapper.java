@@ -13,4 +13,7 @@ public interface IElecMapper {
 	
 	//전기차 충전소 찾기
 	List<String> findElec(@Param("keyword") String keyword);
+	
+	//전기차 충전소 정보 찾기
+	ElecVO getElecInfo(@Param("loadId") String loadId);
 }

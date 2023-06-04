@@ -18,6 +18,10 @@
 		<typeAlias type="com.spring.fuelplease.voCenter.InfoBoardVO" alias="board"/>
 		<typeAlias type="com.spring.fuelplease.voCenter.ReplyVO" alias="reply"/>
 		<typeAlias type="com.spring.fuelplease.voCenter.LpgVO" alias="lpg"/>
+		<typeAlias type="com.spring.fuelplease.voCenter.BookMarkVO" alias="bookmark"/>
+		<typeAlias type="com.spring.fuelplease.voCenter.GasolineVO" alias="gasoline"/>
+		<typeAlias type="com.spring.fuelplease.voCenter.ElecVO" alias="elec"/>
+
 		
 	</typeAliases>
 	

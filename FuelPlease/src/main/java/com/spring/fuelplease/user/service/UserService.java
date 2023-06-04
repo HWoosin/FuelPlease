@@ -1,13 +1,17 @@
 package com.spring.fuelplease.user.service;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.spring.fuelplease.user.mapper.IUserMapper;
 import com.spring.fuelplease.util.PageVO;
+import com.spring.fuelplease.voCenter.BookMarkVO;
 import com.spring.fuelplease.voCenter.UserVO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -76,6 +80,16 @@ public class UserService implements IUserService {
         return -2;
         
     }
+
+	@Override
+	public List<String> userBookmark(String id) {
+		return mp.userBookmark(id);
+	}
+
+	@Override
+	public BookMarkVO showBookmark(String bkaddr) {
+		return mp.showBookmark(bkaddr);
+	}
 
 
 }

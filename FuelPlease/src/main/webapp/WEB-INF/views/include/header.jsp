@@ -25,6 +25,10 @@
                   font-style: normal;
                   }
           </style>
+
+          <style>
+            
+          </style>
   
      
       
@@ -60,7 +64,7 @@
 
         <nav id="navbar" class="navbar nav-menu">
 
-          <ul>
+          <ul class="menu-left">
 
             <li><a href="${pageContext.request.contextPath}/" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
             <li><a href="${pageContext.request.contextPath}/mapview/gasolineMap" class="nav-link scrollto"> <span>주유소</span></a></li>
@@ -72,11 +76,7 @@
             
           </ul>
           
-          <div class="search-bar" role="search">
-            <input type="search" class="form-contorl" placeholder="search" aria-label="search" size="45">
-          </div>
-          
-          <ul>            
+          <ul class="menu-right">            
             
               <li><a href="${pageContext.request.contextPath}/user/userLogin" class="member"> <span>Login</span></a></li>
               <li><a href="${pageContext.request.contextPath}/user/userLogout" class="member" id="logout"> <span>Logout</span></a></li>

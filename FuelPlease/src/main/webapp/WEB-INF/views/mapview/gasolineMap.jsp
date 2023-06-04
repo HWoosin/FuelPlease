@@ -55,7 +55,7 @@
 		<select class="form-control input-sm sel" id="selectLoad" name="selectLoad" style="width: 270px;">
 			<option >도로명을 선택해주세요</option>
 		</select>
-		<button type="button" id="searchBtn">검색</button>
+		<button type="button" id="searchBtn" style="padding: none;">검색</button>
 	</div>
 	<div class="mapBox">
 		<div id="map" style="width: 40%; height: 650px;"></div>

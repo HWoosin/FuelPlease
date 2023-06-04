@@ -16,7 +16,7 @@
 					<!--form select를 가져온다 -->
 					<form action="<c:url value='/infoboard/boardList' />">
 						<div class="search-wrap">
-							<select name="condition" class="form-control search-select" style="justify-content: center; align-items: center;">
+							<select name="condition" class="form-control search-select" style="justify-content: center; align-items: center; display: flex;">
 								<option value="title"
 								${pc.paging.condition == 'title' ? 'selected' : ''}>제목</option>
 								<option value="content"
@@ -28,8 +28,7 @@
 							</select>
 							<input type="text" name="keyword"
 								class="form-control search-input" value="${pc.paging.keyword}">
-							<button type="submit" class="btn btn-info search-btn">검색</button>
-							<hr>
+							<button type="submit" class="btn btn-info search-btn" id="boardSearch">검색</button>
 						</div>
 					</form>
 
@@ -66,6 +65,7 @@
 
 					</table>
 
+					<hr>
 
 					<!--페이지 네이션을 가져옴-->
 					<form
@@ -85,10 +85,12 @@
 								<c:if test="${pc.next}">
 									<li><a href="#" data-pagenum="${pc.endPage+1}">다음</a></li>
 								</c:if>
+								
 							</ul>
 							<button type="button" class="btn btn-info"
 								onclick="location.href='${pageContext.request.contextPath}/infoboard/regist'">글쓰기</button>
 						</div>
+
 
 						<input type="hidden" name="pageNum" value="${pc.paging.pageNum}">
 						<input type="hidden" name="cpp" value="${pc.paging.cpp}">

@@ -1,5 +1,7 @@
 package com.spring.fuelplease.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,7 @@ import com.spring.fuelplease.user.service.IUserService;
 import com.spring.fuelplease.util.MailSenderService;
 import com.spring.fuelplease.util.PageCreator;
 import com.spring.fuelplease.util.PageVO;
+import com.spring.fuelplease.voCenter.BookMarkVO;
 import com.spring.fuelplease.voCenter.UserVO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -139,5 +142,23 @@ public class UserController {
 
 		return new ModelAndView("redirect:/");
 	}
+    
+    @GetMapping("/userBookmark")
+    public void userBookmark() {
+    	
+    }
+    
+    @PostMapping("/userBookmark")
+    @ResponseBody
+    public List<String> userBookmark(HttpSession session) {
+    	String id = (String)session.getAttribute("login");
+    	return sv.userBookmark(id);
+    }
+    
+    @PostMapping("/showBookmark")
+    @ResponseBody
+    public BookMarkVO showBookmark(@RequestBody String bkaddr) {
+    	return sv.showBookmark(bkaddr);
+    }
 
 }

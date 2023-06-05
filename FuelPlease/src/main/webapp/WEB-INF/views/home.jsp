@@ -74,6 +74,14 @@
 		  <div class="section-title">
 			<h2>Fuel Please</h2>
 		  </div>
+
+		<form id="home-search-bar" action="${pageContext.request.contextPath}/mapview/searchResult" method="get">
+			<div id="home-search-box" class="search-bar" role="search">
+				<input type="text" id="search-bar" class="form-contorl" placeholder="search" aria-label="search" size="45" name="searchWord">
+				<button type="submit" id="searchBtn">검색</button>
+			</div>
+		</form>
+			
   
 		  <div class="row">
   
@@ -170,6 +178,15 @@
 		document.getElementById('lpgBox').onclick = () => {
 			location.href = '${pageContext.request.contextPath}/mapview/lpgMap';
 		}
+
+		document.getElementById('searchBtn').onclick = () => {
+			const searchWord = document.getElementById('search-bar').value;
+			console.log(searchWord); //검색어 확인
+
+
+		}
+
+
 
 	</script>
 

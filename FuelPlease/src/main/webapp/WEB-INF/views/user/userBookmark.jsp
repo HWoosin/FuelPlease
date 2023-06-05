@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+	<%@ include file="../include/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <style>
@@ -38,11 +38,14 @@
         <p id="name"></p>
     </div>
 
-    <div id="map" style="width: 100%; height: 350px;"></div>
+    <div id="map" style="width: 40%; height: 350px;"></div>
+
+	<%@ include file="../include/footer.jsp" %>
 
     <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=405e0d5fd34220069ac5fe74d4c49e23&libraries=services"></script>
     <script>
+
         window.onload = function () {
             let selectBook = document.getElementById('bookbox');
 
@@ -69,7 +72,7 @@
         //카카오 지도
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
             mapOption = {
-                center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                center: new kakao.maps.LatLng(37.552547047528066, 126.93795228439572), // 지도의 중심좌표
                 level: 3
                 // 지도의 확대 레벨
             };

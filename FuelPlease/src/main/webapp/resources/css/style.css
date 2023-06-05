@@ -83,6 +83,17 @@ h6 {
 }
 
 
+.search-bar {
+  margin-left: 380px;
+}
+
+.search-bar .form-contorl {
+  left: 30px;
+  border-radius: 10px;
+  border-color: #7998ff;
+  /* margin-right: 320px; */
+  /* padding: 10px; */
+}
 
 
 /*--------------------------------------------------------------
@@ -281,6 +292,16 @@ section {
   
   padding: 30px;
 
+}
+
+.container #home-search-bar {
+  margin-left: 27%;
+  margin-bottom: 35px;
+  margin-top: -50px;
+}
+
+.container #home-search-bar #home-search-box {
+  margin: 0px;
 }
 
 .container .form-group {

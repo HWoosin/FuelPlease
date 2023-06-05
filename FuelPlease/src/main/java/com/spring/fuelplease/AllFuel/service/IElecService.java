@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.spring.fuelplease.voCenter.BookMarkVO;
 import com.spring.fuelplease.voCenter.ElecVO;
 
 public interface IElecService {
@@ -16,5 +17,8 @@ public interface IElecService {
 	
 	//전기차 충전소 정보 찾기
 	ElecVO getElecInfo(@Param("loadId") String loadId);
+
+	//즐겨찾기 추가
+	void addBookmarkGas(BookMarkVO vo);
 
 }

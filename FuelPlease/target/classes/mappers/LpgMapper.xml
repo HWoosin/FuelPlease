@@ -27,6 +27,12 @@
 		where
 		site_addr like concat('%',#{loadId}, '%') and off_telno is not null;
 	</select>
+	
+	<insert id="addBookmarkGas">
+		insert into bookmark 
+		(bkuser_id, bkaddr, bktel, bkname)
+		values (#{bkuserId}, #{bkaddr}, #{bktel}, #{bkname})
+	</insert>
 
 </mapper>
 

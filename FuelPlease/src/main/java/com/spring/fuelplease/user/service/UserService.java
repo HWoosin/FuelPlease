@@ -93,5 +93,10 @@ public class UserService implements IUserService {
 		return mp.showBookmark(bkaddr, id);
 	}
 
+	@Override
+	public void deleteBookmark(String id, String bkaddr) {
+		mp.deleteBookmark(id, bkaddr);
+	}
+
 
 }

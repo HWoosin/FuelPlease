@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.fuelplease.AllFuel.mapper.IElecMapper;
+import com.spring.fuelplease.voCenter.BookMarkVO;
 import com.spring.fuelplease.voCenter.ElecVO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -60,6 +61,10 @@ public class ElecService implements IElecService {
 		return mp.getElecInfo(loadId);
 	}
 	
+	@Override
+	public void addBookmarkGas(BookMarkVO vo) {
+		mp.addBookmarkGas(vo);
+	}
 	
 
 }

@@ -13,7 +13,6 @@
 	<meta content="" name="keywords">
 
 	<!--css-->
-	<link href="../../../resources/css/User.css">
   
 	<!-- Favicons -->
 	<link href="${pageContext.request.contextPath }/img/favicon.png" rel="icon">

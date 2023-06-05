@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.spring.fuelplease.voCenter.BookMarkVO;
 import com.spring.fuelplease.voCenter.LpgVO;
 
 public interface ILpgMapper {
@@ -16,4 +17,7 @@ public interface ILpgMapper {
 	
 	//LPG 충전소 정보 찾기
 	LpgVO getInfo(@Param("loadId") String loadId);
+
+	//즐겨찾기 추가
+	void addBookmarkGas(BookMarkVO vo);
 }

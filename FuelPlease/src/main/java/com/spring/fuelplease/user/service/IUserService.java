@@ -2,6 +2,8 @@ package com.spring.fuelplease.user.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.spring.fuelplease.util.PageVO;
 import com.spring.fuelplease.voCenter.BookMarkVO;
 import com.spring.fuelplease.voCenter.UserVO;
@@ -31,5 +33,8 @@ public interface IUserService {
 	
 	//회원의 조회한데이터 상세보기
 	BookMarkVO showBookmark(String id, String bkaddr);
+	
+	//회원의 즐겨찾기 삭제
+	void deleteBookmark(String id, String bkaddr);
 
 }

@@ -22,4 +22,10 @@
 		addr like concat('%',#{loadId}, '%') limit 1;
 	</select>
 	
+	<insert id="addBookmarkGas">
+		insert into bookmark 
+		(bkuser_id, bkaddr, bktel, bkname)
+		values (#{bkuserId}, #{bkaddr}, #{bktel}, #{bkname})
+	</insert>
+	
 </mapper>

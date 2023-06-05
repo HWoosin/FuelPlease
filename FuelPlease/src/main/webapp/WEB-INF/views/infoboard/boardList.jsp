@@ -48,7 +48,7 @@
 								<tr>
 									<td>${vo.bno}</td>
 									<td><a
-										href="${pageContext.request.contextPath}/infoboard/content/${vo.bno}?pageNum=${pc.paging.pageNum}&cpp=${pc.paging.cpp}&keyword=${pc.paging.keyword}&condition=${pc.paging.condition}">${vo.title}</a>
+										href="${pageContext.request.contextPath}/infoboard/content/${vo.bno}?pageNum=${pc.paging.pageNum}&cpp=${pc.paging.cpp}&keyword=${pc.paging.keyword}&condition=${pc.paging.condition}" id="title">${vo.title}</a>
 										&nbsp; <strong>[${vo.replyCnt}]</strong></td>
 									<td>${vo.writer}</td>
 									<td><fmt:parseDate value="${vo.WDate}"
@@ -120,7 +120,12 @@
 			})
 
 
-
+			document.getElementById('title').onclick = () => {
+				const id = '${login}';
+				if(id === '') {
+					alert('로그인 후 이용가능합니다. 로그인 페이지로 이동합니다.');
+				}
+			}
 
 
 

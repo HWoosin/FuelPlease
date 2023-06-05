@@ -1,21 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp" %>
-<!DOCTYPE html>
-<html>
-<style>
-    #bookbox {
-        border: 3px solid black;
-        width: 300px;
-        height: 300px;
-        overflow: scroll;
-    }
-</style>
 
 <head>
     <meta charset="utf-8">
-    <title>주소로 장소 표시하기</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+    <title>Fuel Please</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="${pageContext.request.contextPath }/img/favicon.png" rel="icon">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+    <!--
+          <style>
+              @font-face {
+                  font-family: 'KIMM_Bold';
+                  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
+                  font-weight: 700;
+                  font-style: normal;
+  }
+          </style>
+  
+      -->
+
+    <!-- Vendor CSS Files -->
+    <!--  <link href="/vendor/aos/aos.css" rel="stylesheet">-->
+    <link href="${pageContext.request.contextPath }/vendor/aos/aos.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="${pageContext.request.contextPath }/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: MyResume
+    * Updated: Mar 10 2023 with Bootstrap v5.2.3
+    * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
 </head>
 
 <body>
@@ -26,32 +58,34 @@
         </a>
     </em>
 </p> -->
-    <div class="boomark-title">
-        <h2>즐겨찾는 장소</h2>
-    </div>
+<div class="gasTitle">
+    <h2>즐겨찾는 장소</h2>
+</div>
+
+
+<div id="bookdiv">
 
     <div id="bookbox">
 
     </div>
 
-    <h2>장소 정보</h2>
-    <div>
-        <p id="addr">→</p>
-        <p id="tel">→</p>
-        <p id="name">→</p>
-        <button type="button" id="delBtn">즐겨찾기 삭제</button>
+    <div class="mapBox">
+        <div id="map" style="width: 40%; height: 650px;"></div>
+        <div class="mapInfo" style="width: 28%; height: 650px; display: flex;">
+            <div class="mapInfotxt">
+                <h2>장소 정보</h2>
+                <p id="addr">→</p>
+                <p id="tel">→</p>
+                <p id="name">→</p>
+            </div>
+            <div>
+                <button type="button" id="delBtn">즐겨찾기 삭제</button>
+            </div>
+        </div>
     </div>
 
 
-    
-        <h2>장소 정보</h2>
-        <div>
-            <p id="addr"></p>
-            <p id="tel"></p>
-            <p id="name"></p>
-    
-        <div id="map" style="width: 40%; height: 350px;"></div>
-    </div>
+</div>
 
     <%@ include file="../include/footer.jsp" %>
 
@@ -227,5 +261,3 @@
         }
     </script>
 </body>
-
-</html>

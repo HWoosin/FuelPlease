@@ -346,6 +346,23 @@ input [type=password] {
 /*--------------------------------------------------------------
 # userBookmark
 --------------------------------------------------------------*/
+#bookdiv{
+  width: 100%;
+}
+
+#bookbox {
+        border: 3px solid #7998ff;
+        width: 70%;
+        height: 300px;
+        margin: 0 auto;
+        overflow: scroll;
+        font-size: 30px;
+}
+
+#map{
+  width: 40%; 
+  height: 650px;
+}
 
 
 

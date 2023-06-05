@@ -9,13 +9,13 @@
 			<div class="row">
 				<!--lg에서 9그리드, xs에서 전체그리드-->
 				<div class="col-lg-9 col-xs-12 board-table">
-					<div class="titlebox">
-						<p>자유게시판</p>
+					<div class="titleBoard">
+						<h1>자유게시판</h1>
 					</div>
 
 					<!--form select를 가져온다 -->
 					<form action="<c:url value='/infoboard/boardList' />">
-						<div class="search-wrap">
+						<div class="searchB-wrap">
 							<select name="condition" class="form-control search-select" style="justify-content: center; align-items: center; display: flex;">
 								<option value="title"
 								${pc.paging.condition == 'title' ? 'selected' : ''}>제목</option>
@@ -65,7 +65,6 @@
 
 					</table>
 
-					<hr>
 
 					<!--페이지 네이션을 가져옴-->
 					<form
@@ -79,7 +78,7 @@
 
 								<c:forEach var="num" begin="${pc.beginPage}" end="${pc.endPage}">
 									<li class="${pc.paging.pageNum == num ? 'active' : ''}"><a
-										href="#" data-pagenum="${num}">${num}</a></li>
+										href="#" data-pagenum="${num}" id="nextPage">${num}</a></li>
 								</c:forEach>
 
 								<c:if test="${pc.next}">
@@ -87,7 +86,7 @@
 								</c:if>
 								
 							</ul>
-							<button type="button" class="btn btn-info"
+							<button type="button" class="btn btn-info write-btn"
 								onclick="location.href='${pageContext.request.contextPath}/infoboard/regist'">글쓰기</button>
 						</div>
 

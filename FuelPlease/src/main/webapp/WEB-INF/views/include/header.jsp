@@ -55,12 +55,6 @@
 <body>
    <!-- ======= Header ======= -->
 	<header id="header" class="d-flex flex-column justify-content-center">
-    
-        <div class="logo">
-          <a href="${pageContext.request.contextPath}/">  
-              <img src="${pageContext.request.contextPath}/img/FuelPlease_300.png" alt="로고이미지">
-          </a>
-        </div>
 
         <nav id="navbar" class="navbar nav-menu">
 
@@ -81,7 +75,7 @@
 
               <li><a href="${pageContext.request.contextPath}/user/userLogin" class="member"> <span>Login</span></a></li>
               <li><a href="${pageContext.request.contextPath}/user/userLogout" class="member" id="logout"> <span>Logout</span></a></li>
-	          <li><a href="${pageContext.request.contextPath}/user/userJoin" class="member"> <span>회원가입</span></a></li>
+	            <li><a href="${pageContext.request.contextPath}/user/userJoin" class="member"> <span>회원가입</span></a></li>
             
           </ul>
         </nav>

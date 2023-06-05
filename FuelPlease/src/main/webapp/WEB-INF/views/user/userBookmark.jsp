@@ -26,19 +26,24 @@
         </a>
     </em>
 </p> -->
-    <h2>즐겨찾는 장소</h2>
+    <div class="boomark-title">
+        <h2>즐겨찾는 장소</h2>
+    </div>
+
     <div id="bookbox">
 
     </div>
 
-    <h2>장소 정보</h2>
-    <div>
-        <p id="addr"></p>
-        <p id="tel"></p>
-        <p id="name"></p>
-    </div>
 
-    <div id="map" style="width: 40%; height: 350px;"></div>
+    
+        <h2>장소 정보</h2>
+        <div>
+            <p id="addr"></p>
+            <p id="tel"></p>
+            <p id="name"></p>
+    
+        <div id="map" style="width: 40%; height: 350px;"></div>
+    </div>
 
 	<%@ include file="../include/footer.jsp" %>
 

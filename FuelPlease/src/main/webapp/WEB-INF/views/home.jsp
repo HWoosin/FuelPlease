@@ -17,9 +17,6 @@
 	<title>Fuel Please</title>
 	<meta content="" name="description">
 	<meta content="" name="keywords">
-
-	<!--css-->
-	<link rel="stylesheet" href="../../resources/css/mainHome.css">
   
 	<!-- Favicons -->
 	<link href="${pageContext.request.contextPath }/img/favicon.png" rel="icon">
@@ -71,9 +68,15 @@
 	  <section id="services" class="services">
 		<div class="container" data-aos="fade-up">
   
-		  <div class="section-title">
+			<div class="logo">
+				<a href="${pageContext.request.contextPath}/">  
+					<img src="${pageContext.request.contextPath}/img/FuelPlease_300.png" alt="로고이미지">
+				</a>
+			</div>
+
+		  <!-- <div class="section-title">
 			<h2>Fuel Please</h2>
-		  </div>
+		  </div> -->
 
 		<form id="home-search-bar" action="${pageContext.request.contextPath}/mapview/searchResult" method="get">
 			<div id="home-search-box" class="search-bar" role="search">
@@ -83,7 +86,7 @@
 		</form>
 			
   
-		  <div class="row">
+		  <div class="Homerow">
   
 			<div id="gasolineBox" class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
 			  <div class="icon-box iconbox-blue">

@@ -57,7 +57,6 @@
 </section>
 
 <!-- 댓글 영역 시작부분 -->
-<hr>
 <section style="margin-top: 80px;">
     <div class="container">
         <div class="row">
@@ -74,13 +73,14 @@
                                 <textarea class="form-control" rows="3" id="reply" placeholder="비방 및 욕설 등록 시 처벌 받을 수 있습니다."></textarea>
                                 <!-- <input type="password" class="form-control" id="replyPw" placeholder="비밀번호"> -->
                             </div>
-
+                            
                             <button type="button" id="replyRegist" class="right btn btn-info">등록하기</button>
                         </div>
 
                     </div>
                 </form>
 
+                <hr>
                 <!-- 댓글 리스트 -->
                 <div id="replyList">
 

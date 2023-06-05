@@ -12,7 +12,7 @@
                     
                     <form action="${pageContext.request.contextPath}/infoboard/regist" method="post">
 	                    <table class="table">
-	                        <tbody class="t-control">
+	                        <tbody class="regist-board">
 	                            <tr>
 	                                <td class="t-title">작성자</td>
 	                                <td><input class="form-control input-sm" name="writer" value="${login}" readonly></td>

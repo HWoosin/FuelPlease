@@ -33,9 +33,27 @@ h6 {
   font-family: "KIMM_Bold", sans-serif;
 }
 
+.btn-info {
+  color: #fff;
+  background: #7998ff;
+  border: none;
+}
+
+
+.container .row {
+  display: flex;
+  width: 60%;
+  margin: 0 auto;
+}
+
 /*-------------------------------------------------------------
 # nav(header)
 ---------------------------------------------------------------*/
+
+.navbar {
+  display: flex;
+}
+
 .nav-menu {
   width: 100vw;
   height: 120px;
@@ -45,14 +63,6 @@ h6 {
   padding: 5px;
 }
 
-/* .nav-menu ul {
-  display: flex;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  list-style: none;
-  padding: 10px;
-} */
-
 .nav-menu ul li {
   padding: 30px;
   list-style: none;
@@ -61,20 +71,16 @@ h6 {
 
 .nav-menu .menu-left {
   display: flex;
-  margin-left: 300px;
+  margin: 0 auto;
   list-style: none;
-  margin-top: 20px;
-  margin-bottom: 5px;
   padding: 12px;
 }
 
 .nav-menu .menu-right {
   display: flex;
   list-style: none;
-  margin-top: 20px;
-  margin-bottom: 5px;
-  margin-left: 20px;
-  padding: 5px;
+  margin: 0 auto;
+  padding: 12px;
 }
 
 .logo img {
@@ -146,11 +152,15 @@ h6 {
 */
 
 /*--------------------------------------------------------------
-# Services
+# MainHome
 --------------------------------------------------------------*/
-.services .row {
+.services .Homerow {
+  display: flex;
+  padding: 10px;
+  margin: 0 auto;
   margin-bottom: 25%;
 }
+
 
 .services .icon-box {
   text-align: center;
@@ -277,8 +287,10 @@ section {
   font-size: 50px;
   font-weight: bold;
   margin-bottom: 20px;
-  margin-left: 60%;
+  /* margin-left: 44%; */
+  margin: 0 auto !important;
   color: #7998ff;
+  text-align: center !important;
 }
 
 
@@ -287,11 +299,10 @@ section {
   background: #fff;
   border-radius: 2%;
   border: 1px solid #7998ff;
-  margin-left: 40%;
-  margin-bottom: 150px;
+  margin: 0 auto;
   
   padding: 30px;
-
+  
 }
 
 .container #home-search-bar {
@@ -322,33 +333,38 @@ section {
   background: hsl(0, 0%, 91%);
   border: 1px solid #7998ff;
   color: #5c7ce2;
- }
+}
 
- input [type=password] {
+input [type=password] {
   font-family: '맑은 고딕', 'malgun gothic', 'sans-serif';
- }
+}
 
 .titlefoot #updateBtn{
   margin-right: 15px;
 }
+
+/*--------------------------------------------------------------
+# userBookmark
+--------------------------------------------------------------*/
+
+
 
 
 /*--------------------------------------------------------------
 # Board
 --------------------------------------------------------------*/
 /*boardList*/
-.search-wrap {
+
+.titleBoard {
+  margin-left: 60%;
   margin-bottom: 20px;
-  margin-left: 670px;
+  color: #7998ff;
 }
 
-.search-wrap hr {
-  width: 100%;
-}
-
-.board-table hr {
-  margin-top: 10px;
-  width: 100vw;
+.searchB-wrap {
+  margin-bottom: 20px;
+  margin-left: 52%;
+  width: 530px;
 }
 
 .table-bordered {
@@ -356,21 +372,31 @@ section {
   margin-left: 350px;
 }
 
-.pagination-sm hr {
-  width: 100vw;
-}
-
 .search-btn {
-  margin-left: 10px;
+  margin-left: 44%;
   margin-top: 10px;
 }
 
- .pageNum {
-  text-align: center;
- }
-/*BoardRegist*/
-.t-control {
+#pagination {
+  margin-top: 30px;
+  margin-left: 63%;
+}
+
+#nextPage {
   padding: 10px;
+}
+
+
+.write-btn {
+  margin-left: 31%;
+  margin-top: 10px;
+}
+
+
+/*BoardRegist*/
+
+.regist-board {
+  margin-left: 40%;
 }
 
 
@@ -423,7 +449,7 @@ section {
 }
 
 /*--------------------------------------------------------------
-# gasolineMap
+#Map
 --------------------------------------------------------------*/
 .gasTitle {
   color: #7998ff;
@@ -476,9 +502,6 @@ section {
 }
 
 
-/*--------------------------------------------------------------
-# electricChargeMap
---------------------------------------------------------------*/
 
 
 

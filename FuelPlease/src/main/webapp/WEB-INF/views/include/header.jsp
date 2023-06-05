@@ -69,12 +69,9 @@
             <li><a href="${pageContext.request.contextPath}/caraccount/carAccount" class="nav-link scrollto"> <span>Car Account</span></a></li>
             <li><a href="${pageContext.request.contextPath}/infoboard/boardList" class="nav-link scrollto"> <span>Board</span></a></li>
             <li><a href="${pageContext.request.contextPath}/user/userMypage" class="nav-link scrollto"> <span>MyPage</span></a></li>
+            <li><a href="${pageContext.request.contextPath}/user/userBookmark" class="nav-link scrollto"> <span>즐겨찾기</span></a></li>
             
           </ul>
-          
-          <div class="search-bar" role="search">
-            <input type="search" class="form-contorl" placeholder="search" aria-label="search" size="45">
-          </div>
           
           <ul>            
             

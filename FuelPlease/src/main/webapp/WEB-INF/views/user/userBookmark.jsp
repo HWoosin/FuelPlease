@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ include file="../include/header.jsp" %>
+<%@ include file="../include/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <style>
@@ -34,6 +34,14 @@
 
     </div>
 
+    <h2>장소 정보</h2>
+    <div>
+        <p id="addr">→</p>
+        <p id="tel">→</p>
+        <p id="name">→</p>
+        <button type="button" id="delBtn">즐겨찾기 삭제</button>
+    </div>
+
 
     
         <h2>장소 정보</h2>
@@ -45,12 +53,11 @@
         <div id="map" style="width: 40%; height: 350px;"></div>
     </div>
 
-	<%@ include file="../include/footer.jsp" %>
+    <%@ include file="../include/footer.jsp" %>
 
     <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=405e0d5fd34220069ac5fe74d4c49e23&libraries=services"></script>
     <script>
-
         window.onload = function () {
             let selectBook = document.getElementById('bookbox');
 
@@ -74,6 +81,51 @@
                 })
         }
 
+        document.getElementById('delBtn').onclick = function () {
+            let selectBook = document.getElementById('bookbox');
+            let addr = document.getElementById('addr').textContent
+            if (addr === '→') {
+                alert('삭제할 목록을 선택해주세요')
+            } else {
+                if (confirm('삭제하시겠습니까?')) {
+                    fetch('${pageContext.request.contextPath}/user/deleteBookmark', {
+                            method: 'post',
+                            headers: {
+                                'Content-type': 'text/plain'
+
+                            },
+                            body: addr
+                        })
+                        .then(res => res.text())
+                        .then(data => {
+                            // console.log(data);
+
+                            fetch('${pageContext.request.contextPath}/user/userBookmark', {
+
+                                    method: 'post'
+                                })
+                                .then(res => res.json())
+                                .then(list => {
+                                    // console.log(list);
+                                    selectBook.replaceChildren();
+                                    for (var i = 0; i <= list.length; i++) {
+                                        var opt = document.createElement('a')
+                                        opt.textContent = list[i];
+                                        opt.style.display = 'block';
+                                        opt.setAttribute('value', list[i]);
+                                        selectBook.appendChild(opt);
+                                    }
+
+                                })
+
+                        })
+                    document.getElementById('addr').textContent = '→'
+                    document.getElementById('tel').textContent = '→'
+                    document.getElementById('name').textContent = '→'
+                }
+            }
+        }
+
         //카카오 지도
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
             mapOption = {
@@ -89,12 +141,12 @@
         var geocoder = new kakao.maps.services.Geocoder();
 
         // const $selectAddr = document.getElementById('selectAddr');
-        
 
+        //장소 선택
         document.getElementById('bookbox').onclick = function (e) {
-            document.getElementById('addr').textContent=''
-            document.getElementById('tel').textContent=''
-            document.getElementById('name').textContent=''
+            document.getElementById('addr').textContent = ''
+            document.getElementById('tel').textContent = ''
+            document.getElementById('name').textContent = ''
 
             e.preventDefault();
             if (!e.target.matches('a')) {
@@ -113,9 +165,9 @@
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
-                    document.getElementById('addr').textContent=data.bkaddr
-                    document.getElementById('tel').textContent=data.bktel
-                    document.getElementById('name').textContent=data.bkname
+                    document.getElementById('addr').textContent = data.bkaddr
+                    document.getElementById('tel').textContent = data.bktel
+                    document.getElementById('name').textContent = data.bkname
 
                 })
 
@@ -164,7 +216,7 @@
 
                             // 인포윈도우로 장소에 대한 설명을 표시합니다
                             var infowindow = new kakao.maps.InfoWindow({
-                                content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+                                content: '<div style="width:150px;text-align:center;padding:6px 0;">즐겨찾는 장소</div>'
                             });
                             infowindow.open(map, marker);
 

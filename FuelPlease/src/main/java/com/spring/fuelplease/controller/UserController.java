@@ -163,5 +163,12 @@ public class UserController {
     	log.info(id);
     	return sv.showBookmark(bkaddr, id);
     }
+    
+    @PostMapping("/deleteBookmark")
+    @ResponseBody
+    public void deleteBookmark(HttpSession session, @RequestBody String bkaddr) {
+    	String id = (String)session.getAttribute("login");
+    	sv.deleteBookmark(id, bkaddr);
+    }
 
 }

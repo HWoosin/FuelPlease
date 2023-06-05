@@ -29,6 +29,10 @@
 		(bkuser_id, bkaddr, bktel, bkname)
 		values (#{bkuserId}, #{bkaddr}, #{bktel}, #{bkname})
 	</insert>
+	
+	<select id="bookCheck" resultType="int">
+		select count(*) from bookmark where bkaddr = #{bkaddr} and bkuser_id = #{bkuserId}
+	</select>
 
 	
 </mapper>

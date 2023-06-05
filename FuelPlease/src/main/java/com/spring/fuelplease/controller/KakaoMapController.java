@@ -133,7 +133,15 @@ public class KakaoMapController {
 		vo.setBkuserId((String)session.getAttribute("login"));
 		gsv.addBookmarkGas(vo);
 	}
-	
+	@PostMapping("/bookCheck")
+	@ResponseBody
+	public int bookCheck(@RequestBody String bkaddr, HttpSession session) {
+		String id = (String)session.getAttribute("login");
+		if(gsv.bookCheck(bkaddr, id)>=1)
+			return 1;
+		else
+			return 0;
+	}
 	
 	@PostMapping("/searchResult")
 	public String searchResult(String searchWord) {

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.fuelplease.AllFuel.mapper.ILpgMapper;
+import com.spring.fuelplease.voCenter.BookMarkVO;
 import com.spring.fuelplease.voCenter.LpgVO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -66,6 +67,11 @@ public class LpgService implements ILpgService {
 	public LpgVO getInfo(String loadId) {
 		log.info(loadId);
 		return mp.getInfo(loadId);
+	}
+	
+	@Override
+	public void addBookmarkGas(BookMarkVO vo) {
+		mp.addBookmarkGas(vo);
 	}
 
 

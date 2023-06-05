@@ -70,5 +70,13 @@ public class GasolineService implements IGasolineService{
 		mp.addBookmarkGas(vo);
 	}
 
+	@Override
+	public int bookCheck(String bkaddr, String bkuserId) {
+		if(mp.bookCheck(bkaddr, bkuserId)>=1)
+			return 1;
+		else
+			return 0;
+	}
+
 	
 }

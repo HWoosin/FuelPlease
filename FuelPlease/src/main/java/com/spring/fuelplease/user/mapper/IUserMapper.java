@@ -35,4 +35,7 @@ public interface IUserMapper {
 	
 	//회원의 조회한데이터 상세보기
 	BookMarkVO showBookmark(@Param("userId") String id, @Param("bkaddr") String bkaddr);
+	
+	//회원의 즐겨찾기 삭제
+	void deleteBookmark(@Param("userId") String id, @Param("bkaddr") String bkaddr);
 }

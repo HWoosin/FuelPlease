@@ -20,4 +20,7 @@ public interface IGasolineMapper {
 	
 	//즐겨찾기 추가
 	void addBookmarkGas(BookMarkVO vo);
+	
+	//즐겨 찾기 중복 확인
+	int bookCheck(@Param("bkaddr") String bkaddr, @Param("bkuserId") String bkuserId);
 }

@@ -66,12 +66,17 @@
     
     <select id="userBookmark" resultType="string">
     	select bkaddr from bookmark
-    	where bkuser_id = #{id};
+    	where bkuser_id = #{id}
     </select>
     
     <select id="showBookmark" resultType="bookmark">
     	select bkaddr, bktel, bkname from bookmark
-    	where bkaddr = #{bkaddr} and bkuser_id = #{userId};
+    	where bkaddr = #{bkaddr} and bkuser_id = #{userId}
     </select>
+    
+    <delete id="deleteBookmark">
+		delete from bookmark 
+		where bkaddr = #{bkaddr} and bkuser_id = #{userId}
+    </delete>
     
 </mapper>

@@ -42,39 +42,48 @@ h6 {
   background: #fff;
   border-bottom: 1px solid #7998ff;
   color: #7998ff;
-  text-align: left;
   padding: 5px;
 }
 
-.nav-menu ul {
+/* .nav-menu ul {
   display: flex;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   list-style: none;
-  padding: 8px;
-}
+  padding: 10px;
+} */
 
 .nav-menu ul li {
-  padding: 15px;
+  padding: 30px;
   list-style: none;
-  font-size: 15px;
+  font-size: 18px;
+}
+
+.nav-menu .menu-left {
+  display: flex;
+  margin-left: 300px;
+  list-style: none;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  padding: 12px;
+}
+
+.nav-menu .menu-right {
+  display: flex;
+  list-style: none;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  margin-left: 20px;
+  padding: 5px;
 }
 
 .logo img {
-  margin-left: 46%;
+  margin-left: 44%;
+  margin-top: 2%;
 }
 
-.search-bar {
-  margin: 0;
-}
 
-.search-bar .form-contorl {
-  left: 30px;
-  border-radius: 10px;
-  border-color: #7998ff;
-  margin-right: 320px;
-  /* padding: 10px; */
-}
+
 
 /*--------------------------------------------------------------
 # Back to top button
@@ -125,107 +134,6 @@ h6 {
 * Desktop Navigation 
 */
 
-
-/*--------------------------------------------------------------
-# Sections General
---------------------------------------------------------------*/
-section {
-  margin-top: 20px;
-  overflow: hidden;
-}
-
-.section-title {
-  text-align: center;
-  padding-bottom: 30px;
-}
-
-.section-title h2 {
-  font-size: 32px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-top: 20px;
-  margin-bottom: 50px;
-  padding-bottom: 30px;
-  position: relative;
-  color: #7998ff;
-}
-
-.section-title h2::before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 120px;
-  height: 1px;
-  background: #ddd;
-  bottom: 1px;
-  left: calc(50% - 60px);
-}
-
-/*--------------------------------------------------------------
-# Portfolio Details
---------------------------------------------------------------*/
-/* .portfolio-details {
-  padding-top: 40px;
-}
-
-.portfolio-details .portfolio-details-slider img {
-  width: 100%;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: #fff;
-  opacity: 1;
-  border: 1px solid #0563bb;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #0563bb;
-}
-
-.portfolio-details .portfolio-info {
-  padding: 30px;
-  box-shadow: 0px 0 30px rgba(69, 80, 91, 0.08);
-}
-
-.portfolio-details .portfolio-info h3 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
-}
-
-.portfolio-details .portfolio-info ul {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
-}
-
-.portfolio-details .portfolio-info ul li+li {
-  margin-top: 10px;
-}
-
-.portfolio-details .portfolio-description {
-  padding-top: 30px;
-}
-
-.portfolio-details .portfolio-description h2 {
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.portfolio-details .portfolio-description p {
-  padding: 0;
-}  */
-
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
@@ -235,10 +143,10 @@ section {
 
 .services .icon-box {
   text-align: center;
-  padding: 70px 20px 80px 20px;
+  padding: 70px 25px 80px 20px;
   transition: all ease-in-out 0.3s;
   background: #fff;
-  box-shadow: 0px 5px 50px 0px rgba(110, 123, 131, 0.05);
+  box-shadow: 0px 5px 20px 0px rgba(110, 123, 131, 0.5);
   border-radius: 2%;
 }
 
@@ -314,6 +222,43 @@ section {
 
 
 /*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+section {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.section-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  position: relative;
+  color: #7998ff;
+}
+
+.section-title h2::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 120px;
+  height: 1px;
+  background: #ddd;
+  bottom: 1px;
+  left: calc(50% - 60px);
+}
+
+
+
+/*--------------------------------------------------------------
 # User
 --------------------------------------------------------------*/
 
@@ -331,7 +276,7 @@ section {
   background: #fff;
   border-radius: 2%;
   border: 1px solid #7998ff;
-  margin-left: 55%;
+  margin-left: 40%;
   margin-bottom: 150px;
   
   padding: 30px;
@@ -372,32 +317,89 @@ section {
 --------------------------------------------------------------*/
 /*boardList*/
 .search-wrap {
-  padding: 50px;
-  margin-left: 598px;
+  margin-bottom: 20px;
+  margin-left: 670px;
+}
+
+.search-wrap hr {
+  width: 100%;
+}
+
+.board-table hr {
+  margin-top: 10px;
+  width: 100vw;
 }
 
 .table-bordered {
-  padding: none;
-  margin-left: 290px;
+  margin-top: 20px;
+  margin-left: 350px;
 }
 
-.text-center .btn-info {
-
+.pagination-sm hr {
+  width: 100vw;
 }
 
+.search-btn {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+ .pageNum {
+  text-align: center;
+ }
 /*BoardRegist*/
 .t-control {
   padding: 10px;
 }
 
 
+
 /*BoardDetail*/
+
+#Detailbox {
+  width: 400px;
+}
+
 
 /*--------------------------------------------------------------
 # MyPage
 --------------------------------------------------------------*/
+.table-fluid {
+  border-collapse: separate;
+}
 
+.m-title {
+  margin-top: 10px;
+  padding: 15px;
+}
 
+.mail-check-input {
+  padding: 10px;
+}
+
+#userEmail1 {
+  margin-bottom: 5px;
+}
+
+#userEmail2 {
+  margin-bottom: 5px;
+}
+
+.sel {
+  margin-top: 5px;
+}
+
+#zipCd {
+  margin-top: 10px;
+}
+
+#updateBtn {
+  margin-left: 10px;
+}
+
+#listBtn {
+  margin-left: 10px;
+}
 
 /*--------------------------------------------------------------
 # gasolineMap
@@ -417,7 +419,6 @@ section {
   background: #7998ff;
   color: #fff;
   border: none;
-  border-radius: 2%;
 }
 
 .stationBar {
@@ -445,16 +446,12 @@ section {
   padding: 40px;
 }
 
-.mapInfo h2 {
-  
-}
-
 .mapInfotxt {
   padding: 20px;
 }
 
 .mapInfotxt hr {
-  width: 580px;
+  width: 50%;
 }
 
 

@@ -19,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 public class FuelAvg {
 	@Value("${ApiKey}")
 	private String ApiKey;
-	
+
 	// tag값의 정보를 가져오는 함수
 	public static String getTagValue(String tag, Element eElement) {
 
@@ -42,12 +42,13 @@ public class FuelAvg {
 		}
 		return result;
 	}
-	
+
 	//휘발유
 	public String getGasAvg() {
 
 		try {
 			// parsing할 url 지정(API 키 포함해서)
+
 			String url = "https://www.opinet.co.kr/api/avgLastWeek.do?prodcd=B027&code="+ApiKey+"&sido=01&out=xml";
 
 
@@ -60,7 +61,7 @@ public class FuelAvg {
 
 			// 파싱할 tag
 			NodeList nList = doc.getElementsByTagName("OIL");
-			
+
 			int temp =0;
 			Node nNode = nList.item(temp);
 			Element eElement = (Element) nNode;
@@ -68,7 +69,7 @@ public class FuelAvg {
 
 
 				log.info("휘발유 평균가격: " + getTagValue("PRICE", eElement));
-				
+
 			}
 			return getTagValue("PRICE", eElement);
 
@@ -77,7 +78,7 @@ public class FuelAvg {
 			return null;
 		}
 	}
-	
+
 	//디젤
 	public String getDisAvg() {
 
@@ -85,8 +86,6 @@ public class FuelAvg {
 			// parsing할 url 지정(API 키 포함해서)
 
 			String url = "https://www.opinet.co.kr/api/avgLastWeek.do?prodcd=D047&code="+ApiKey+"&sido=01&out=xml";
-
-
 			DocumentBuilderFactory dbFactoty = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactoty.newDocumentBuilder();
 			Document doc = dBuilder.parse(url);
@@ -110,15 +109,13 @@ public class FuelAvg {
 			return null;
 		}
 	}
-	
+
 	//고급휘발유
 	public String getPreGasAvg() {
 
 		try {
 			// parsing할 url 지정(API 키 포함해서)
-
 			String url = "https://www.opinet.co.kr/api/avgLastWeek.do?prodcd=B034&code="+ApiKey+"&sido=01&out=xml";
-
 
 			DocumentBuilderFactory dbFactoty = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactoty.newDocumentBuilder();
@@ -135,7 +132,7 @@ public class FuelAvg {
 			Element eElement = (Element) nNode;
 			for (temp = 0; temp < nList.getLength(); temp++) {
 				log.info("고급휘발유 평균가격: " + getTagValue("PRICE", eElement));
-			
+
 			}
 			return getTagValue("PRICE", eElement);
 

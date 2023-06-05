@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-9 write-wrap">
-                <div class="titlebox">
+                <div class="titlebox" id="Detailbox">
                     <p>상세보기</p>
                 </div>
 

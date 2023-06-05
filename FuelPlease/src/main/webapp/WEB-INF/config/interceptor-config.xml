@@ -30,6 +30,8 @@
 			<mvc:mapping path="/user/userBookmark"/>
 			<mvc:mapping path="/infoboard/modify"/>
 			<mvc:mapping path="/infoboard/content/*"/>
+			<!-- <mvc:mapping path="/caraccount/carAccount"/> -->
+			
 
 			<ref bean ="userAuth"/>
 		</mvc:interceptor>	

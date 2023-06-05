@@ -236,9 +236,9 @@ Docs & License: https://fullcalendar.io/
                 }
             }
             titleHtml =
-                '<span class="fc-title">' +
+                    '<span class="fc-title" data-acno="' + localStorage.getItem('acno') + '">' +
                     (core.htmlEscape(eventDef.title || '') || '&nbsp;') + // we always want one line of height
-                    '</span>';
+                    '</span>' ;                    
             return '<a class="' + classes.join(' ') + '"' +
                 (eventDef.url ?
                     ' href="' + core.htmlEscape(eventDef.url) + '"' :

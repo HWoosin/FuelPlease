@@ -71,7 +71,7 @@
     
     <select id="showBookmark" resultType="bookmark">
     	select bkaddr, bktel, bkname from bookmark
-    	where bkaddr = #{bkaddr};
+    	where bkaddr = #{bkaddr} and bkuser_id = #{userId};
     </select>
     
 </mapper>

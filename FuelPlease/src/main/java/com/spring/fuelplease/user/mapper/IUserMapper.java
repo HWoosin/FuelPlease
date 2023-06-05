@@ -34,5 +34,5 @@ public interface IUserMapper {
 	List<String> userBookmark(String id);
 	
 	//회원의 조회한데이터 상세보기
-	BookMarkVO showBookmark(@Param("bkaddr") String bkaddr);
+	BookMarkVO showBookmark(@Param("userId") String id, @Param("bkaddr") String bkaddr);
 }

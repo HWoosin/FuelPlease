@@ -157,8 +157,11 @@ public class UserController {
     
     @PostMapping("/showBookmark")
     @ResponseBody
-    public BookMarkVO showBookmark(@RequestBody String bkaddr) {
-    	return sv.showBookmark(bkaddr);
+    public BookMarkVO showBookmark(HttpSession session, @RequestBody String bkaddr) {
+    	log.info(bkaddr);
+    	String id = (String)session.getAttribute("login");
+    	log.info(id);
+    	return sv.showBookmark(bkaddr, id);
     }
 
 }

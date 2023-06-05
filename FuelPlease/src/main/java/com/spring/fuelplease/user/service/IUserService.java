@@ -30,6 +30,6 @@ public interface IUserService {
 	List<String> userBookmark(String id);
 	
 	//회원의 조회한데이터 상세보기
-	BookMarkVO showBookmark(String bkaddr);
+	BookMarkVO showBookmark(String id, String bkaddr);
 
 }

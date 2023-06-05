@@ -84,13 +84,35 @@
         var geocoder = new kakao.maps.services.Geocoder();
 
         // const $selectAddr = document.getElementById('selectAddr');
-        let addr = '';
+        
+
         document.getElementById('bookbox').onclick = function (e) {
+            document.getElementById('addr').textContent=''
+            document.getElementById('tel').textContent=''
+            document.getElementById('name').textContent=''
+
             e.preventDefault();
             if (!e.target.matches('a')) {
                 return;
             }
-            console.log(e.target.textContent);// 클릭한 값을 가져옴 이걸 넘길꺼임
+            console.log(e.target.textContent); // 클릭한 값을 가져옴 이걸 넘길꺼임
+
+            fetch('${pageContext.request.contextPath}/user/showBookmark', {
+                    method: 'post',
+                    headers: {
+                        'Content-type': 'application/json'
+
+                    },
+                    body: e.target.textContent
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    document.getElementById('addr').textContent=data.bkaddr
+                    document.getElementById('tel').textContent=data.bktel
+                    document.getElementById('name').textContent=data.bkname
+
+                })
 
             // fetch('${pageContext.request.contextPath}/user/showBookmark', {
             //         method: 'post',

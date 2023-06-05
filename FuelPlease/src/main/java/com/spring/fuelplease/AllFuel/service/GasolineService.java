@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.fuelplease.AllFuel.mapper.IGasolineMapper;
+import com.spring.fuelplease.voCenter.BookMarkVO;
 import com.spring.fuelplease.voCenter.GasolineVO;
 import com.spring.fuelplease.voCenter.LpgVO;
 
@@ -62,6 +63,11 @@ public class GasolineService implements IGasolineService{
 	public GasolineVO getGasolineInfo(String loadId) {
 		log.info(loadId);
 		return mp.getGasolineInfo(loadId);
+	}
+
+	@Override
+	public void addBookmarkGas(BookMarkVO vo) {
+		mp.addBookmarkGas(vo);
 	}
 
 	

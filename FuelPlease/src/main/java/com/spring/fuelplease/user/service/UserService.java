@@ -8,6 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.fuelplease.user.mapper.IUserMapper;
 import com.spring.fuelplease.util.PageVO;
@@ -87,8 +88,9 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public BookMarkVO showBookmark(String bkaddr) {
-		return mp.showBookmark(bkaddr);
+	public BookMarkVO showBookmark(String id, String bkaddr) {
+		log.info(bkaddr);
+		return mp.showBookmark(bkaddr, id);
 	}
 
 

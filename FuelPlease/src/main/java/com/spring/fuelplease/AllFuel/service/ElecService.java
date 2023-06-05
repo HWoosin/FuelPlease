@@ -27,7 +27,7 @@ public class ElecService implements IElecService {
 
 		try {
 			ObjectMapper objectMapper = new ObjectMapper();
-			JsonNode rootNode = objectMapper.readTree(new File("C:\\Work\\middle_Project\\FuelPlease\\seoul_elec.json"));
+			JsonNode rootNode = objectMapper.readTree(new File("C:\\Work\\mid_project_fuel\\FuelPlease_MUN\\seoul_elec.json"));
 			JsonNode dataNode = rootNode.get("DATA");
 
 			if (dataNode.isArray()) {

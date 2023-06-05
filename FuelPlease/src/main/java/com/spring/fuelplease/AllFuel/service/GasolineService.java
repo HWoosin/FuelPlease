@@ -30,7 +30,7 @@ public class GasolineService implements IGasolineService{
 
 		try {
 			ObjectMapper objectMapper = new ObjectMapper();
-			JsonNode rootNode = objectMapper.readTree(new File("C:\\Work\\middle_Project\\FuelPlease\\seoul_gasoline.json"));
+			JsonNode rootNode = objectMapper.readTree(new File("C:\\Work\\mid_project_fuel\\FuelPlease_MUN\\seoul_gasoline.json"));
 			JsonNode dataNode = rootNode.get("DATA");
 
 			if (dataNode.isArray()) {

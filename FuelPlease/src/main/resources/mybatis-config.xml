@@ -21,6 +21,7 @@
 		<typeAlias type="com.spring.fuelplease.voCenter.BookMarkVO" alias="bookmark"/>
 		<typeAlias type="com.spring.fuelplease.voCenter.GasolineVO" alias="gasoline"/>
 		<typeAlias type="com.spring.fuelplease.voCenter.ElecVO" alias="elec"/>
+		<typeAlias type="com.spring.fuelplease.voCenter.carAccountVO" alias="caraccount"/>
 
 		
 	</typeAliases>

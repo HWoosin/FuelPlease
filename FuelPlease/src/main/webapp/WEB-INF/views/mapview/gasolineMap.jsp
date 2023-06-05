@@ -213,7 +213,6 @@
 	function getGasolineinfo() {
 		const loadId = document.getElementById('selectLoad').value;
 			console.log(loadId); //사용자가 선택한 도로명 주소 추출
-
 			fetch('${pageContext.request.contextPath}/mapview/gasolineMapInfo', {
 			method: 'post',
 			headers: {

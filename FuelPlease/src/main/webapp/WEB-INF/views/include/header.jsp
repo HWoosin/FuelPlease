@@ -64,18 +64,24 @@
             <li><a href="${pageContext.request.contextPath}/mapview/gasolineMap" class="nav-link scrollto"> <span>주유소</span></a></li>
             <li><a href="${pageContext.request.contextPath}/mapview/elecChargeMap" class="nav-link scrollto"> <span>전기충전소</span></a></li>
             <li><a href="${pageContext.request.contextPath}/mapview/lpgMap" class="nav-link scrollto"> <span>LPG충전소</span></a></li>
-            <li><a href="${pageContext.request.contextPath}/caraccount/carAccount" class="nav-link scrollto"> <span>Car Account</span></a></li>
             <li><a href="${pageContext.request.contextPath}/infoboard/boardList" class="nav-link scrollto"> <span>Board</span></a></li>
-            <li><a href="${pageContext.request.contextPath}/user/userMypage" class="nav-link scrollto"> <span>MyPage</span></a></li>
-            <li><a href="${pageContext.request.contextPath}/user/userBookmark" class="nav-link scrollto"> <span>즐겨찾기</span></a></li>
+            <c:if test="${login != null}">
+              <li><a href="${pageContext.request.contextPath}/caraccount/carAccount" class="nav-link scrollto"> <span>Car Account</span></a></li>
+              <li><a href="${pageContext.request.contextPath}/user/userBookmark" class="nav-link scrollto"> <span>즐겨찾기</span></a></li>
+            </c:if>
             
           </ul>
-
+          
           <ul class="menu-right">            
-
+            <c:if test="${login == null}">
               <li><a href="${pageContext.request.contextPath}/user/userLogin" class="member"> <span>Login</span></a></li>
+              <li><a href="${pageContext.request.contextPath}/user/userJoin" class="member"> <span>회원가입</span></a></li>
+            </c:if>
+            <c:if test="${login != null}">
+              <li><a id="myPage" href="${pageContext.request.contextPath}/user/userMypage" class="nav-link scrollto"> <span>MyPage</span></a></li>
               <li><a href="${pageContext.request.contextPath}/user/userLogout" class="member" id="logout"> <span>Logout</span></a></li>
-	            <li><a href="${pageContext.request.contextPath}/user/userJoin" class="member"> <span>회원가입</span></a></li>
+            </c:if>
+
             
           </ul>
         </nav>
@@ -83,6 +89,13 @@
         
 
       </header><!-- End Header -->
+
+      <script>
+        document.getElementById('myPage').textContent = '${login}' + '님 환영합니다! [MyPage]';
+        document.getElementById('logout').onclick = () => {
+          alert(`${login}님` + '로그아웃 되었습니다.');
+        }
+      </script>
      
 </body>
 </html>

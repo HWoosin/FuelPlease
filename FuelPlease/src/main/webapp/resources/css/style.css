@@ -394,6 +394,11 @@ input [type=password] {
         font-size: 15px;
 }
 
+#bookbox a {
+  margin: 0px 25px;
+}
+
+
 #map{
   width: 40%; 
   height: 650px;
@@ -401,6 +406,7 @@ input [type=password] {
 
 .bookInfotxt{
   margin: 0 auto;
+  width: 100%;
 }
 .bookInfo{
   margin-left: 250px;

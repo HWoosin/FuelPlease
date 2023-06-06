@@ -71,13 +71,14 @@
 				<p id="elecType">→</p>
 				<h4>전기차 충전 용량</h4>
 				<p id="elecSize">→</p>
+
+				<div class="addBtnDiv" style="display: inline;">
+					<c:if test="${login != null}">
+						<button type="button" id="searchBtn">즐겨찾기 추가</button>
+					</c:if>	
+			</div>
 			</div>
 
-			<div class="addBtnDiv">
-				<c:if test="${login != null}">
-					<button type="button" id="addBtn">즐겨찾기 추가</button>
-				</c:if>
-			</div>
 		</div>
 	</div>
 

@@ -71,13 +71,14 @@
 				<p id="gasAddr">→</p>
 				<h4>주유소 번호(TEL)</h4>
 				<p id="gasNo">→</p>
+
+				<div class="addBtnDiv" style="display: inline;">
+						<c:if test="${login != null}">
+							<button type="button" id="searchBtn">즐겨찾기 추가</button>
+						</c:if>	
+				</div>
 			</div>
 
-		<div class="addBtnDiv">
-				<c:if test="${login != null}">
-					<button type="button" id="addBtn">즐겨찾기 추가</button>
-				</c:if>	
-		</div>
 	</div>
 	</div>
 	<%@ include file="../include/footer.jsp" %>

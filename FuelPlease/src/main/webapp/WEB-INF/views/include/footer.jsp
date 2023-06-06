@@ -11,7 +11,7 @@
 </style>
 
 <footer id="footer">
-    <div class="container">
+    <div class="footerCon">
       <h3>Fuel Please</h3>
       <li>이메일: kim1234@naver.com</li>
       <li>대표이사: 황우신</li>
@@ -29,4 +29,6 @@
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade, kimjiwon</a>
       </div>
     </div>
+
+
   </footer><!-- End Footer -->

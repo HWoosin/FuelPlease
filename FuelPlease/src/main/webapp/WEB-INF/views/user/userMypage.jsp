@@ -12,11 +12,6 @@
 	<meta content="" name="description">
 	<meta content="" name="keywords">
 
-<<<<<<< HEAD
-=======
-	<!--css-->
-  
->>>>>>> feat/hwang
 	<!-- Favicons -->
 	<link href="${pageContext.request.contextPath }/img/favicon.png" rel="icon">
   
@@ -158,73 +153,13 @@
 									</tbody>
 								</table>
 								<div class="titlefoot">
-									<button class="btn btn-primary" id="updateBtn">수정</button>
-									<button class="btn btn-primary" id="listBtn" onclick="location.href='${pageContext.request.contextPath}/user/userDelete'">회원탈퇴</button>
+									<button type="button" class="btn btn-primary" id="updateBtn">수정</button>
+									<button type="button" class="btn btn-primary" id="listBtn" onclick="location.href='${pageContext.request.contextPath}/user/userDelete'">회원탈퇴</button>
 	
 								</div>
 							</form>
 						</div>
 						<!-- 첫번째 토글 끝 -->
-
-						<!-- 두번째 토글 메뉴 시작 -->
-						<%-- <div id="myBoard" class="tab-pane fade">
-							<p>*내 게시글 관리</p>
-							<form>
-								<table class="table">
-									<thead>
-										<tr>
-											<td>번호</td>
-											<td>제목</td>
-											<td>작성일</td>
-										</tr>
-									</thead>
-									<tbody>
-
-										<c:if test="${fn:length(userInfo.userBoardList) > 0}">
-											<c:forEach var="vo" items="#">
-												<tr>
-													<td>${vo.bno}</td>
-													<td><a href="##">${vo.title}</a></td>
-													<td><fmt:parseDate value="${vo.regDate}"
-															pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate"
-															type="both" /> <fmt:formatDate value="${parsedDate}"
-															pattern="yyyy년 MM월 dd일 HH:mm" /></td>
-												</tr>
-											</c:forEach>
-											<div class="text-center">
-												<hr>
-												<ul id="pagination" class="pagination pagination-sm">
-													<c:if test="${pc.prev}">
-														<li><a href="#" data-pagenum="${pc.beginPage-1}">이전</a></li>
-													</c:if>
-
-													<c:forEach var="num" begin="${pc.beginPage}"
-														end="${pc.endPage}">
-														<li class="${pc.paging.pageNum == num ? 'active' : '' }">
-															<a href="#" data-pagenum="${num}">${num}</a>
-														</li>
-													</c:forEach>
-
-													<c:if test="${pc.next}">
-														<li><a href="#" data-pagenum="${pc.endPage+1}">다음</a></li>
-													</c:if>
-												</ul>
-											</div>
-										</c:if>
-
-										<c:if test="${fn:length(userInfo.userBoardList) <= 0}">
-											<h2>작성된 글이 없습니다.</h2>
-										</c:if>
-									</tbody>
-								</table>
-							</form>
-						</div>
-						<!-- 두번째 토글 끝 -->
-						
-						<div id="menu2" class="tab-pane fade">
-							<h3>Menu 2</h3>
-							<p>Some content in menu 2.</p>
-						</div> --%>
 
 					</div>
 				</div>
@@ -234,7 +169,6 @@
 	<%@ include file="../include/footer.jsp" %>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
-		console.log('${login}');
 		let code = '';
 		let pwFlag;
 

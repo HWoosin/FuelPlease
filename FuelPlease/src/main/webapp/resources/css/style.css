@@ -1,4 +1,4 @@
-/**
+/**userId
 * Template Name: MyResume
 * Updated: Mar 10 2023 with Bootstrap v5.2.3
 * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
@@ -74,6 +74,7 @@ h6 {
   margin: 0 auto;
   list-style: none;
   padding: 12px;
+  margin-top: 4px;
 }
 
 .nav-menu .menu-right {

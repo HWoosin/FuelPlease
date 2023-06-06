@@ -65,21 +65,21 @@
 
 <div id="bookdiv">
 
-    <div id="bookbox">
-
-    </div>
-
+    
     <div class="mapBox">
-        <div id="map" style="width: 40%; height: 650px;"></div>
-        <div class="mapInfo" style="width: 28%; height: 650px; display: flex;">
-            <div class="mapInfotxt">
+        <div id="map" ></div>
+        <div class="bookInfo" style="width: 30%; height: 650px; display: flex;">
+            <div class="bookInfotxt">
                 <h2>장소 정보</h2>
                 <p id="addr">→</p>
                 <p id="tel">→</p>
                 <p id="name">→</p>
-            </div>
-            <div>
-                <button type="button" id="delBtn">즐겨찾기 삭제</button>
+                <div>
+                    <button type="button" id="delBtn">즐겨찾기 삭제</button>
+                </div>
+                <div id="bookbox">
+                    <br>
+                </div>
             </div>
         </div>
     </div>
@@ -102,13 +102,14 @@
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
-                    for (var i = 0; i <= data.length; i++) {
+                    for (var i = 0; i < data.length; i++) {
                         var opt = document.createElement('a')
+                        var hr = document.createElement('hr')
                         opt.textContent = data[i];
                         opt.style.display = 'block';
                         opt.setAttribute('value', data[i]);
                         selectBook.appendChild(opt);
-
+                        selectBook.appendChild(hr);
 
                     }
 
@@ -184,7 +185,11 @@
 
             e.preventDefault();
             if (!e.target.matches('a')) {
+                document.getElementById('addr').textContent = '→'
+                document.getElementById('tel').textContent = '→'
+                document.getElementById('name').textContent = '→'
                 return;
+                
             }
             console.log(e.target.textContent); // 클릭한 값을 가져옴 이걸 넘길꺼임
 

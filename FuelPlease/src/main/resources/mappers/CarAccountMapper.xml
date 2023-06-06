@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.spring.fuelplease.caraccount.mapper.ICarAccountMapper">
+
+	<sql id="myPage">
+			<if test="loginId != null">
+				WHERE writer = #{loginId}
+			</if>
+	</sql>
+
+
+	<!-- 등록하기 -->
+	<insert id="regist">
+		INSERT INTO caraccount
+		(writer, year, month, day, type, price, note)
+		VALUES
+		(#{writer}, #{year}, #{month}, #{day}, #{type}, #{price}, #{note})
+	</insert>	
+		
+
+	<!-- 목록 불러오기 -->
+	<select id="accountList" resultType="caraccount">
+		SELECT * FROM caraccount
+		WHERE writer = #{loginId}		
+		ORDER BY acno DESC		
+	</select>
+	
+	<!-- 총 등록수 구하기 -->
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(*) FROM caraccount
+		
+	</select>
+	
+	
+	<!-- 상세보기 -->
+	<select id="getContent" resultType="caraccount">
+		SELECT * FROM caraccount
+		WHERE acno = #{acno}
+	</select>
+	
+	
+	<!-- 수정하기 -->
+	<update id="update">
+		UPDATE caraccount
+		SET year = #{year}, month = #{month}, day = #{day}, type = #{type}, price = #{price}
+		WHERE acno = #{acno} 
+	</update>
+	
+	
+	<!-- 삭제하기 -->
+	<delete id="delete">
+		DELETE FROM caraccount
+		WHERE acno = #{acno}
+	</delete>
+	
+
+</mapper>

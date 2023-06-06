@@ -59,7 +59,7 @@
     </em>
 </p> -->
 <div class="gasTitle">
-    <h2>즐겨찾는 장소</h2>
+    <h2>나의 즐겨찾는 장소</h2>
 </div>
 
 
@@ -75,7 +75,7 @@
                 <p id="tel">→</p>
                 <p id="name">→</p>
                 <div>
-                    <button type="button" id="delBtn">즐겨찾기 삭제</button>
+                    <button type="button" id="searchBtn">즐겨찾기 삭제</button>
                 </div>
                 <div id="bookbox">
                     <br>
@@ -116,9 +116,9 @@
                 })
         }
 
-        document.getElementById('delBtn').onclick = function () {
+        document.getElementById('searchBtn').onclick = function () {
             let selectBook = document.getElementById('bookbox');
-            let addr = document.getElementById('addr').textContent
+            let addr = document.getElementById('addr').textContent;
             if (addr === '→') {
                 alert('삭제할 목록을 선택해주세요')
             } else {
@@ -133,30 +133,34 @@
                         })
                         .then(res => res.text())
                         .then(data => {
+                            location.href = '${pageContext.request.contextPath}/user/userBookmark';
+                        })
                             // console.log(data);
 
-                            fetch('${pageContext.request.contextPath}/user/userBookmark', {
+                    //         fetch('${pageContext.request.contextPath}/user/userBookmark', {
 
-                                    method: 'post'
-                                })
-                                .then(res => res.json())
-                                .then(list => {
-                                    // console.log(list);
-                                    selectBook.replaceChildren();
-                                    for (var i = 0; i <= list.length; i++) {
-                                        var opt = document.createElement('a')
-                                        opt.textContent = list[i];
-                                        opt.style.display = 'block';
-                                        opt.setAttribute('value', list[i]);
-                                        selectBook.appendChild(opt);
-                                    }
+                    //                 method: 'post'
+                    //             })
+                    //             .then(res => res.json())
+                    //             .then(list => {
+                    //                 // console.log(list);
+                    //                 selectBook.replaceChildren();
+                    //                 for (var i = 0; i <= list.length; i++) {
+                    //                     var opt = document.createElement('a');
+                    //                     var hr = document.createElement('hr');
+                    //                     opt.textContent = list[i];
+                    //                     opt.style.display = 'block';
+                    //                     opt.setAttribute('value', list[i]);
+                    //                     selectBook.appendChild(opt);
+                    //                     selectBook.appendChild(hr);
+                    //                 }
 
-                                })
+                    //             })
 
-                        })
-                    document.getElementById('addr').textContent = '→'
-                    document.getElementById('tel').textContent = '→'
-                    document.getElementById('name').textContent = '→'
+                    //     })
+                    // document.getElementById('addr').textContent = '→';
+                    // document.getElementById('tel').textContent = '→';
+                    // document.getElementById('name').textContent = '→';
                 }
             }
         }
@@ -179,15 +183,15 @@
 
         //장소 선택
         document.getElementById('bookbox').onclick = function (e) {
-            document.getElementById('addr').textContent = ''
-            document.getElementById('tel').textContent = ''
-            document.getElementById('name').textContent = ''
+            document.getElementById('addr').textContent = '';
+            document.getElementById('tel').textContent = '';
+            document.getElementById('name').textContent = '';
 
             e.preventDefault();
             if (!e.target.matches('a')) {
-                document.getElementById('addr').textContent = '→'
-                document.getElementById('tel').textContent = '→'
-                document.getElementById('name').textContent = '→'
+                document.getElementById('addr').textContent = '→';
+                document.getElementById('tel').textContent = '→';
+                document.getElementById('name').textContent = '→';
                 return;
                 
             }
@@ -204,9 +208,9 @@
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
-                    document.getElementById('addr').textContent = data.bkaddr
-                    document.getElementById('tel').textContent = data.bktel
-                    document.getElementById('name').textContent = data.bkname
+                    document.getElementById('addr').textContent = data.bkaddr;
+                    document.getElementById('tel').textContent = data.bktel;
+                    document.getElementById('name').textContent = data.bkname;
 
                 })
 

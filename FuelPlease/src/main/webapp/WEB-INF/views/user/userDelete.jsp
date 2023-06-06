@@ -25,12 +25,12 @@
     </section>
 	<%@ include file="../include/footer.jsp" %>
 <script>
-	const loginId = '${login}'
-    console.log(loginId);
-    if(loginId === '') {
-        history.back();
-        alert('로그인 후 이용가능합니다.');
-    }
+	// const loginId = '${login}'
+    // console.log(loginId);
+    // if(loginId === '') {
+    //     history.back();
+    //     alert('로그인 후 이용가능합니다.');
+    // }
 	
 	const msg = document.getElementById('msgId');
     document.getElementById('delBtn').onclick =function(){

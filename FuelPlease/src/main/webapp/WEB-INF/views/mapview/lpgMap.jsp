@@ -72,8 +72,10 @@
 				<p id="lpgNo">→</p>
 			</div>
 
-			<div>
-				<button type="button" id="addBtn">즐겨찾기 추가</button>
+			<div class="addBtnDiv">
+				<c:if test="${login != null}">
+					<button type="button" id="addBtn">즐겨찾기 추가</button>
+				</c:if>
 			</div>
 		</div>
 	</div>
@@ -85,11 +87,20 @@
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=405e0d5fd34220069ac5fe74d4c49e23&libraries=services"></script>
 	<script>
+		// const loginId = '${login}';
+		// console.log(loginId);
 		//즐겨찾기 추가
-		document.getElementById('addBtn').onclick = function () {
-			let lpgName = document.getElementById('lpgName').textContent
-			let lpgAddr = document.getElementById('lpgAddr').textContent
-			let lpgNo = document.getElementById('lpgNo').textContent
+		document.querySelector('.addBtnDiv').onclick = () => {
+		// document.getElementById('addBtn').onclick = function () {
+			let lpgName = document.getElementById('lpgName').textContent;
+			let lpgAddr = document.getElementById('lpgAddr').textContent;
+			let lpgNo = document.getElementById('lpgNo').textContent;
+
+			// if(loginId === '') {
+			// 	alert('로그인 후 이용가능한 서비스입니다.');
+			// 	return;
+			// }
+
 			if (lpgAddr === '→') {
 				alert('장소를 검색해주세요.')
 			} else {

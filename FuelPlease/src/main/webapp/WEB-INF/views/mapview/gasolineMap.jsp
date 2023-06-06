@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 
@@ -72,8 +73,10 @@
 				<p id="gasNo">→</p>
 			</div>
 
-			<div>
-				<button type="button" id="addBtn">즐겨찾기 추가</button>
+			<div class="addBtnDiv">
+				<c:if test="${login != null}">
+					<button type="button" id="addBtn">즐겨찾기 추가</button>
+				</c:if>
 			</div>
 		</div>
 	</div>
@@ -81,11 +84,23 @@
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=405e0d5fd34220069ac5fe74d4c49e23&libraries=services"></script>
 	<script>
+		// const loginId = '${login}';
+		// console.log(loginId);
+
+
+		document.querySelector('.addBtnDiv').onclick = () => {
+
+		
 		//즐겨찾기 추가
-		document.getElementById('addBtn').onclick = function () {
-			let gasName = document.getElementById('gasName').textContent
-			let gasAddr = document.getElementById('gasAddr').textContent
-			let gasNo = document.getElementById('gasNo').textContent
+		// document.getElementById('addBtn').onclick = function () {
+			let gasName = document.getElementById('gasName').textContent;
+			let gasAddr = document.getElementById('gasAddr').textContent;
+			let gasNo = document.getElementById('gasNo').textContent;
+
+			// if(loginId === '') {
+			// 	alert('로그인 후 이용가능한 서비스입니다.');
+			// 	return;
+			// }
 
 			if(gasAddr === '→'){
 				alert('장소를 검색해주세요.')
@@ -129,7 +144,8 @@
 						})
 			}
 
-		}
+		// }
+	}
 
 		//키워드 넘기기
 		document.getElementById('selectCounty').onclick = function () {

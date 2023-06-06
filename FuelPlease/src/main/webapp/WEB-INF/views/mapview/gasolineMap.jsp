@@ -73,12 +73,12 @@
 				<p id="gasNo">→</p>
 			</div>
 
-			<div class="addBtnDiv">
+		<div class="addBtnDiv">
 				<c:if test="${login != null}">
 					<button type="button" id="addBtn">즐겨찾기 추가</button>
-				</c:if>
-			</div>
+				</c:if>	
 		</div>
+	</div>
 	</div>
 	<%@ include file="../include/footer.jsp" %>
 	<script type="text/javascript"
@@ -102,27 +102,25 @@
 			// 	return;
 			// }
 
-			if(gasAddr === '→'){
+			if (gasAddr === '→') {
 				alert('장소를 검색해주세요.')
-			}
-			else{
+			} else {
 				fetch('${pageContext.request.contextPath}/mapview/bookCheck', {
-							method: 'post',
-							headers: {
-								'Content-type': 'text/plain'
-							},
-							body: gasAddr
-						})
-						.then(res => res.text())
-						.then(data => {
-							console.log(data);
-				
-							if(data==='1'){
-								alert('이미 즐겨찾기에 추가되어있습니다.')
-							}
-							else{
-								if (confirm('즐겨찾기에 추가하시겠습니까?')) {
-									fetch('${pageContext.request.contextPath}/mapview/addBookmarkGas', {
+						method: 'post',
+						headers: {
+							'Content-type': 'text/plain'
+						},
+						body: gasAddr
+					})
+					.then(res => res.text())
+					.then(data => {
+						console.log(data);
+
+						if (data === '1') {
+							alert('이미 즐겨찾기에 추가되어있습니다.')
+						} else {
+							if (confirm('즐겨찾기에 추가하시겠습니까?')) {
+								fetch('${pageContext.request.contextPath}/mapview/addBookmarkGas', {
 										method: 'post',
 										headers: {
 											'Content-type': 'application/json'
@@ -132,16 +130,16 @@
 											'bkaddr': gasAddr,
 											'bktel': gasNo
 										})
-										
+
 									})
 									.then(res => res.json())
 									.then(checkbook => {
 										console.log(checkbook);
 									})
-									alert('즐겨찾기에 추가되었습니다.')
-								}
+								alert('즐겨찾기에 추가되었습니다.')
 							}
-						})
+						}
+					})
 			}
 
 		// }
@@ -256,6 +254,7 @@
 		function getGasolineinfo() {
 			const loadId = document.getElementById('selectLoad').value;
 			console.log(loadId); //사용자가 선택한 도로명 주소 추출
+
 			fetch('${pageContext.request.contextPath}/mapview/gasolineMapInfo', {
 					method: 'post',
 					headers: {

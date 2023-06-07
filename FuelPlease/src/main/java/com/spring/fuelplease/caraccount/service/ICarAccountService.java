@@ -20,7 +20,7 @@ public interface ICarAccountService {
 	
 	//총 등록 수 구하기
 	int getTotal(PageVO vo);
-		
+	
 		
 	// 삭제
 	void delete(int acno);

@@ -37,9 +37,9 @@ public class CarAccountController {
 	@GetMapping("/accountList")
 	public void accountList(HttpSession session, PageVO vo, Model model) {
 		String id = (String) session.getAttribute("login");
-		vo.setLoginId(id);
+		vo.setLoginId(id);		
 		PageCreator apc = new PageCreator(vo, acsv.getTotal(vo));
-		model.addAttribute("accountList", acsv.getList(vo));
+		model.addAttribute("accountList", acsv.getList(vo));		
 		model.addAttribute("apc", apc);
 	}
 	
@@ -56,7 +56,7 @@ public class CarAccountController {
 		vo.setWriter(id);
 		sv.regist(vo);
 		return "redirect:/caraccount/accountList";
-	}
+	}	
 	
 	// 삭제 처리
 	@PostMapping("/delete")

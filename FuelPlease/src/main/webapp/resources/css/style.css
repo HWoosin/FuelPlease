@@ -552,6 +552,7 @@ input [type=password] {
   background: #7998ff;
   color: #fff;
   border: none;
+  border-radius: 2%;
 }
 
 .stationBar {

@@ -87,20 +87,20 @@
 				</form>
 				
 				<!-- 평균가격 뽑아내기 -->
-				<div class="avgTotal">
+				<div class="avgTotal" id="goodInfo">
 					<h4>이번주의 평균가격 (서울기준)</h4>
 
 					<div class="gasavgInfo">
 						<h5>휘발유</h5>
-						<p>${gas} 원 &nbsp &nbsp &nbsp</p>
+						<p><span id="price">${gas}</span> 원 &nbsp &nbsp &nbsp</p>
 					
 					
 						<h5>고급휘발유</h5>
-						<p>${preGas} 원 &nbsp &nbsp &nbsp</p>
+						<p><span id="price">${preGas}</span> 원 &nbsp &nbsp &nbsp</p>
 					
 					
 						<h5>경유</h5>
-						<p>${dis} 원</p>
+						<p><span id="price">${dis}</span> 원</p>
 						
 						
 						
@@ -114,21 +114,27 @@
 							<div>
 								<h5>휘발유</h5>
 								<p>상호명 : ${minGas[0]} (${minGas[2]})</p>
-								<p>가격 : ${minGas[1]} 원</p>
+								<p>가격 : <span id="price">${minGas[1]}</span> 원</p>
 							</div>
 							<div>
 								<h5>고급 휘발유</h5>
 								<p>상호명 : ${minPreGas[0]} (${minPreGas[2]})</p>
-								<p>가격 : ${minPreGas[1]} 원</p>
+								<p>가격 : <span id="price">${minPreGas[1]}</span> 원</p>
 							</div>
 							<div>
 								<h5>경유</h5>
 								<p>상호명 : ${minDis[0]} (${minDis[2]})</p>
-								<p>가격 : ${minDis[1]} 원</p>
+								<p>가격 : <span id="price">${minDis[1]}</span> 원</p>
 							</div>
 						
 					</div>
 					
+				</div>
+
+				<div class="avgTotal" style="display: none;" id="badInfo">
+					<h4>가격 정보를 업데이트 중입니다.</h4>
+					<h4>문의는 아래 메일로 보내주시면 감사하겠습니다.</h4>
+					<h4>kim1234@naver.com</h4>
 				</div>
 				
 				<div class="Homerow">
@@ -242,7 +248,15 @@
 
         }
 
+		const apiPrice1 = '${gas}';
+		const apiPrice2 = '${minGas[0]}';
+		console.log('${gas}');
+		console.log('${minGas[0]}');
 
+		if(apiPrice1 === '' || apiPrice2 === '') {
+			document.getElementById('goodInfo').setAttribute('style', 'display: none;');
+			document.getElementById('badInfo').setAttribute('style', 'display: block;');
+		}
 
 	</script>
 

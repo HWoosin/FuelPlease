@@ -5,7 +5,7 @@
 <%@ include file="../include/header.jsp" %>
 
 	<section>
-		<div class="container-fluid">
+		<div class="container-fluid" style="height: 818px;">
 			<div class="row">
 				<!--lg에서 9그리드, xs에서 전체그리드-->
 				<div class="col-lg-9 col-xs-12 board-table">
@@ -14,21 +14,27 @@
 					</div>
 
 					<!--form select를 가져온다 -->
-					<form action="<c:url value='/infoboard/boardList' />">
+					<form action="<c:url value='/infoboard/boardList' />" class="formSearch">
 						<div class="searchB-wrap">
-							<select name="condition" class="form-control search-select" style="justify-content: center; align-items: center; display: flex;">
-								<option value="title"
-								${pc.paging.condition == 'title' ? 'selected' : ''}>제목</option>
-								<option value="content"
-								${pc.paging.condition == 'content' ? 'selected' : ''}>내용</option>
-								<option value="writer"
-								${pc.paging.condition == 'writer' ? 'selected' : ''}>작성자</option>
-								<option value="titleContent"
-								${pc.paging.condition == 'titleContent' ? 'selected' : ''}>제목+내용</option>
-							</select>
-							<input type="text" name="keyword"
-								class="form-control search-input" value="${pc.paging.keyword}">
-							<button type="submit" class="btn btn-info search-btn" id="boardSearch">검색</button>
+							<div>
+								<select name="condition" class="form-control search-select" style="justify-content: center; align-items: center; display: flex;">
+									<option value="title"
+									${pc.paging.condition == 'title' ? 'selected' : ''}>제목</option>
+									<option value="content"
+									${pc.paging.condition == 'content' ? 'selected' : ''}>내용</option>
+									<option value="writer"
+									${pc.paging.condition == 'writer' ? 'selected' : ''}>작성자</option>
+									<option value="titleContent"
+									${pc.paging.condition == 'titleContent' ? 'selected' : ''}>제목+내용</option>
+								</select>
+								<input type="text" name="keyword"
+									class="form-control search-input" value="${pc.paging.keyword}">
+							</div>
+							
+							<div class="searchContents">
+								<button type="submit" class="btn btn-info search-btn" id="boardSearch">검색</button>
+							</div>
+
 						</div>
 					</form>
 
@@ -84,7 +90,6 @@
 								<c:if test="${pc.next}">
 									<li><a href="#" data-pagenum="${pc.endPage+1}">다음</a></li>
 								</c:if>
-								
 							</ul>
 							<button type="button" class="btn btn-info write-btn"
 								onclick="location.href='${pageContext.request.contextPath}/infoboard/regist'">글쓰기</button>

@@ -61,9 +61,6 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-9 write-wrap">
-                <div>
-                    <p id="reply-titlebox">댓글</p>
-                </div>
                 <form class="reply-wrap">
                     <!--form-control은 부트스트랩의 클래스입니다-->
                     <div class="reply-content">

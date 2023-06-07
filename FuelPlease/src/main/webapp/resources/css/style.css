@@ -399,7 +399,6 @@ input [type=password] {
   margin: 0px 25px;
 }
 
-
 #map{
   width: 40%; 
   height: 650px;
@@ -424,31 +423,41 @@ input [type=password] {
 --------------------------------------------------------------*/
 /*boardList*/
 
+.board-table{
+  margin: 0 auto;
+}
+
+.formSearch{
+  margin: 0 auto;
+}
+
 .titleBoard {
-  margin-left: 60%;
   margin-bottom: 20px;
   color: #7998ff;
 }
 
 .searchB-wrap {
-  margin-bottom: 20px;
-  margin-left: 52%;
-  width: 530px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .table-bordered {
   margin-top: 20px;
-  margin-left: 350px;
 }
 
 .search-btn {
-  margin-left: 44%;
-  margin-top: 10px;
+  /* margin-left: 44%; */
+  display: flex;
+  margin-left: 10px;
 }
 
 #pagination {
-  margin-top: 30px;
-  margin-left: 63%;
+  margin: 30px auto 0;
+  padding-left: 50%;
+  /* transform: translate(-50%, 0); */
 }
 
 #nextPage {
@@ -457,24 +466,21 @@ input [type=password] {
 
 
 .write-btn {
-  margin-left: 31%;
   margin-top: 10px;
 }
-
 
 /*BoardRegist*/
 
 .regist-board {
-  margin-left: 40%;
 }
 
 
 
 /*BoardDetail*/
 
-#Detailbox {
-  width: 400px;
-}
+/*댓글  창*/
+
+
 
 
 /*--------------------------------------------------------------

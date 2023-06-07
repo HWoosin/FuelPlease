@@ -181,6 +181,8 @@
 
         // const $selectAddr = document.getElementById('selectAddr');
 
+        //
+        let name;
         //장소 선택
         document.getElementById('bookbox').onclick = function (e) {
             document.getElementById('addr').textContent = '';
@@ -211,7 +213,7 @@
                     document.getElementById('addr').textContent = data.bkaddr;
                     document.getElementById('tel').textContent = data.bktel;
                     document.getElementById('name').textContent = data.bkname;
-
+                    name = data.bkname;
                 })
 
             // fetch('${pageContext.request.contextPath}/user/showBookmark', {
@@ -259,7 +261,7 @@
 
                             // 인포윈도우로 장소에 대한 설명을 표시합니다
                             var infowindow = new kakao.maps.InfoWindow({
-                                content: '<div style="width:150px;text-align:center;padding:6px 0;">즐겨찾는 장소</div>'
+                                content: '<div style="width:150px;text-align:center;padding:6px 0;">'+ name +'</div>'
                             });
                             infowindow.open(map, marker);
 

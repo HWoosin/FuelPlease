@@ -295,6 +295,11 @@ h6 {
   color: #9c9c9c;
 }
 
+.avgTotal #price {
+  font-size: 20px;
+  color: #dc3579cf;
+}
+
 
 /*--------------------------------------------------------------
 # Sections General

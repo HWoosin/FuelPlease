@@ -86,6 +86,50 @@
 					</div>
 				</form>
 				
+				<!-- 평균가격 뽑아내기 -->
+				<div class="avgTotal">
+					<h4>이번주의 평균가격 (서울기준)</h4>
+
+					<div class="gasavgInfo">
+						<h5>휘발유</h5>
+						<p>${gas} 원 &nbsp &nbsp &nbsp</p>
+					
+					
+						<h5>고급휘발유</h5>
+						<p>${preGas} 원 &nbsp &nbsp &nbsp</p>
+					
+					
+						<h5>경유</h5>
+						<p>${dis} 원</p>
+						
+						
+						
+					</div>
+					<br><br>
+
+					<h4>오늘의 최저가 정보 (서울기준)</h4>
+
+					<div class="minInfo">
+						
+							<div>
+								<h5>휘발유</h5>
+								<p>상호명 : ${minGas[0]} (${minGas[2]})</p>
+								<p>가격 : ${minGas[1]} 원</p>
+							</div>
+							<div>
+								<h5>고급 휘발유</h5>
+								<p>상호명 : ${minPreGas[0]} (${minPreGas[2]})</p>
+								<p>가격 : ${minPreGas[1]} 원</p>
+							</div>
+							<div>
+								<h5>경유</h5>
+								<p>상호명 : ${minDis[0]} (${minDis[2]})</p>
+								<p>가격 : ${minDis[1]} 원</p>
+							</div>
+						
+					</div>
+					
+				</div>
 				
 				<div class="Homerow">
 					
@@ -131,25 +175,7 @@
 					
 				</div>
 				
-				<!-- 평균가격 뽑아내기 -->
-				<div class="avgTotal">
-					<h4>이번주의 평균가격</h4>
-
-					<div class="gasavgInfo">
-						<h5>휘발유</h5>
-						<p>${gas} 원</p>
-					
-					
-						<h5>고급휘발유</h5>
-						<p>${preGas} 원</p>
-					
-					
-						<h5>경유</h5>
-						<p>${dis} 원</p>
-					</div>
-					
-					
-				</div>
+				
 				
 			</div>
 			
@@ -199,11 +225,25 @@
 		}
 
 		document.getElementById('searchBtn').onclick = () => {
-			const searchWord = document.getElementById('search-bar').value;
-			console.log(searchWord); //검색어 확인
+            const word = document.getElementById('search-bar').value.split(' ').join(''); //공백 제거한 검색어
+            if(word === '') {
+                alert('검색어에 빈칸만 입력할 수 없습니다.');
+                document.getElementById('searchBtn').setAttribute('type', 'button');
+                return;
+            }
+            if (document.getElementById('search-bar').value === '') {
+				document.getElementById('searchBtn').setAttribute('type', 'button');
+				alert('검색어를 입력하세요!');
+				return;
+			} else {
+				document.getElementById('searchBtn').setAttribute('type', 'submit');
+				return;
+			}
+
+        }
 
 
-		}
+
 	</script>
 
 

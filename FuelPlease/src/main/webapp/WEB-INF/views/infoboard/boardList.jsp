@@ -5,7 +5,7 @@
 <%@ include file="../include/header.jsp" %>
 
 	<section>
-		<div class="container-fluid">
+		<div class="container-fluid" style="height: 818px;">
 			<div class="row">
 				<!--lg에서 9그리드, xs에서 전체그리드-->
 				<div class="col-lg-9 col-xs-12 board-table">

@@ -2,6 +2,7 @@ package com.spring.fuelplease;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -44,10 +45,16 @@ public class HomeController {
 		String gas = fg.getGasAvg();
 		String preGas = fg.getPreGasAvg();
 		String dis = fg.getDisAvg();
+		List<String> gasList = fg.getMinGasInfo();
+		List<String> preGasList = fg.getMinPreGasInfo();
+		List<String> disList = fg.getMinDisInfo();
 		
 		model.addAttribute("gas", gas);
 		model.addAttribute("preGas", preGas);
 		model.addAttribute("dis", dis);
+		model.addAttribute("minGas", gasList);
+		model.addAttribute("minPreGas", preGasList);
+		model.addAttribute("minDis", disList);
 		
 		return "home";
 	}

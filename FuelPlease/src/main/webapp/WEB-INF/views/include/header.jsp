@@ -66,7 +66,7 @@
             <li><a href="${pageContext.request.contextPath}/mapview/lpgMap" class="nav-link scrollto"> <span>LPG충전소</span></a></li>
             <li><a href="${pageContext.request.contextPath}/infoboard/boardList" class="nav-link scrollto"> <span>Board</span></a></li>
             <c:if test="${login != null}">
-              <li><a href="${pageContext.request.contextPath}/caraccount/carAccount" class="nav-link scrollto"> <span>Car Account</span></a></li>
+              <li><a href="${pageContext.request.contextPath}/caraccount/accountList" class="nav-link scrollto"> <span>Car Account</span></a></li>
               <li><a href="${pageContext.request.contextPath}/user/userBookmark" class="nav-link scrollto"> <span>즐겨찾기</span></a></li>
             </c:if>
             

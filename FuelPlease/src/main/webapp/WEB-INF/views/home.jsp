@@ -81,72 +81,83 @@
 					method="get">
 					<div id="home-search-box" class="search-bar" role="search">
 						<input type="text" id="search-bar" class="form-contorl" placeholder="search" aria-label="search"
-							size="45" name="searchWord">
+						size="45" name="searchWord">
 						<button type="submit" id="searchBtn">검색</button>
 					</div>
 				</form>
-
-
+				
+				
 				<div class="Homerow">
-
+					
+					
 					<div id="gasolineBox" class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in"
-						data-aos-delay="100">
-						<div class="icon-box iconbox-blue">
-							<div class="icon">
+					data-aos-delay="100">
+					<div class="icon-box iconbox-blue">
+						<div class="icon">
 								<svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
 								</svg>
-								<i class="bx bxl-dribbble"></i>
+								<i class="bi bi-fuel-pump-fill"></i>
 							</div>
 							<h4><a href="${pageContext.request.contextPath}/mapview/gasolineMap">주유소</a></h4>
 						</div>
 					</div>
 
-
+					
 					<div id="elecBox" class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0"
-						data-aos="zoom-in" data-aos-delay="200">
-						<div class="icon-box iconbox-green">
-							<div class="icon">
+					data-aos="zoom-in" data-aos-delay="200">
+					<div class="icon-box iconbox-orange">
+						<div class="icon">
 								<svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
 								</svg>
-								<i class="bx bx-file"></i>
+								<i class="bi bi-ev-front-fill"></i>
 							</div>
 							<h4><a href="${pageContext.request.contextPath}/mapview/elecChargeMap">전기충전소</a></h4>
 						</div>
 					</div>
-
-
+					
+					
 					<div id="lpgBox" class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0"
-						data-aos="zoom-in" data-aos-delay="300">
-						<div class="icon-box iconbox-pink">
-							<div class="icon">
-								<svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+					data-aos="zoom-in" data-aos-delay="300">
+					<div class="icon-box iconbox-pink">
+						<div class="icon">
+							<svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
 								</svg>
 								<i class="bx bx-tachometer"></i>
 							</div>
 							<h4><a href="${pageContext.request.contextPath}/mapview/lpgMap">LPG충전소</a></h4>
 						</div>
 					</div>
-
+					
+					
 				</div>
-
+				
 				<!-- 평균가격 뽑아내기 -->
-				<div>
+				<div class="avgTotal">
 					<h4>이번주의 평균가격</h4>
-					<h5>휘발유</h5>
-					<p>${gas} 원</p>
-					<h5>고급휘발유</h5>
-					<p>${preGas} 원</p>
-					<h5>경유</h5>
-					<p>${dis} 원</p>
+
+					<div class="gasavgInfo">
+						<h5>휘발유</h5>
+						<p>${gas} 원</p>
+					
+					
+						<h5>고급휘발유</h5>
+						<p>${preGas} 원</p>
+					
+					
+						<h5>경유</h5>
+						<p>${dis} 원</p>
+					</div>
+					
+					
 				</div>
+				
 			</div>
-
-
+			
 		</section><!-- End Services Section -->
-
-
-
-
+		
+		
+		
+		
 		<%@ include file="include/footer.jsp" %>
 
 

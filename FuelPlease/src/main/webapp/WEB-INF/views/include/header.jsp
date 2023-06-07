@@ -60,7 +60,7 @@
 
           <ul class="menu-left">
 
-            <li><a href="${pageContext.request.contextPath}/" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+            <li><a href="${pageContext.request.contextPath}/" class="nav-link scrollto active"><img src="${pageContext.request.contextPath}/img/FuelPlease_300.png" alt="로고이미지" style="width: 130px;"></a></li>
             <li><a href="${pageContext.request.contextPath}/mapview/gasolineMap" class="nav-link scrollto"> <span>주유소</span></a></li>
             <li><a href="${pageContext.request.contextPath}/mapview/elecChargeMap" class="nav-link scrollto"> <span>전기충전소</span></a></li>
             <li><a href="${pageContext.request.contextPath}/mapview/lpgMap" class="nav-link scrollto"> <span>LPG충전소</span></a></li>
@@ -78,7 +78,7 @@
               <li><a href="${pageContext.request.contextPath}/user/userJoin" class="member"> <span>회원가입</span></a></li>
             </c:if>
             <c:if test="${login != null}">
-              <li><a id="myPage" href="${pageContext.request.contextPath}/user/userMypage" class="nav-link scrollto"> <span>MyPage</span></a></li>
+              <li><a id="myPage" href="${pageContext.request.contextPath}/user/userMypage" class="nav-link scrollto"> <span><strong id="userId"></strong>님 환영합니다! [MyPage]</span></a></li>
               <li><a href="${pageContext.request.contextPath}/user/userLogout" class="member" id="logout"> <span>Logout</span></a></li>
             </c:if>
 
@@ -91,10 +91,16 @@
       </header><!-- End Header -->
 
       <script>
-        document.getElementById('myPage').textContent = '${login}' + '님 환영합니다! [MyPage]';
-        document.getElementById('logout').onclick = () => {
-          alert(`${login}님` + '로그아웃 되었습니다.');
+        const loginId = '${login}';
+        if(loginId !== '') {
+          document.getElementById('userId').textContent = loginId;
         }
+        
+          // document.getElementById('myPage').textContent = '${login}' + '님 환영합니다! [MyPage]';
+          // document.getElementById('logout').onclick = () => {
+          //   alert(`${login}님` + ' 로그아웃 되었습니다.');
+          // }
+        
       </script>
      
 </body>

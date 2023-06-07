@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 
@@ -70,44 +71,57 @@
 				<p id="gasAddr">→</p>
 				<h4>주유소 번호(TEL)</h4>
 				<p id="gasNo">→</p>
+
+				<div class="addBtnDiv" style="display: inline;">
+						<c:if test="${login != null}">
+							<button type="button" id="searchBtn">즐겨찾기 추가</button>
+						</c:if>	
+				</div>
 			</div>
 
-			<div>
-				<button type="button" id="addBtn">즐겨찾기 추가</button>
-			</div>
-		</div>
+	</div>
 	</div>
 	<%@ include file="../include/footer.jsp" %>
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=405e0d5fd34220069ac5fe74d4c49e23&libraries=services"></script>
 	<script>
-		//즐겨찾기 추가
-		document.getElementById('addBtn').onclick = function () {
-			let gasName = document.getElementById('gasName').textContent
-			let gasAddr = document.getElementById('gasAddr').textContent
-			let gasNo = document.getElementById('gasNo').textContent
+		// const loginId = '${login}';
+		// console.log(loginId);
 
-			if(gasAddr === '→'){
+
+		document.querySelector('.addBtnDiv').onclick = () => {
+
+		
+		//즐겨찾기 추가
+		// document.getElementById('addBtn').onclick = function () {
+			let gasName = document.getElementById('gasName').textContent;
+			let gasAddr = document.getElementById('gasAddr').textContent;
+			let gasNo = document.getElementById('gasNo').textContent;
+
+			// if(loginId === '') {
+			// 	alert('로그인 후 이용가능한 서비스입니다.');
+			// 	return;
+			// }
+
+			if (gasAddr === '→') {
 				alert('장소를 검색해주세요.')
-			}
-			else{
+			} else {
 				fetch('${pageContext.request.contextPath}/mapview/bookCheck', {
-							method: 'post',
-							headers: {
-								'Content-type': 'text/plain'
-							},
-							body: gasAddr
-						})
-						.then(res => res.text())
-						.then(data => {
-							console.log(data);
-				
-							if(data==='1'){
-								alert('이미 즐겨찾기에 추가되어있습니다.')
-							}
-							else{
-								if (confirm('즐겨찾기에 추가하시겠습니까?')) {
-									fetch('${pageContext.request.contextPath}/mapview/addBookmarkGas', {
+						method: 'post',
+						headers: {
+							'Content-type': 'text/plain'
+						},
+						body: gasAddr
+					})
+					.then(res => res.text())
+					.then(data => {
+						console.log(data);
+
+						if (data === '1') {
+							alert('이미 즐겨찾기에 추가되어있습니다.')
+						} else {
+							if (confirm('즐겨찾기에 추가하시겠습니까?')) {
+								fetch('${pageContext.request.contextPath}/mapview/addBookmarkGas', {
 										method: 'post',
 										headers: {
 											'Content-type': 'application/json'
@@ -117,19 +131,20 @@
 											'bkaddr': gasAddr,
 											'bktel': gasNo
 										})
-										
+
 									})
 									.then(res => res.json())
 									.then(checkbook => {
 										console.log(checkbook);
 									})
-									alert('즐겨찾기에 추가되었습니다.')
-								}
+								alert('즐겨찾기에 추가되었습니다.')
 							}
-						})
+						}
+					})
 			}
 
-		}
+		// }
+	}
 
 		//키워드 넘기기
 		document.getElementById('selectCounty').onclick = function () {
@@ -240,6 +255,7 @@
 		function getGasolineinfo() {
 			const loadId = document.getElementById('selectLoad').value;
 			console.log(loadId); //사용자가 선택한 도로명 주소 추출
+
 			fetch('${pageContext.request.contextPath}/mapview/gasolineMapInfo', {
 					method: 'post',
 					headers: {

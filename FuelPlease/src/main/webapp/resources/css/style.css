@@ -1,4 +1,4 @@
-/**
+/**userId
 * Template Name: MyResume
 * Updated: Mar 10 2023 with Bootstrap v5.2.3
 * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
@@ -33,6 +33,7 @@ h6 {
   font-family: "KIMM_Bold", sans-serif;
 }
 
+
 .btn-info {
   color: #fff;
   background: #7998ff;
@@ -42,8 +43,10 @@ h6 {
 
 .container .row {
   display: flex;
-  width: 60%;
-  margin: 0 auto;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  /* margin: 0 auto; */
 }
 
 /*-------------------------------------------------------------
@@ -74,6 +77,7 @@ h6 {
   margin: 0 auto;
   list-style: none;
   padding: 12px;
+  margin-top: 4px;
 }
 
 .nav-menu .menu-right {
@@ -81,11 +85,6 @@ h6 {
   list-style: none;
   margin: 0 auto;
   padding: 12px;
-}
-
-.logo img {
-  margin-left: 44%;
-  margin-top: 2%;
 }
 
 
@@ -158,13 +157,14 @@ h6 {
   display: flex;
   padding: 10px;
   margin: 0 auto;
-  margin-bottom: 25%;
+  margin-bottom: 10%;
 }
 
 
 .services .icon-box {
   text-align: center;
   padding: 70px 25px 80px 20px;
+  margin-left: 10px;
   transition: all ease-in-out 0.3s;
   background: #fff;
   box-shadow: 0px 5px 20px 0px rgba(110, 123, 131, 0.5);
@@ -184,7 +184,7 @@ h6 {
 }
 
 .services .icon-box .icon i {
-  font-size: 36px;
+  font-size: 55px;
   transition: 0.5s;
   position: relative;
 }
@@ -197,7 +197,7 @@ h6 {
 
 .services .icon-box h4 {
   font-weight: 600;
-  margin: 10px 0 15px 0;
+  margin-right: 2px;
   font-size: 22px;
 }
 
@@ -225,11 +225,11 @@ h6 {
   fill: #47aeff;
 }
 
-.services .iconbox-green i {
+.services .iconbox-orange i {
   color: #ffa76e;
 }
 
-.services .iconbox-green:hover .icon path {
+.services .iconbox-orange:hover .icon path {
   fill: #ffa76e;
 }
 
@@ -239,6 +239,50 @@ h6 {
 
 .services .iconbox-pink:hover .icon path {
   fill: #e80368;
+}
+
+.logo img {
+  margin-left: 40%;
+  margin-top: 2%;
+}
+
+.container #home-search-bar {
+  margin-left: 25%;
+  margin-bottom: 90px;
+}
+
+.container #home-search-bar #home-search-box {
+  margin: 0px;
+}
+
+.avgTotal {
+  width: 1300px;
+  border: 1px solid #7998ff;
+  border-radius: 2%;
+  margin: 0 auto;
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.avgTotal h4 {
+  margin-bottom: 20px;
+  color: #7998ff;
+} 
+
+.avgTotal .gasavgInfo {
+  display: flex;
+  margin-left: 340px;
+}
+
+.avgTotal .h5 {
+  margin-left: 50px;
+}
+
+.avgTotal p {
+  margin-right: 10px;
+  margin-left: 10px;
+  color: #9c9c9c;
 }
 
 
@@ -305,15 +349,6 @@ section {
   
 }
 
-.container #home-search-bar {
-  margin-left: 27%;
-  margin-bottom: 35px;
-  margin-top: -50px;
-}
-
-.container #home-search-bar #home-search-box {
-  margin: 0px;
-}
 
 .container .form-group {
   padding: 12px;
@@ -336,7 +371,7 @@ section {
 }
 
 input [type=password] {
-  font-family: '맑은 고딕', 'malgun gothic', 'sans-serif';
+  font-family: '맑은 고딕', 'malgun gothic', 'sans-serif' !important;
 }
 
 .titlefoot #updateBtn{
@@ -346,9 +381,42 @@ input [type=password] {
 /*--------------------------------------------------------------
 # userBookmark
 --------------------------------------------------------------*/
+#bookdiv{
+  width: 100%;
+}
+
+#bookbox {
+        border: 3px solid #7998ff;
+        width: 95%;
+        height: 300px;
+        margin-top: 20px;
+        overflow-y: scroll;
+        font-size: 15px;
+}
+
+#bookbox a {
+  margin: 0px 25px;
+}
 
 
+#map{
+  width: 40%; 
+  height: 650px;
+}
 
+.bookInfotxt{
+  margin: 0 auto;
+  width: 100%;
+}
+.bookInfo{
+  margin-left: 250px;
+  margin-right: 35px;
+  margin-top: 20px;
+  border-radius: 2%;
+  border: 1px solid #7998ff;
+  background: #fff;
+  padding: 40px;
+}
 
 /*--------------------------------------------------------------
 # Board

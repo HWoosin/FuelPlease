@@ -27,6 +27,7 @@
 
 			<mvc:mapping path="/infoboard/regist"/>
 			<mvc:mapping path="/user/userMypage"/>
+			<mvc:mapping path="/user/userDelete"/>
 			<mvc:mapping path="/user/userBookmark"/>
 			<mvc:mapping path="/infoboard/modify"/>
 			<mvc:mapping path="/infoboard/content/*"/>

@@ -3,7 +3,7 @@
     <%@ include file="../include/header.jsp" %>
 
     <section>
-        <div class="container">
+        <div class="container" style="height: 588px;">
             <div class="row">
                 <div class="col-lg-6 col-md-7 col-xs-10 login-form">
                     <div class="titlebox">
@@ -25,12 +25,12 @@
     </section>
 	<%@ include file="../include/footer.jsp" %>
 <script>
-	const loginId = '${login}'
-    console.log(loginId);
-    if(loginId === '') {
-        history.back();
-        alert('로그인 후 이용가능합니다.');
-    }
+	// const loginId = '${login}'
+    // console.log(loginId);
+    // if(loginId === '') {
+    //     history.back();
+    //     alert('로그인 후 이용가능합니다.');
+    // }
 	
 	const msg = document.getElementById('msgId');
     document.getElementById('delBtn').onclick =function(){

@@ -3,7 +3,7 @@
 	<%@ include file="../include/header.jsp" %>
 
  <section>
-       <div class="container">
+       <div class="container" style="height: 588px;">
             <div class="row">
                 <div class="col-xs-12 content-wrap">
                     <div class="titlebox">

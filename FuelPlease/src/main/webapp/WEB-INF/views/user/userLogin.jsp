@@ -7,9 +7,8 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Fuel Please</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+
+    <!--css-->
 
     <!-- Favicons -->
     <link href="${pageContext.request.contextPath }/img/favicon.png" rel="icon">
@@ -19,6 +18,14 @@
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
     <!--
+
+    <title>Fuel Please</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+   
+   
+
               <style>
                   @font-face {
                       font-family: 'KIMM_Bold';
@@ -50,34 +57,34 @@
         * License: https://bootstrapmade.com/license/
         ======================================================== -->
 </head>
-    <section>
-        <div class="container" style="height: 588px;">
-            <div class="row">
-                <div class="col-lg-6 col-md-7 col-xs-10 login-form">
-                    <div class="titlebox">
-                        Login
-                    </div>
-                    <form method="post" name="loginForm">
-                        <div class="form-group">
-                            <label for="id">아이디</label>
-                            <input type="text" name="userId" class="form-control" id="userId" placeholder="아이디">
-                        </div>
-                        <div class="form-group">
-                            <label for="pw">비밀번호</label>
-                            <input type="password" name="userPw" class="form-control" id="userPw" placeholder="비밀번호">
-                        </div>
-                        <div class="form-group">
-                            <button type="button" id="loginBtn" class="btn btn-info btn-block">LOGIN</button>
-                            <button type="button" id="joinBtn" class="btn btn-primary btn-block">JOIN OUR
-                                SERVICE</button>
-                        </div>
-                    </form>
+<section>
+    <div class="container" style="height: 588px;">
+        <div class="row">
+            <div class="col-lg-6 col-md-7 col-xs-10 login-form">
+                <div class="titlebox">
+                    Login
                 </div>
+                <form method="post" name="loginForm">
+                    <div class="form-group">
+                        <label for="id">아이디</label>
+                        <input type="text" name="userId" class="form-control" id="userId" placeholder="아이디">
+                    </div>
+                    <div class="form-group">
+                        <label for="pw">비밀번호</label>
+                        <input type="password" name="userPw" class="form-control" id="userPw" placeholder="비밀번호">
+                    </div>
+                    <div class="form-group">
+                        <button type="button" id="loginBtn" class="btn btn-info btn-block">LOGIN</button>
+                        <button type="button" id="joinBtn" class="btn btn-primary btn-block">JOIN OUR
+                            SERVICE</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </section>
-    
-    <%@ include file="../include/footer.jsp" %>
+    </div>
+</section>
+
+<%@ include file="../include/footer.jsp" %>
 
 <script>
     // const loginId = '${login}'

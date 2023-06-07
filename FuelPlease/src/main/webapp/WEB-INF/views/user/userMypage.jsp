@@ -12,6 +12,7 @@
 	<meta content="" name="description">
 	<meta content="" name="keywords">
 
+
 	<!-- Favicons -->
 	<link href="${pageContext.request.contextPath }/img/favicon.png" rel="icon">
   

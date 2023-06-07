@@ -371,8 +371,11 @@ section {
   color: #5c7ce2;
 }
 
-input [type=password] {
-  font-family: '맑은 고딕', 'malgun gothic', 'sans-serif' !important;
+input[type="password"] {
+  font-family: '맑은 고딕' !important;
+}
+input[type="password"]::placeholder{
+  font-family: "KIMM_Bold", sans-serif;
 }
 
 .titlefoot #updateBtn{

@@ -110,6 +110,8 @@
 
                     <div class="form-group">
                         <button type="button" id="registBtn" class="btn btn-lg btn-info btn-block">등록하기</button>
+                        <button type="button" id="listBtn" class="btn btn-lg btn-info btn-block"
+                            onclick="location.href='${pageContext.request.contextPath}/caraccount/accountList'">목록</button>
                     </div>
                 </form>
             </div>
@@ -117,12 +119,20 @@
 
 </section>
 <script>
-    document.getElementById('registBtn').onclick = function() {
-        if(confirm('차계부 등록을 진행합니다.')) {            
+    
+    document.getElementById('registBtn').onclick = function () {
+        let pirce = document.getElementById('price').value;
+        if (pirce === '') {
+            alert('가격을 입력해주세요');
+            return;
+        }
+
+        if (confirm('차계부 등록을 진행합니다.')) {       
+            alert('등록 되었습니다.');
             document.aRegistForm.submit();
         }
     }
-
+    
 </script>
 
 

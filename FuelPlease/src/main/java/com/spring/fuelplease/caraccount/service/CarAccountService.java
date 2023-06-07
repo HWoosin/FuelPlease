@@ -26,27 +26,15 @@ public class CarAccountService implements ICarAccountService {
 	
 	// 목록 불러오기
 	@Override
-	public List<CarAccountVO> accountList(PageVO vo) {
-		return mp.accountList(vo);
+	public List<CarAccountVO> getList(PageVO vo) {
+		return mp.getList(vo);
 	}
 
 	// 총 등록 수
 	@Override
 	public int getTotal(PageVO vo) {
 		return mp.getTotal(vo);
-	}
-	
-	// 상세 보기
-	@Override
-	public CarAccountVO getContent(int acno) {
-		return mp.getContent(acno);
-	}
-	
-	// 수정
-	@Override
-	public void update(CarAccountVO vo) {
-		mp.update(vo);
-	}
+	}	
 
 	// 삭제
 	@Override

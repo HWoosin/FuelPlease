@@ -21,33 +21,20 @@
 		
 
 	<!-- 목록 불러오기 -->
-	<select id="accountList" resultType="caraccount">
+	<select id="getList" resultType="caraccount">
 		SELECT * FROM caraccount
 		WHERE writer = #{loginId}		
-		ORDER BY acno DESC		
+		ORDER BY acno DESC
+		LIMIT #{pageStart}, #{cpp}		
 	</select>
+	
 	
 	<!-- 총 등록수 구하기 -->
 	<select id="getTotal" resultType="int">
 		SELECT COUNT(*) FROM caraccount
+		WHERE writer = #{loginId}
+	</select>
 		
-	</select>
-	
-	
-	<!-- 상세보기 -->
-	<select id="getContent" resultType="caraccount">
-		SELECT * FROM caraccount
-		WHERE acno = #{acno}
-	</select>
-	
-	
-	<!-- 수정하기 -->
-	<update id="update">
-		UPDATE caraccount
-		SET year = #{year}, month = #{month}, day = #{day}, type = #{type}, price = #{price}
-		WHERE acno = #{acno} 
-	</update>
-	
 	
 	<!-- 삭제하기 -->
 	<delete id="delete">

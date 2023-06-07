@@ -1,5 +1,7 @@
 package com.spring.fuelplease.voCenter;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import lombok.Getter;
@@ -32,5 +34,7 @@ public class CarAccountVO {
 	private String type;
 	private int price;
 	private String note;
+	
+	private List<CarAccountVO> userAccountList;
 	
 }

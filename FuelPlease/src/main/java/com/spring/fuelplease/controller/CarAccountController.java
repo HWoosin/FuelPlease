@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.fuelplease.caraccount.service.CarAccountService;
+import com.spring.fuelplease.caraccount.service.ICarAccountService;
+import com.spring.fuelplease.infoboard.service.IInfoBoardService;
 import com.spring.fuelplease.util.PageCreator;
 import com.spring.fuelplease.util.PageVO;
 import com.spring.fuelplease.voCenter.CarAccountVO;
@@ -28,17 +30,16 @@ public class CarAccountController {
 	
 	@Autowired
 	public CarAccountService sv;
+	@Autowired
+	public ICarAccountService acsv;
 	
 	// 차계부 페이지 이동 요청
 	@GetMapping("/accountList")
 	public void accountList(HttpSession session, PageVO vo, Model model) {
 		String id = (String) session.getAttribute("login");
 		vo.setLoginId(id);
-		PageCreator apc = new PageCreator(vo, sv.getTotal(vo));
-
-		log.info(apc.toString()); //콘솔창에 log 찍기
-
-		model.addAttribute("accountList", sv.accountList(vo));
+		PageCreator apc = new PageCreator(vo, acsv.getTotal(vo));
+		model.addAttribute("accountList", acsv.getList(vo));
 		model.addAttribute("apc", apc);
 	}
 	
@@ -57,33 +58,12 @@ public class CarAccountController {
 		return "redirect:/caraccount/accountList";
 	}
 	
-	// 상세보기
-	@GetMapping("/content/{acno}")
-	public String content(@PathVariable int acno, @ModelAttribute("a") PageVO vo, Model model) {
-		model.addAttribute("account", sv.getContent(acno));
-		return "/caraccount/accountDetail";
-	}
-	
-	// 수정 페이지 이동 처리
-	@PostMapping("/modify")
-	public String accountModify(@ModelAttribute("account") CarAccountVO vo) {
-		sv.update(vo);
-		return "caraccount/accountModify";
-	}
-	
-	// 수정 처리
-	@PostMapping("/update")
-	public String update(CarAccountVO vo) {
-		sv.update(vo);
-		return "redirect:/caraccount/content/" + vo.getAcno();
-	}
-	
 	// 삭제 처리
 	@PostMapping("/delete")
 	@ResponseBody
 	public String delete(@RequestBody int acno) {
 		sv.delete(acno);
-		return "redirect:/caraccount/accountList";
+		return "deleteSuccess";
 	}
 	
 	

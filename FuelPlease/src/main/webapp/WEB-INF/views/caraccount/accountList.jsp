@@ -6,13 +6,13 @@
 
 
 <!-- 차계부 리스트 -->
-<section>
+<section style="min-height: 588px;">
 	<div class="container-fluid">
 		<div class="row">
 
 			<div class="col-lg-6 col-xs-12 board-table" style=" margin-bottom: 100px;">
 				<div class="titleBoard">
-					<h1>나만의 차계부</h1>
+					<h1>나의 차계부</h1>
 				</div>
 				<table class="table table-bordered"
 					style="justify-content: center; align-items: center; text-align: center; min-width: 1050px;">
@@ -132,7 +132,7 @@
 			btn.addEventListener('click', e => {
 				console.log(e.target.parentNode.parentNode.firstElementChild.textContent);
 				const acno = e.target.parentNode.parentNode.firstElementChild.textContent;
-				if (confirm('삭제 하시겠습니까?')) {
+				if(confirm('삭제 하시겠습니까?')) {
 					fetch('${pageContext.request.contextPath}/caraccount/delete', {
 							method: 'post',
 							headers: {

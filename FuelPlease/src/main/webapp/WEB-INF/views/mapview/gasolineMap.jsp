@@ -89,7 +89,6 @@
 		// const loginId = '${login}';
 		// console.log(loginId);
 
-
 		document.querySelector('.addBtnDiv').onclick = () => {
 
 		
@@ -179,8 +178,9 @@
 
 
 					}
-
+					
 				})
+				
 		}
 
 
@@ -207,6 +207,8 @@
 
 		// 주소로 좌표를 검색합니다
 		document.getElementById('searchBtn').onclick = function () {
+			//이용자가 선택한 주소에 맞는 정보 불러오기
+			getGasolineinfo();
 			var searchSpot = searchIn;
 			// console.log(searchIn.value);
 			// console.log(searchSpot.value);
@@ -218,7 +220,8 @@
 
 						// 정상적으로 검색이 완료됐으면 
 						if (status === kakao.maps.services.Status.OK) {
-
+							
+							
 							var coords = new kakao.maps.LatLng(result[0].y,
 								result[0].x);
 
@@ -237,8 +240,7 @@
 							// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 							map.setCenter(coords);
 
-							//이용자가 선택한 주소에 맞는 정보 불러오기
-							getGasolineinfo();
+							
 						} else if (searchIn.value === '도로명을 선택해주세요') {
 							alert('도로명 선택칸을 확인해주세요.');
 						} else {
@@ -267,12 +269,7 @@
 				.then(res => res.json())
 				.then(data => {
 					console.log(data);
-					// console.log(data.lno);
-					// console.log(data.lpg_bsin_sort_code);
-					// console.log(data.off_telno);
-					// console.log(data.site_addr);
-					// console.log(data.trnm_nm);
-
+					
 					document.getElementById('gasName').textContent = data.bplcnm;
 					document.getElementById('gasAddr').textContent = data.rdnwhladdr;
 					document.getElementById('gasNo').textContent = data.sitetel;

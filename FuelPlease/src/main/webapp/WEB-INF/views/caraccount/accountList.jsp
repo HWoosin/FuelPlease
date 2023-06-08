@@ -80,7 +80,7 @@
 				<!-- 페이지 네이션을 가져옴 -->
 				<form action="${pageContext.request.contextPath}/caraccount/accountList" name="pageForm">
 					<div class="text-center" id="accPage">
-						<ul class="pagination pagination-sm" style="margin: -30px auto 0;">
+						<ul id="pagination" class="pagination pagination-sm" style="margin: -30px auto 0;">
 							<c:if test="${apc.prev}">
 								<li><a href="#" data-pagenum="${apc.beginPage-1}">이전</a></li>
 							</c:if>

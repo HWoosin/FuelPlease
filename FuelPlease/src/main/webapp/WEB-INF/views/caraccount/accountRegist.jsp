@@ -89,6 +89,7 @@
                         <select name="type" id="type">
                             <option>휘발유</option>
                             <option>고급휘발유</option>
+                            <option>경유</option>
                             <option>LPG</option>
                             <option>전기</option>
                         </select>

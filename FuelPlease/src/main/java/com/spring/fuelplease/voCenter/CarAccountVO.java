@@ -35,6 +35,6 @@ public class CarAccountVO {
 	private int price;
 	private String note;
 	
-	private List<CarAccountVO> userAccountList;
+
 	
 }

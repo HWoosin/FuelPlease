@@ -97,11 +97,11 @@
                     <div class="form-group">
                         <label for="price">가격</label>
                         <input type="number" min="0" step="1000" class="form-control" id="price" name="price"
-                            placeholder="단위:원, 숫자만 입력하세요">
+                            placeholder="숫자만 입력하세요   *단위:원">
                     </div>
                     <div class="form-group">
                         <label for="note">비고</label>
-                        <input type="text" class="form-control" id="note" name="note" placeholder="메모작성란">
+                        <input type="text" maxlength="72" class="form-control" id="note" name="note" placeholder="메모작성란   *70자 이상 메모할 수 없습니다.">
                     </div>
                     <!-- 
                     <div class="form-group">

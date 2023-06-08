@@ -18,6 +18,8 @@ public interface ICarAccountMapper {
 				
 	// 삭제
 	void delete(int acno);
+
+	
 	
 
 }

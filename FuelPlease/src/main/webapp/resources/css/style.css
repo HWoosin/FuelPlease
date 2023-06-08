@@ -441,6 +441,9 @@ input[type="password"]::placeholder{
   margin-right: 15px;
 }
 
+
+
+
 /*--------------------------------------------------------------
 # userBookmark
 --------------------------------------------------------------*/
@@ -549,7 +552,9 @@ input[type="password"]::placeholder{
   margin: 50px 0 10px;
 }
 
-
+#addrBtn {
+  margin-top: 10px;
+}
 
 
 /*BoardDetail*/
@@ -724,7 +729,6 @@ input[type="password"]::placeholder{
   }
 
   .pagination {
-    padding-left: 70%;
     margin: 30px auto 0;
   }
 

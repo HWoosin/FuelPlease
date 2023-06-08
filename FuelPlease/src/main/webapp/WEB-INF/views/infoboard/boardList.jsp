@@ -8,7 +8,7 @@
 		<div class="container-fluid" style="height: 818px;">
 			<div class="row">
 				<!--lg에서 9그리드, xs에서 전체그리드-->
-				<div class="col-lg-9 col-xs-12 board-table">
+				<div class="col-lg-6 col-xs-12 board-table">
 					<div class="titleBoard">
 						<h1>자유게시판</h1>
 					</div>
@@ -40,7 +40,7 @@
 
 					<table class="table table-bordered" style="justify-content: center; align-items: center;">
 						<thead>
-							<tr>
+							<tr class="tb">
 								<th>번호</th>
 								<th class="board-title">제목</th>
 								<th>작성자</th>

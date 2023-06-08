@@ -18,7 +18,7 @@
 	<meta content="" name="keywords">
 	
 	<!-- Favicons -->
-	<link href="${pageContext.request.contextPath }/img/favicon.png" rel="icon">
+	<link href="../../resources/img/favicon.png" rel="icon">
 
 	<!-- Fonts -->
 

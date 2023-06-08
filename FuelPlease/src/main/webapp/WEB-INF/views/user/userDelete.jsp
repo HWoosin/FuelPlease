@@ -9,7 +9,8 @@
                 <div class="titlebox">
                     회원탈퇴
                 </div>
-                <form method="post" name="deleteForm">
+
+                <form method="post" name="deleteForm" onsubmit="return false">
                     <div class="form-group">
                         <label for="pw">비밀번호</label>
                         <input type="password" name="userPw" class="form-control" id="userPw" placeholder="비밀번호">
@@ -54,16 +55,14 @@
                         alert("탈퇴가 완료되었습니다.");
                         location.href = '${pageContext.request.contextPath}/';
                     } else {
+                        console.log(data);
+                        console.log(pw);
+
                         document.getElementById("userPw").value = '';
                         msg.textContent = '비밀번호 불일치';
                     }
                 });
-
         } else return;
-
-
-
-
 
 
     }

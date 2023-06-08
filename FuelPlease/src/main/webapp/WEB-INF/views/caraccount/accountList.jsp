@@ -14,9 +14,9 @@
 				<div class="titleBoard">
 					<h1>나만의 차계부</h1>
 				</div>
-				<table class="table table-bordered" style="justify-content: center; align-items: center;">
+				<table class="table table-bordered accountList" style="justify-content: center; align-items: center;">
 					<thead>
-						<tr>
+						<tr class="ac-num">
 							<th>번호</th>
 							<th>일자</th>
 							<th>주유타입</th>
@@ -25,14 +25,14 @@
 							<th></th>
 						</tr>
 					</thead>
-					<tbody id="rowCount">
+					<tbody>
 						<c:set var="priceTotal" value="0" />
 						<c:forEach var="vo" items="${accountList}">
-							<tr>
+							<tr class="ac-col">
 								<td>${vo.acno}</td>
 								<td>${vo.year}/${vo.month}/${vo.day}</td>
 								<td>${vo.type}</td>
-								<td>${vo.price}</td>
+								<td>${vo.price} 원</td>
 								<td>${vo.note}</td>
 								<td>
 									<button type="button" class="btn btn-info delete-btn deleteBtn">삭제</button>
@@ -43,8 +43,8 @@
 
 						<!-- 사용금액 합계 사용 부분 -->
 						<tr>
-							<th colspan="3">내가 사용한 총 금액</th>
-							<th colspan="3" class="price-column">${priceTotal}</th>
+							<th colspan="3">페이지 사용 금액 합계</th>
+							<th colspan="3" class="price-column">${priceTotal} 원</th>
 						</tr>
 					</tbody>
 
@@ -85,43 +85,45 @@
 <!-- 차계부 리스트 끝 -->
 
 <script>
-	document.getElementById('pagination').addEventListener('click', e => {
-		e.preventDefault();
-		if (!e.target.matches('a')) {
-			return;
-		}
+	window.onload = function () {
 
-		const value = e.target.dataset.pagenum;
-		document.pageForm.pageNum.value = value;
-		document.pageForm.submit();
-	});
-
-	document.querySelectorAll('.delete-btn').forEach(btn => {
-		btn.addEventListener('click', e => {
-			console.log(e.target.parentNode.parentNode.firstElementChild.textContent);
-			const acno = e.target.parentNode.parentNode.firstElementChild.textContent;
-			if (confirm('삭제 하시겠습니까?')) {
-				fetch('${pageContext.request.contextPath}/caraccount/delete', {
-						method: 'post',
-						headers: {
-							'Content-Type': 'application/json'
-						},
-						body: acno
-					})
-					.then(res => res.text())
-					.then(data => {
-						if (data === 'deleteSuccess') {
-							alert('삭제 되었습니다.');
-						} else {
-							alert('삭제 실패');
-							return;
-						}
-					});
+		document.getElementById('pagination').addEventListener('click', e => {
+			e.preventDefault();
+			if (!e.target.matches('a')) {
+				return;
 			}
-			window.location.reload(true);
+
+			const value = e.target.dataset.pagenum;
+			document.pageForm.pageNum.value = value;
+			document.pageForm.submit();
 		});
-	});
-	
+
+		document.querySelectorAll('.delete-btn').forEach(btn => {
+			btn.addEventListener('click', e => {
+				console.log(e.target.parentNode.parentNode.firstElementChild.textContent);
+				const acno = e.target.parentNode.parentNode.firstElementChild.textContent;
+				if (confirm('삭제 하시겠습니까?')) {
+					fetch('${pageContext.request.contextPath}/caraccount/delete', {
+							method: 'post',
+							headers: {
+								'Content-Type': 'application/json'
+							},
+							body: acno
+						})
+						.then(res => res.text())
+						.then(data => {
+							if (data === 'deleteSuccess') {
+								alert('삭제 되었습니다.');
+							} else {
+								alert('삭제 실패');
+								return;
+							}
+						});
+				}
+				window.location.reload(true);
+			});
+		});
+	}
 </script>
 
 

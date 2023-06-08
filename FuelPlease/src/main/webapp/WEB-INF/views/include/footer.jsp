@@ -17,7 +17,7 @@
       <li>대표이사: 황우신</li>
       <li>사업자등록번호: 000-0000-00-00-000</li>
       <li>연락처: 02-xxxx-xxxx</li>
-    
+      
       <div class="copyright">
         &copy; Copyright <strong><span>MyResume</span></strong>. All Rights Reserved
       </div>
@@ -26,6 +26,7 @@
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: [license-url] -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/ -->
+        <li><a href="https://www.flaticon.com/kr/free-icons/" title="기름 아이콘">파비콘 아이콘 제작자: Freepik - Flaticon</a></li>
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade, kimjiwon</a>
       </div>
     </div>

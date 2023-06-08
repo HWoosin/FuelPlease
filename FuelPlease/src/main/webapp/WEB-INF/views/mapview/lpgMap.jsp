@@ -10,7 +10,7 @@
 
 </head>
 
-<body>
+<body style="-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;">
 	<!-- <p style="margin-top: -12px">
 		<em class="link"> <a href="javascript:void(0);"
 			onclick="window.open('http://fiy.daum.net/fiy/map/CsGeneral.daum', '_blank', 'width=981, height=650')">

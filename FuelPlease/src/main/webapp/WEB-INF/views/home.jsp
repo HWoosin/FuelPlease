@@ -53,7 +53,7 @@
 	======================================================== -->
 </head>
 
-<body>
+<body style="-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;">
 
 
 	<!-- ======= Mobile nav toggle button ======= -->
@@ -80,7 +80,7 @@
 				<form id="home-search-bar" action="${pageContext.request.contextPath}/mapview/searchResult"
 					method="get">
 					<div id="home-search-box" class="search-bar" role="search">
-						<input type="text" id="search-bar" class="form-contorl" placeholder="search" aria-label="search"
+						<input type="text" id="search-bar" class="form-contorl" placeholder="Search" aria-label="Search"
 						size="45" name="searchWord">
 						<button type="submit" id="searchBtn">검색</button>
 					</div>

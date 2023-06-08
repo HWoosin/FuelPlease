@@ -14,7 +14,7 @@
 				<div class="titleBoard">
 					<h1>나의 차계부</h1>
 				</div>
-				<table class="table table-bordered" 
+				<table class="table table-bordered"
 					style="justify-content: center; align-items: center; text-align: center; min-width: 1050px;">
 					<thead>
 						<tr>
@@ -73,14 +73,12 @@
 
 				</table>
 
-				<button type="button" class="btn btn-info write-btn" id="accWrite"
-					onclick="location.href='${pageContext.request.contextPath}/caraccount/regist'">작성하기</button>
 
 
 				<!-- 페이지 네이션을 가져옴 -->
 				<form action="${pageContext.request.contextPath}/caraccount/accountList" name="pageForm">
 					<div class="text-center" id="accPage">
-						<ul id="pagination" class="pagination pagination-sm" style="margin: -30px auto 0;">
+						<ul id="pagination" class="pagination pagination-sm">
 							<c:if test="${apc.prev}">
 								<li><a href="#" data-pagenum="${apc.beginPage-1}">이전</a></li>
 							</c:if>
@@ -95,6 +93,8 @@
 							</c:if>
 
 						</ul>
+						<button type="button" class="btn btn-info write-btn" id="accWrite"
+							onclick="location.href='${pageContext.request.contextPath}/caraccount/regist'">작성하기</button>
 					</div>
 
 					<input type="hidden" name="pageNum" value="${apc.paging.pageNum}">
@@ -132,7 +132,7 @@
 			btn.addEventListener('click', e => {
 				console.log(e.target.parentNode.parentNode.firstElementChild.textContent);
 				const acno = e.target.parentNode.parentNode.firstElementChild.textContent;
-				if(confirm('삭제 하시겠습니까?')) {
+				if (confirm('삭제 하시겠습니까?')) {
 					fetch('${pageContext.request.contextPath}/caraccount/delete', {
 							method: 'post',
 							headers: {

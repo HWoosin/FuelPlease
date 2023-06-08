@@ -527,7 +527,7 @@ input[type="password"]::placeholder{
 
 #pagination {
   margin: 30px auto 0;
-  padding-left: 50%;
+  
   /* transform: translate(-50%, 0); */
 }
 
@@ -537,6 +537,7 @@ input[type="password"]::placeholder{
 
 
 .write-btn {
+  float: left;
   margin-top: 10px;
 }
 
@@ -714,6 +715,7 @@ input[type="password"]::placeholder{
   text-align: center;
 }
 
+
 @media screen and (max-width: 1599px) {
   #accTable {
    margin-left: 260px;
@@ -724,7 +726,6 @@ input[type="password"]::placeholder{
   }
 
   .pagination {
-    padding-left: 70%;
     margin: 30px auto 0;
   }
 

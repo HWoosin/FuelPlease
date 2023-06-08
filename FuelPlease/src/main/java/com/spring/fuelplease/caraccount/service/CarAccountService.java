@@ -41,6 +41,20 @@ public class CarAccountService implements ICarAccountService {
 	public void delete(int acno) {
 		mp.delete(acno);
 	}
+
+	// 가격 총합
+	@Override
+	public String getPriceTotal(String id) {
+		return mp.getPriceTotal(id);
+	}
+
+	// 가격 평균 구하기
+	@Override
+	public String getPriceAvg(String id) {
+		return mp.getPriceAvg(id);
+	}
+	
+	
 	
 	
 

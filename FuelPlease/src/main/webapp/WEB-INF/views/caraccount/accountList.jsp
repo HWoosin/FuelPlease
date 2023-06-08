@@ -7,22 +7,23 @@
 
 <!-- 차계부 리스트 -->
 <section>
-	<div class="container-fluid" style="height: 818px;">
+	<div class="container-fluid">
 		<div class="row">
 
-			<div class="col-lg-6 col-xs-12 board-table">
+			<div class="col-lg-6 col-xs-12 board-table" style=" margin-bottom: 100px;">
 				<div class="titleBoard">
 					<h1>나만의 차계부</h1>
 				</div>
-				<table class="table table-bordered accountList" style="justify-content: center; align-items: center;">
+				<table class="table table-bordered"
+					style="justify-content: center; align-items: center; text-align: center; min-width: 1050px;">
 					<thead>
-						<tr class="ac-num">
-							<th>번호</th>
-							<th>일자</th>
-							<th>주유타입</th>
-							<th>가격</th>
-							<th>비고</th>
-							<th></th>
+						<tr>
+							<th style="width: 7%;">번호</th>
+							<th style="width: 13%;">일자</th>
+							<th style="width: 10%;">주유타입</th>
+							<th style="width: 20%;">가격</th>
+							<th style="width: 40%;">비고</th>
+							<th style="width: 10%;"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -32,7 +33,7 @@
 								<td>${vo.acno}</td>
 								<td>${vo.year}/${vo.month}/${vo.day}</td>
 								<td>${vo.type}</td>
-								<td>${vo.price} 원</td>
+								<td id="addPrice">${vo.price} 원</td>
 								<td>${vo.note}</td>
 								<td>
 									<button type="button" class="btn btn-info delete-btn deleteBtn">삭제</button>
@@ -42,10 +43,32 @@
 						</c:forEach>
 
 						<!-- 사용금액 합계 사용 부분 -->
-						<tr>
-							<th colspan="3">페이지 사용 금액 합계</th>
-							<th colspan="3" class="price-column">${priceTotal} 원</th>
-						</tr>
+						<c:if test="${total != null}">
+							<tr>
+								<th colspan="3">내가 주유한 총 금액</th>
+								<th colspan="3" style="display: none;">${total}</th>
+								<th colspan="3" id="realTotal"></th>
+							</tr>
+						</c:if>
+						<c:if test="${total == null}">
+							<tr>
+
+							</tr>
+						</c:if>
+
+						<c:if test="${avg != null}">
+							<tr>
+								<th colspan="3">나의 평균 주유비용</th>
+								<th colspan="3" style="display: none;">${avg}</th>
+								<th colspan="3" id="realAvg"></th>
+							</tr>
+						</c:if>
+						<c:if test="${avg == null}">
+							<tr>
+
+							</tr>
+						</c:if>
+
 					</tbody>
 
 				</table>
@@ -57,7 +80,7 @@
 				<!-- 페이지 네이션을 가져옴 -->
 				<form action="${pageContext.request.contextPath}/caraccount/accountList" name="pageForm">
 					<div class="text-center">
-						<ul id="pagination" class="pagination pagination-sm">
+						<ul id="pagination" class="pagination pagination-sm" style="margin: -30px auto 0;">
 							<c:if test="${apc.prev}">
 								<li><a href="#" data-pagenum="${apc.beginPage-1}">이전</a></li>
 							</c:if>
@@ -86,6 +109,13 @@
 
 <script>
 	window.onload = function () {
+
+		const total = '${total}';
+		const avg = '${avg}';
+
+		console.log(total.replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+		document.getElementById('realTotal').textContent = total.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' 원';
+		document.getElementById('realAvg').textContent = avg.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' 원';
 
 		document.getElementById('pagination').addEventListener('click', e => {
 			e.preventDefault();
@@ -123,6 +153,8 @@
 				window.location.reload(true);
 			});
 		});
+
+
 	}
 </script>
 

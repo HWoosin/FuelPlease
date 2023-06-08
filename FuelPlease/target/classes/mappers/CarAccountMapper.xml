@@ -36,5 +36,19 @@
 		WHERE acno = #{acno}
 	</delete>
 	
+	<!-- 가격 총합 -->
+	<select id="getPriceTotal" resultType="string">
+		select sum(price) from caraccount
+		where writer = #{writer};
+	</select>
+	
+	<!-- 가격 평균 -->
+	<select id="getPriceAvg" resultType="String">
+		select TRUNCATE(avg(price),0) from caraccount
+		where writer = #{writer};
+	</select>
+	
+	
+	
 
 </mapper>

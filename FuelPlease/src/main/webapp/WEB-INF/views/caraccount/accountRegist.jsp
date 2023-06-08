@@ -96,7 +96,8 @@
                     </div>
                     <div class="form-group">
                         <label for="price">가격</label>
-                        <input type="text" class="form-control" id="price" name="price" placeholder="단위:원, 숫자만 입력하세요">
+                        <input type="number" min="0" step="1000" class="form-control" id="price" name="price"
+                            placeholder="단위:원, 숫자만 입력하세요">
                     </div>
                     <div class="form-group">
                         <label for="note">비고</label>
@@ -120,7 +121,17 @@
 
 </section>
 <script>
-    
+    var number = document.getElementById('price');
+
+    // Listen for input event on numInput.
+    number.onkeydown = function (e) {
+        if (!((e.keyCode > 95 && e.keyCode < 106) ||
+                (e.keyCode > 47 && e.keyCode < 58) ||
+                e.keyCode == 8)) {
+            return false;
+        }
+    }
+
     document.getElementById('registBtn').onclick = function () {
         let pirce = document.getElementById('price').value;
         if (pirce === '') {
@@ -128,12 +139,11 @@
             return;
         }
 
-        if (confirm('차계부 등록을 진행합니다.')) {       
+        if (confirm('차계부 등록을 진행합니다.')) {
             alert('등록 되었습니다.');
             document.aRegistForm.submit();
         }
     }
-    
 </script>
 
 

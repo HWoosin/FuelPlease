@@ -27,12 +27,12 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/caraccount")
 @Slf4j
 public class CarAccountController {
-	
+
 	@Autowired
 	public CarAccountService sv;
 	@Autowired
 	public ICarAccountService acsv;
-	
+
 	// 차계부 페이지 이동 요청
 	@GetMapping("/accountList")
 	public void accountList(HttpSession session, PageVO vo, Model model) {
@@ -41,14 +41,26 @@ public class CarAccountController {
 		PageCreator apc = new PageCreator(vo, acsv.getTotal(vo));
 		model.addAttribute("accountList", acsv.getList(vo));		
 		model.addAttribute("apc", apc);
+
+		String total = acsv.getPriceTotal(id);
+		log.info("total" + total);
+		String avg = acsv.getPriceAvg(id);
+		
+		if(total != null) {
+			model.addAttribute("total", acsv.getPriceTotal(id));
+			model.addAttribute("avg", acsv.getPriceAvg(id));
+			
+		}
+
+
 	}
-	
+
 	// 등록 페이지 열기
 	@GetMapping("/regist")
 	public String regist() {
 		return "/caraccount/accountRegist";
 	}
-	
+
 	// 차계부 등록
 	@PostMapping("/regist")
 	public String regist(HttpSession session, CarAccountVO vo) {
@@ -57,7 +69,7 @@ public class CarAccountController {
 		sv.regist(vo);
 		return "redirect:/caraccount/accountList";
 	}	
-	
+
 	// 삭제 처리
 	@PostMapping("/delete")
 	@ResponseBody
@@ -65,13 +77,12 @@ public class CarAccountController {
 		sv.delete(acno);
 		return "deleteSuccess";
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 }
-	
 
 
 
@@ -93,8 +104,9 @@ public class CarAccountController {
 
 
 
-	
-	
-	
-	
-	
+
+
+
+
+
+

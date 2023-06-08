@@ -60,7 +60,7 @@
 
           <ul class="menu-left">
 
-            <li><a href="${pageContext.request.contextPath}/" class="nav-link scrollto active"><img src="${pageContext.request.contextPath}/img/FuelPlease_300.png" alt="로고이미지" style="width: 130px;"></a></li>
+            <li><a href="${pageContext.request.contextPath}/" class="logo-active"><img src="${pageContext.request.contextPath}/img/FuelPlease_300.png" alt="로고이미지" style="width: 130px;"></a></li>
             <li><a href="${pageContext.request.contextPath}/mapview/gasolineMap" class="gaslink"> <span>주유소</span></a></li>
             <li><a href="${pageContext.request.contextPath}/mapview/elecChargeMap" class="eleclink"> <span>전기충전소</span></a></li>
             <li><a href="${pageContext.request.contextPath}/mapview/lpgMap" class="lpglink"> <span>LPG충전소</span></a></li>

@@ -53,6 +53,8 @@ h6 {
   /* margin: 0 auto; */
 }
 
+
+
 /*-------------------------------------------------------------
 # nav(header)
 ---------------------------------------------------------------*/
@@ -95,18 +97,46 @@ h6 {
 /*menu-hover*/
 .nav-menu a:hover{color: #ffcda3;}
 
-/* .search-bar {
-  margin-left: 380px;
+/*헤더 반응형*/
+@media screen and (max-width: 1599px){
+  .nav-menu {
+    height: 150px;
+  }
+
+  .nav-menu .menu-left {
+    font-size: 13px;
+  }
+
+  .nav-menu ul li {
+    padding: 12px;
+    margin-top: 50px;
+  }
+
+  .logo-active {
+    margin-bottom: 10px;
+  }
+  
 }
 
-.search-bar .form-contorl {
-  left: 30px;
-  border-radius: 10px;
-  border-color: #7998ff;
-  /* margin-right: 320px; */
-  /* padding: 10px; 
+@media screen and (min-width: 1600px){
+  .nav-menu {
+    height: 150px;
+  }
+
+  .nav-menu .menu-left {
+    font-size: 13px;
+  }
+
+  .nav-menu ul li {
+    padding: 12px;
+    margin-top: 50px;
+  }
+
+  .logo-active {
+    margin-bottom: 10px;
+  }
+  
 }
-*/
 
 
 /*--------------------------------------------------------------
@@ -150,6 +180,8 @@ h6 {
     transition-delay: 0 !important;
   }
 }
+
+
 
 /*--------------------------------------------------------------
 # Navigation Menu
@@ -449,6 +481,12 @@ input[type="password"]::placeholder{
   padding: 40px;
 }
 
+
+@media screen and (max-width: 1599px) {
+  .bookInfo {
+    margin-left: 50px;
+  }
+}
 /*--------------------------------------------------------------
 # Board
 --------------------------------------------------------------*/
@@ -636,9 +674,28 @@ input[type="password"]::placeholder{
   width: 50%;
 }
 
+@media screen and (max-width: 1599px) {
+
+  .gasTitle {
+    margin-left: 135px;
+  }
+
+  #map {
+    width: 45%;
+  }
+
+  .mapInfo {
+    margin-left: 130px;
+    width: 35%;
+  }
+
+}
+
+
+
 
 /*--------------------------------------------------------------
-# Board
+# caraccount
 --------------------------------------------------------------*/
 /*accountList*/
 .accountList {
@@ -653,7 +710,25 @@ input[type="password"]::placeholder{
   vertical-align: text-bottom;
 }
 
+.text-center {
+  text-align: center;
+}
 
+@media screen and (max-width: 1599px) {
+  #accTable {
+   margin-left: 260px;
+  }
+
+  button #accWrite {
+    margin-top: 15px;
+  }
+
+  .pagination {
+    padding-left: 70%;
+    margin: 30px auto 0;
+  }
+
+}
 
 
 /*--------------------------------------------------------------
@@ -677,6 +752,10 @@ input[type="password"]::placeholder{
   font-family: "Poppins", sans-serif;
   padding: 0;
   margin: 0 0 15px 0;
+}
+
+.footerCon li {
+  list-style: none;
 }
 
 #footer p {

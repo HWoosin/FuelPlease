@@ -81,6 +81,8 @@
 	</div>
 	</div>
 	<%@ include file="../include/footer.jsp" %>
+
+	
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=405e0d5fd34220069ac5fe74d4c49e23&libraries=services"></script>
 	<script>

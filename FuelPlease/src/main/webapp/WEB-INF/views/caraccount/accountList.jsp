@@ -10,11 +10,11 @@
 	<div class="container-fluid">
 		<div class="row">
 
-			<div class="col-lg-6 col-xs-12 board-table" style=" margin-bottom: 100px;">
+			<div class="col-lg-6 col-xs-12 board-table" id="accTable" style=" margin-bottom: 100px;">
 				<div class="titleBoard">
 					<h1>나만의 차계부</h1>
 				</div>
-				<table class="table table-bordered"
+				<table class="table table-bordered" 
 					style="justify-content: center; align-items: center; text-align: center; min-width: 1050px;">
 					<thead>
 						<tr>
@@ -73,14 +73,14 @@
 
 				</table>
 
-				<button type="button" class="btn btn-info write-btn"
+				<button type="button" class="btn btn-info write-btn" id="accWrite"
 					onclick="location.href='${pageContext.request.contextPath}/caraccount/regist'">작성하기</button>
 
 
 				<!-- 페이지 네이션을 가져옴 -->
 				<form action="${pageContext.request.contextPath}/caraccount/accountList" name="pageForm">
-					<div class="text-center">
-						<ul id="pagination" class="pagination pagination-sm" style="margin: -30px auto 0;">
+					<div class="text-center" id="accPage">
+						<ul class="pagination pagination-sm" style="margin: -30px auto 0;">
 							<c:if test="${apc.prev}">
 								<li><a href="#" data-pagenum="${apc.beginPage-1}">이전</a></li>
 							</c:if>

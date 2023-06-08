@@ -126,7 +126,7 @@
 						<div class="input-group">
 							<input type="text" name="zipCd" class="form-control" id="zipCd" placeholder="우편번호" readonly>
 							<div class="input-group-addon">
-								<button type="button" class="btn btn-primary" onclick="searchAddress()">주소찾기</button>
+								<button type="button" class="btn btn-primary" id="addrbtn" onclick="searchAddress()">주소찾기</button>
 							</div>
 						</div>
 					</div>

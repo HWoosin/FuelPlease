@@ -4,13 +4,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ include file="../include/header.jsp" %>
 
+
+<!-- 차계부 리스트 -->
 <section>
-	<div class="container-fluid">
+	<div class="container-fluid" style="height: 818px;">
 		<div class="row">
-			<!--lg에서 9그리드, xs에서 전체그리드-->
-			<div class="col-lg-9 col-xs-12 board-table">
+
+			<div class="col-lg-6 col-xs-12 board-table">
 				<div class="titleBoard">
-					<h1>Fuel Please 차계부</h1>
+					<h1>나만의 차계부</h1>
 				</div>
 				<table class="table table-bordered" style="justify-content: center; align-items: center;">
 					<thead>
@@ -20,10 +22,11 @@
 							<th>주유타입</th>
 							<th>가격</th>
 							<th>비고</th>
-							<th>삭제</th>
+							<th></th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="rowCount">
+						<c:set var="priceTotal" value="0" />
 						<c:forEach var="vo" items="${accountList}">
 							<tr>
 								<td>${vo.acno}</td>
@@ -35,7 +38,14 @@
 									<button type="button" class="btn btn-info delete-btn deleteBtn">삭제</button>
 								</td>
 							</tr>
+							<c:set var="priceTotal" value="${priceTotal + vo.price}" />
 						</c:forEach>
+
+						<!-- 사용금액 합계 사용 부분 -->
+						<tr>
+							<th colspan="3">내가 사용한 총 금액</th>
+							<th colspan="3" class="price-column">${priceTotal}</th>
+						</tr>
 					</tbody>
 
 				</table>
@@ -72,6 +82,7 @@
 		</div>
 	</div>
 </section>
+<!-- 차계부 리스트 끝 -->
 
 <script>
 	document.getElementById('pagination').addEventListener('click', e => {
@@ -99,7 +110,6 @@
 					})
 					.then(res => res.text())
 					.then(data => {
-						console.log(data);
 						if (data === 'deleteSuccess') {
 							alert('삭제 되었습니다.');
 						} else {
@@ -107,35 +117,12 @@
 							return;
 						}
 					});
-				}
-				window.location.reload();
+			}
+			window.location.reload(true);
 		});
 	});
-
-	// document.querySelectorAll('.delete-btn').foraddEventListener('click', e => {
-	// 	console.log(e.target.parentNode.parentNode.firstElementChild.textContent);
-	// 	const acno = e.target.parentNode.parentNode.firstElementChild.textContent;
-	// 	if (confirm('삭제 하시겠습니까?')) {
-	// 		fetch('${pageContext.request.contextPath}/caraccount/delete', {
-	// 				method: 'post',
-	// 				headers: {
-	// 					'Content-Type': 'application/json'
-	// 				},
-	// 				body: acno
-	// 			})
-	// 			.then(res => res.text())
-	// 			.then(data => {
-	// 				console.log(data);
-	// 				if(data === 'deleteSuccess') {
-	// 					alert('삭제 되었습니다.');
-	// 				} else {
-	// 					alert('삭제 실패');
-	// 					return;
-	// 				}
-	// 			});
-	// 		window.location.reload();
-	// 	}
-	// });
+	
 </script>
+
 
 <%@ include file="../include/footer.jsp" %>

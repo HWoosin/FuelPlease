@@ -12,6 +12,10 @@
 body {
   font-family: "KIMM_Bold", sans-serif;
   color: #272829;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 a {
@@ -62,7 +66,7 @@ h6 {
   height: 120px;
   background: #fff;
   border-bottom: 1px solid #7998ff;
-  color: #7998ff;
+  color: #9c9c9c;
   padding: 5px;
 }
 
@@ -88,8 +92,10 @@ h6 {
   margin-bottom: 35px;
 }
 
+/*menu-hover*/
+.nav-menu a:hover{color: #ffcda3;}
 
-.search-bar {
+/* .search-bar {
   margin-left: 380px;
 }
 
@@ -98,8 +104,9 @@ h6 {
   border-radius: 10px;
   border-color: #7998ff;
   /* margin-right: 320px; */
-  /* padding: 10px; */
+  /* padding: 10px; 
 }
+*/
 
 
 /*--------------------------------------------------------------
@@ -250,10 +257,16 @@ h6 {
 .container #home-search-bar {
   margin-left: 25%;
   margin-bottom: 45px;
+  border: 2px solid #7998ff;
+  border-radius: 2%;
 }
 
 .container #home-search-bar #home-search-box {
   margin: 0px;
+}
+
+input:focus {
+  outline: 1px solid #5c7ce2;
 }
 
 .avgTotal {
@@ -273,7 +286,7 @@ h6 {
 
 .avgTotal .gasavgInfo {
   display: flex;
-  margin-left: 340px;
+  justify-content: center;
 }
 
 .avgTotal .minInfo {
@@ -293,6 +306,11 @@ h6 {
   margin-right: 10px;
   margin-left: 10px;
   color: #9c9c9c;
+}
+
+.avgTotal #price {
+  font-size: 20px;
+  color: #dc3579cf;
 }
 
 
@@ -380,8 +398,11 @@ section {
   color: #5c7ce2;
 }
 
-input [type=password] {
-  font-family: '맑은 고딕', 'malgun gothic', 'sans-serif' !important;
+input[type="password"] {
+  font-family: '맑은 고딕' !important;
+}
+input[type="password"]::placeholder{
+  font-family: "KIMM_Bold", sans-serif;
 }
 
 .titlefoot #updateBtn{
@@ -525,12 +546,31 @@ input [type=password] {
   margin-top: 10px;
 }
 
+#mail-check-btn {
+  background: #7998ff;
+  border: none;
+}
+
+#mail-auth-btn {
+  background: #7998ff;
+  border: none;
+}
+
+#addBtn {
+  background: #7998ff;
+  border: none;
+}
+
 #updateBtn {
   margin-left: 10px;
+  background: #e80368;
+  border: none;
 }
 
 #listBtn {
   margin-left: 10px;
+  background: #e80368;
+  border: none;
 }
 
 /*--------------------------------------------------------------
@@ -552,6 +592,7 @@ input [type=password] {
   background: #7998ff;
   color: #fff;
   border: none;
+  border-radius: 5%;
 }
 
 .stationBar {
@@ -577,6 +618,7 @@ input [type=password] {
   border: 1px solid #7998ff;
   background: #fff;
   padding: 40px;
+  user-select: all;
 }
 
 .mapInfotxt {

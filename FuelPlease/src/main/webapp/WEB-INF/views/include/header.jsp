@@ -52,7 +52,7 @@
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
     </head>
-<body>
+<body style="-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;">
    <!-- ======= Header ======= -->
 	<header id="header" class="d-flex flex-column justify-content-center">
 
@@ -61,24 +61,24 @@
           <ul class="menu-left">
 
             <li><a href="${pageContext.request.contextPath}/" class="nav-link scrollto active"><img src="${pageContext.request.contextPath}/img/FuelPlease_300.png" alt="로고이미지" style="width: 130px;"></a></li>
-            <li><a href="${pageContext.request.contextPath}/mapview/gasolineMap" class="nav-link scrollto"> <span>주유소</span></a></li>
-            <li><a href="${pageContext.request.contextPath}/mapview/elecChargeMap" class="nav-link scrollto"> <span>전기충전소</span></a></li>
-            <li><a href="${pageContext.request.contextPath}/mapview/lpgMap" class="nav-link scrollto"> <span>LPG충전소</span></a></li>
-            <li><a href="${pageContext.request.contextPath}/infoboard/boardList" class="nav-link scrollto"> <span>Board</span></a></li>
+            <li><a href="${pageContext.request.contextPath}/mapview/gasolineMap" class="gaslink"> <span>주유소</span></a></li>
+            <li><a href="${pageContext.request.contextPath}/mapview/elecChargeMap" class="eleclink"> <span>전기충전소</span></a></li>
+            <li><a href="${pageContext.request.contextPath}/mapview/lpgMap" class="lpglink"> <span>LPG충전소</span></a></li>
+            <li><a href="${pageContext.request.contextPath}/infoboard/boardList" class="Boardlink"> <span>Board</span></a></li>
             <c:if test="${login != null}">
-              <li><a href="${pageContext.request.contextPath}/caraccount/accountList" class="nav-link scrollto"> <span>Car Account</span></a></li>
-              <li><a href="${pageContext.request.contextPath}/user/userBookmark" class="nav-link scrollto"> <span>즐겨찾기</span></a></li>
+              <li><a href="${pageContext.request.contextPath}/caraccount/accountList" class="caraclink"> <span>Car Account</span></a></li>
+              <li><a href="${pageContext.request.contextPath}/user/userBookmark" class="Bookmarklink"> <span>즐겨찾기</span></a></li>
             </c:if>
             
           </ul>
           
           <ul class="menu-right">            
             <c:if test="${login == null}">
-              <li><a href="${pageContext.request.contextPath}/user/userLogin" class="member"> <span>Login</span></a></li>
-              <li><a href="${pageContext.request.contextPath}/user/userJoin" class="member"> <span>회원가입</span></a></li>
+              <li><a href="${pageContext.request.contextPath}/user/userLogin" class="loginlink"> <span>Login</span></a></li>
+              <li><a href="${pageContext.request.contextPath}/user/userJoin" class="joinlink"> <span>회원가입</span></a></li>
             </c:if>
             <c:if test="${login != null}">
-              <li><a id="myPage" href="${pageContext.request.contextPath}/user/userMypage" class="nav-link scrollto"> <span><strong id="userId"></strong>님 환영합니다! [MyPage]</span></a></li>
+              <li><a id="myPage" href="${pageContext.request.contextPath}/user/userMypage" class="userpglink"> <span><strong id="userId"></strong>님 환영합니다! [MyPage]</span></a></li>
               <li><a href="${pageContext.request.contextPath}/user/userLogout" class="member" id="logout"> <span>Logout</span></a></li>
             </c:if>
 

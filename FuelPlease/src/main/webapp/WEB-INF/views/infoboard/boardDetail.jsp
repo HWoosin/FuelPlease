@@ -47,63 +47,56 @@
                         <textarea class="form-control" rows="10" name="content" readonly>${article.content}</textarea>
                     </div>
 
-                    <button type="button" class="btn btn-primary" id="btn-modify" >변경</button>
+                    <button type="button" class="btn btn-primary" id="btn-modify">변경</button>
                     <button type="button" class="btn btn-dark"
                         onclick="location.href='${pageContext.request.contextPath}/infoboard/boardList?pageNum=${p.pageNum}&cpp=${p.cpp}&keyword=${p.keyword}&condition=${p.condition}'">목록</button>
                 </form>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- 댓글 영역 시작부분 -->
-<section style="margin-top: 80px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-md-9 write-wrap">
-                <form class="reply-wrap">
+                <div class="reply-wrap">
                     <!--form-control은 부트스트랩의 클래스입니다-->
                     <div class="reply-content">
                         <div class="reply-group">
                             <div class="reply-input">
                                 <input type="text" class="form-control" id="replyId" value="${login}" readonly>
-                                <textarea class="form-control" rows="3" id="reply" placeholder="비방 및 욕설 등록 시 처벌 받을 수 있습니다."></textarea>
+                                <textarea class="form-control" rows="3" id="reply"
+                                    placeholder="비방 및 욕설 등록 시 처벌 받을 수 있습니다."></textarea>
                                 <!-- <input type="password" class="form-control" id="replyPw" placeholder="비밀번호"> -->
                             </div>
-                            
+
                             <button type="button" id="replyRegist" class="right btn btn-info">등록하기</button>
                         </div>
 
+                        <hr>
+
+                        <!-- 댓글 리스트 -->
+                        <div id="replyList">
+
+                            <!-- 
+                                            <div class='reply-wrap'>
+                                                <div class='reply-image'>
+                                                    <img src='${pageContext.request.contextPath}/img/profile.png'>
+                                                </div>
+                                                <div class='reply-content'>
+                                                    <div class='reply-group'>
+                                                        <strong class='left'>황우신</strong> 
+                                                        <small class='left'>2023/05/10</small>
+                                                        <a href='#' class='right'><span class='glyphicon glyphicon-pencil'></span>수정</a>
+                                                        <a href='#' class='right'><span class='glyphicon glyphicon-remove'></span>삭제</a>
+                                                    </div>
+                                                    <p class='clearfix'>여기는 댓글영역</p>
+                                                </div>
+                                            </div>
+                                     -->
+
+                        </div>
+                        <button type="button" class="form-control" id="moreList" style="display: none;">더보기</button>
                     </div>
-                </form>
-
-                <hr>
-                <!-- 댓글 리스트 -->
-                <div id="replyList">
-
-                    <!-- 
-                            <div class='reply-wrap'>
-                                <div class='reply-image'>
-                                    <img src='${pageContext.request.contextPath}/img/profile.png'>
-                                </div>
-                                <div class='reply-content'>
-                                    <div class='reply-group'>
-                                        <strong class='left'>황우신</strong> 
-                                        <small class='left'>2023/05/10</small>
-                                        <a href='#' class='right'><span class='glyphicon glyphicon-pencil'></span>수정</a>
-                                        <a href='#' class='right'><span class='glyphicon glyphicon-remove'></span>삭제</a>
-                                    </div>
-                                    <p class='clearfix'>여기는 댓글영역</p>
-                                </div>
-                            </div>
-                     -->       
-
                 </div>
-                <button type="button" class="form-control" id="moreList" style="display: none;">더보기</button>
             </div>
         </div>
     </div>
 </section>
+
 
 <!-- 댓글 수정,삭제 -->
 <div class="modal fade" id="replyModal" role="dialog">
@@ -135,14 +128,13 @@
 
 <%@ include file="../include/footer.jsp" %>
 <script>
-    
     //상세보기 안 수정 버튼 권한 검사 로직
     const $form = document.modifyForm;
-    
+
     document.getElementById('btn-modify').onclick = () => {
-        if(confirm('변경 페이지로 이동합니다.')) {
+        if (confirm('변경 페이지로 이동합니다.')) {
             const id = '${login}';
-            if(document.getElementById('writer').value === id) {
+            if (document.getElementById('writer').value === id) {
                 $form.submit();
                 // alert('${login}');
             } else {
@@ -151,40 +143,40 @@
         } else {
             return;
         }
-    } 
+    }
     // 변경 버튼 로직 끝
-    
-    window.onload = function() {
-        
-        
+
+    window.onload = function () {
+
+
         // 댓글 등록하기 버튼 로직
         document.getElementById('replyRegist').onclick = () => {
             const bno = '${article.bno}';
             const reply = document.getElementById('reply').value;
             const replyId = document.getElementById('replyId').value;
 
-            if(reply === '') {
+            if (reply === '') {
                 alert('빈 댓글은 등록이 불가능합니다.');
                 return;
             }
 
-            if(confirm('댓글을 등록하시겠습니까?')) {
+            if (confirm('댓글을 등록하시겠습니까?')) {
                 fetch('${pageContext.request.contextPath}/reply/regist', {
-                    method: 'post',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        'bno': bno,
-                        'reply': reply,
-                        'replyId': replyId
+                        method: 'post',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            'bno': bno,
+                            'reply': reply,
+                            'replyId': replyId
+                        })
+                    }).then(res => res.text())
+                    .then(data => {
+                        document.getElementById('reply').value = '';
+                        // document.getElementById('replyId').value = '';
+                        getList(1, true);
                     })
-                }).then(res => res.text())
-                .then(data => {
-                    document.getElementById('reply').value = '';
-                    // document.getElementById('replyId').value = '';
-                    getList(1, true);
-                })
 
             }
 
@@ -216,7 +208,7 @@
                     let total = data.total; //총 댓글 수
                     let replyList = data.list; //댓글 리스트
                     console.log(total);
-                    if(reset) {
+                    if (reset) {
                         while ($replyList.firstChild) {
                             $replyList.firstChild.remove();
                         }
@@ -226,11 +218,11 @@
                     if (replyList.length <= 0) return;
 
                     //페이지번호 * 이번 요청으로 받은 댓글 수보다 전체 댓글 개수가 작다면 더보기 버튼은 없어도 된다.
-                    if(total <= page * 3) {
+                    if (total <= page * 3) {
                         document.getElementById('moreList').style.display = 'none';
                     } else {
                         document.getElementById('moreList').style.display = 'block';
-                        
+
                     }
 
                     for (let i = 0; i < replyList.length; i++) {
@@ -239,8 +231,10 @@
                                 <div class='reply-content'>
                                     <div class='reply-group'>
                                         <strong class='left' id="reply-id" >` + replyList[i].replyId + `</strong> 
-                                        <small class='left'>` + (replyList[i].updateDate != null ? parseTime(replyList[i].updateDate) + '(수정됨)' : parseTime(replyList[i].replyDate)) + `</small>
-                                        <a href='` + replyList[i].rno + `' class='right replyDelete' data-id="`+ replyList[i].replyId +`"><span class='glyphicon glyphicon-remove'></span>삭제</a> &nbsp;
+                                        <small class='left'>` + (replyList[i].updateDate != null ? parseTime(replyList[
+                                i].updateDate) + '(수정됨)' : parseTime(replyList[i].replyDate)) + `</small>
+                                        <a href='` + replyList[i].rno + `' class='right replyDelete' data-id="` +
+                            replyList[i].replyId + `"><span class='glyphicon glyphicon-remove'></span>삭제</a> &nbsp;
                                     </div>
                                     <p class='clearfix'>` + replyList[i].reply + `</p>
                                     
@@ -248,22 +242,22 @@
                             </div>`;
                     }
                     //id가 replyList라는 div 영역에 문자열 형식으로 모든 댓글을 추가.
-                    if(!reset) {
+                    if (!reset) {
                         document.getElementById('replyList').insertAdjacentHTML('beforeend', str);
                     } else {
                         document.getElementById('replyList').insertAdjacentHTML('afterbegin', str);
                     }
 
 
-            });
-            
+                });
+
 
         } //getList() end
 
         //댓글 삭제 로직
         document.getElementById('replyList').addEventListener('click', e => {
             e.preventDefault();
-            if(!e.target.matches('a')) {
+            if (!e.target.matches('a')) {
                 return;
             }
             const rno = e.target.getAttribute('href');
@@ -275,7 +269,7 @@
             console.log(id);
             console.log(replyId);
 
-            if(id !== replyId) {
+            if (id !== replyId) {
                 alert('회원님이 작성하신 댓글이 아닙니다.');
                 return;
             }
@@ -287,8 +281,8 @@
                 }
             };
 
-            if(e.target.classList.contains('replyDelete')) {
-                if(confirm('댓글을 삭제하시겠습니까?')) {
+            if (e.target.classList.contains('replyDelete')) {
+                if (confirm('댓글을 삭제하시겠습니까?')) {
                     console.log(rno);
                     fetch('${pageContext.request.contextPath}/reply/' + rno, reqObj)
                         .then(res => res.text())
@@ -296,7 +290,7 @@
                             console.log(data);
                             alert('댓글이 삭제되었습니다.');
                             getList(1, true);
-                            
+
                         });
                 }
             }
@@ -309,43 +303,39 @@
 
         //댓글 날짜 변환 함수
         function parseTime(regDateTime) {
-            let year, month, day, hour, minute,second;
-            
-            if(regDateTime.length === 5) {
+            let year, month, day, hour, minute, second;
+
+            if (regDateTime.length === 5) {
                 [year, month, day, hour, minute, second] = regDateTime;
                 second = 0;
             } else {
                 [year, month, day, hour, minute, second] = regDateTime;
             }
             //원하는 날짜로 객체를 생성
-            const regTime = new Date(year, month-1, day, hour, minute, second);
+            const regTime = new Date(year, month - 1, day, hour, minute, second);
             console.log(regTime);
             const date = new Date();
             console.log(date);
             const gap = date.getTime() - regTime.getTime();
 
             let time;
-            if(gap < 60 * 60 * 24 * 1000) {
-                if(gap < 60 * 5 * 1000) { //5분 안으로는 방금 전
+            if (gap < 60 * 60 * 24 * 1000) {
+                if (gap < 60 * 5 * 1000) { //5분 안으로는 방금 전
                     time = '방금 전';
-                } else if(gap < 60 * 60 * 1000) {
+                } else if (gap < 60 * 60 * 1000) {
                     time = parseInt(gap / (1000 * 60)) + '분 전';
                 } else {
                     time = parseInt(gap / (1000 * 60 * 60)) + '시간 전';
                 }
-            } else if(gap < 60 * 60 * 24 * 30 * 1000) {
+            } else if (gap < 60 * 60 * 24 * 30 * 1000) {
                 time = parseInt(gap / (1000 * 60 * 60 * 24)) + '일 전';
             } else {
                 time = `${regTime.getFullYear()}년 ${regTime.getMonth()-1}월 ${regTime.getDate()}일`;
             }
-            
+
             return time;
         }
 
 
     } //window.onload end
-
-
-
-
 </script>

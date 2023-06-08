@@ -477,6 +477,8 @@ input[type="password"]::placeholder{
 
 .table-bordered {
   margin-top: 20px;
+  border-radius: 5%;
+  text-align: center;
 }
 
 .search-btn {
@@ -504,6 +506,11 @@ input[type="password"]::placeholder{
 
 .regist-board {
 }
+
+.reply-input {
+  margin: 50px 0 10px;
+}
+
 
 
 
@@ -618,7 +625,7 @@ input[type="password"]::placeholder{
   border: 1px solid #7998ff;
   background: #fff;
   padding: 40px;
-  user-select: all;
+  user-select: text;
 }
 
 .mapInfotxt {

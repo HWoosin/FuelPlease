@@ -630,6 +630,22 @@ input[type="password"]::placeholder{
 }
 
 
+/*--------------------------------------------------------------
+# Board
+--------------------------------------------------------------*/
+/*accountList*/
+.accountList {
+  text-align: center;
+}
+
+.ac-num {
+  background: #aebdf0;
+}
+
+.ac-col td {
+  vertical-align: text-bottom;
+}
+
 
 
 

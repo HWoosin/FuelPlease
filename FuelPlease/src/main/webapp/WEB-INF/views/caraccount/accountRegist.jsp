@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-9 col-sm-12 aRegist-form">
                 <div class="titlebox">
-                    <p>Fuel Please 차계부등록</p>
+                    <p>차계부 등록</p>
                 </div>
                 <form action="${pageContext.request.contextPath}/caraccount/regist" method="post" name="aRegistForm">
                     <div class="form-group">

@@ -118,6 +118,25 @@
         document.loginForm.submit();
 
     }
+
+    //엔터키
+    document.addEventListener("keyup", function (event) {
+        const id = document.getElementById("userId").value;
+        const pw = document.getElementById("userPw").value;
+
+        if (event.keyCode === 13) {
+            if (id === '') {
+                alert('아이디를 입력해주세요');
+                return;
+            }
+            if (pw === '') {
+                alert("비밀번호를 입력해주세요")
+                return;
+            }
+
+            document.loginForm.submit();
+        }
+    });
     document.getElementById('joinBtn').onclick = () => {
         location.href = '${pageContext.request.contextPath}/user/userJoin';
     }

@@ -79,6 +79,7 @@
 				<form action="${pageContext.request.contextPath}/caraccount/accountList" name="pageForm">
 					<div class="text-center" id="accPage">
 						<ul id="pagination" class="pagination pagination-sm">
+
 							<c:if test="${apc.prev}">
 								<li><a href="#" data-pagenum="${apc.beginPage-1}">이전</a></li>
 							</c:if>

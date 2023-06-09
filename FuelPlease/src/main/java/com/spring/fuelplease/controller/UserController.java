@@ -1,5 +1,7 @@
 package com.spring.fuelplease.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +12,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.spring.fuelplease.infoboard.service.IInfoBoardService;
 import com.spring.fuelplease.user.service.IUserService;
 import com.spring.fuelplease.util.MailSenderService;
+import com.spring.fuelplease.util.PageCreator;
+import com.spring.fuelplease.util.PageVO;
+import com.spring.fuelplease.voCenter.BookMarkVO;
 import com.spring.fuelplease.voCenter.UserVO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +33,8 @@ public class UserController {
 	@Autowired
 	private IUserService sv;
 	@Autowired
+	private IInfoBoardService bsv;
+	@Autowired
 	private MailSenderService mailsv;
 
 	@GetMapping("/userLogin") // 로그인 페이지 이동
@@ -34,10 +43,10 @@ public class UserController {
 	}
 
 	@PostMapping("/userLogin")// 로그인 요청
-	public String login(String userId, String userPw, Model model) {
+	public void login(String userId, String userPw, Model model) {
 		log.info("사용자 로그인 요청!");
 		model.addAttribute("user", sv.userLogin(userId, userPw));// user에 정보 담아 보냄
-		return "redirect:/";
+
 	}
 
 	@GetMapping("/userJoin") // 회원 가입 페이지 이동
@@ -46,9 +55,10 @@ public class UserController {
 	}
 
 	@PostMapping("/userJoin") // 가입 후 홈으로 이동
-	public String join(UserVO vo, RedirectAttributes msg) {
+	public String join(UserVO vo, RedirectAttributes ra) {
 		sv.userJoin(vo);
-		msg.addFlashAttribute("msg", "joinSuccess"); //msg에 메세지 담아 보내서 이것으로 판단할것임
+		ra.addFlashAttribute("msg", "joinSuccess"); //msg에 메세지 담아 보내서 이것으로 판단할것임
+
 		return "redirect:/";
 	}
 
@@ -68,12 +78,97 @@ public class UserController {
 		log.info("이메일 인증 요청 들어옴: " + email);
 		return mailsv.joinEmail(email);
 	}
-	
+
 	// 마이페이지 이동 요청
 	@GetMapping("/userMypage")
-	public void userMypage(HttpSession session, Model model) {
+	public void userMypage(HttpSession session, Model model, PageVO vo) {
 		String id = (String) session.getAttribute("login");
-		model.addAttribute("userInfo", sv.getInfo(id));
+		vo.setLoginId(id);
+		PageCreator pc = new PageCreator(vo, bsv.getTotal(vo));
+		model.addAttribute("userInfo", sv.getInfo(id, vo));
+		model.addAttribute("pc", pc);
 	}
+
+	@GetMapping("/userDelete")
+	public void userDelete() {
+
+	}
+	@PostMapping("/userDelete")
+	@ResponseBody
+	public int userDelete(HttpSession session, @RequestBody String userPw) {
+		String id = (String)session.getAttribute("login");
+		log.info("id: " + id);
+		log.info("pw: " + userPw);
+		int result = sv.deleteUser(id, userPw);
+		if(result == 1) { //아이디,비번 동일하고 회원삭제 하면 1 리턴.
+			Object object = session.getAttribute("login");
+			// 세션에 로그인 정보가 있다면
+			if(object != null) {
+				// "login" 세션 삭제
+				session.removeAttribute("login");
+				// 세션 정보 초기화
+				session.invalidate();
+				return 1;
+			}
+			return -2;
+		}
+		else return 0;
+
+	}
+
+
+	// 회원정보 수정
+	@PostMapping("/updateUser")
+	public String updateUser (UserVO vo) {
+		sv.updateUser(vo);
+		return "redirect:/user/userMypage";
+	}
+
+	// 로그아웃
+    // DB 작업 없으므로 따로 service나 maapper 작업 필요 없음
+    @GetMapping("/userLogout")
+    public ModelAndView logout(HttpSession session) {
+        Object object = session.getAttribute("login");
+
+
+        // 세션에 로그인 정보가 있다면
+        if(object != null) {
+            // "login" 세션 삭제
+            session.removeAttribute("login");
+            // 세션 정보 초기화
+            session.invalidate();
+        } 
+
+
+		return new ModelAndView("redirect:/");
+	}
+    
+    @GetMapping("/userBookmark")
+    public void userBookmark() {
+    	
+    }
+    
+    @PostMapping("/userBookmark")
+    @ResponseBody
+    public List<String> userBookmark(HttpSession session) {
+    	String id = (String)session.getAttribute("login");
+    	return sv.userBookmark(id);
+    }
+    
+    @PostMapping("/showBookmark")
+    @ResponseBody
+    public BookMarkVO showBookmark(HttpSession session, @RequestBody String bkaddr) {
+    	log.info(bkaddr);
+    	String id = (String)session.getAttribute("login");
+    	log.info(id);
+    	return sv.showBookmark(bkaddr, id);
+    }
+    
+    @PostMapping("/deleteBookmark")
+    @ResponseBody
+    public void deleteBookmark(HttpSession session, @RequestBody String bkaddr) {
+    	String id = (String)session.getAttribute("login");
+    	sv.deleteBookmark(id, bkaddr);
+    }
 
 }

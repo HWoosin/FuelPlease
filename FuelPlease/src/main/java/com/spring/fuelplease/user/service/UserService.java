@@ -1,10 +1,18 @@
 package com.spring.fuelplease.user.service;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.fuelplease.user.mapper.IUserMapper;
+import com.spring.fuelplease.util.PageVO;
+import com.spring.fuelplease.voCenter.BookMarkVO;
 import com.spring.fuelplease.voCenter.UserVO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +24,7 @@ public class UserService implements IUserService {
 	private IUserMapper mp;
 	@Autowired
 	private BCryptPasswordEncoder encoder;
-	
+
 	@Override
 	public void userJoin(UserVO vo) {
 		log.info("암호화 하기 전 비번: "+ vo.getUserPw());
@@ -25,7 +33,7 @@ public class UserService implements IUserService {
 		log.info("암호화 후 비번: " + securePw);
 		vo.setUserPw(securePw);
 		mp.userJoin(vo);
-		
+
 	}
 
 	@Override
@@ -45,14 +53,50 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public UserVO getInfo(String id) {
-		return mp.getInfo(id);
+	public UserVO getInfo(String id, PageVO vo) {
+		return mp.getInfo(id, vo);
 	}
 
 	@Override
 	public void updateUser(UserVO vo) {
-		// TODO Auto-generated method stub
-		
+		log.info("전 DB저장 비밀번호: " + vo.getUserPw());
+		String updatePw = encoder.encode(vo.getUserPw());
+		vo.setUserPw(updatePw);
+		mp.updateUser(vo);
 	}
+
+	@Override
+    public int deleteUser(String id, String userPw) {
+        log.info("사용자 세션 아이디: "+ id);
+        String dbPw = mp.userLogin(id);
+        log.info("DB저장 비번:"+ dbPw);
+        log.info("결과: {}",encoder.matches(userPw, dbPw));
+        if(dbPw != null) {
+            if(encoder.matches(userPw, dbPw)) {
+                mp.deleteUser(id,dbPw);
+                return 1;
+            }
+            return 0;
+        }
+        return -2;
+        
+    }
+
+	@Override
+	public List<String> userBookmark(String id) {
+		return mp.userBookmark(id);
+	}
+
+	@Override
+	public BookMarkVO showBookmark(String id, String bkaddr) {
+		log.info(bkaddr);
+		return mp.showBookmark(bkaddr, id);
+	}
+
+	@Override
+	public void deleteBookmark(String id, String bkaddr) {
+		mp.deleteBookmark(id, bkaddr);
+	}
+
 
 }

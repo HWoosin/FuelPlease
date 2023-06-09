@@ -3,26 +3,105 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <title>Fuel Please</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    
+    <!-- Favicons -->
+    <link href="${pageContext.request.contextPath }/img/favicon.png" rel="icon">
 
-<title>Fuel Please</title>
-</head>
-<body>
+    
+    <!-- Fonts -->
+      
+          <style>
+              @font-face {
+                  font-family: 'KIMM_Bold';
+                  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
+                  font-weight: 700;
+                  font-style: normal;
+                  }
+          </style>
+
+          <style>
+            
+          </style>
+  
+     
+      
+    <!-- Vendor CSS Files -->
+    <!--  <link href="/vendor/aos/aos.css" rel="stylesheet">-->
+    <link href="${pageContext.request.contextPath }/vendor/aos/aos.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    
+    <!-- Template Main CSS File -->
+    <link href="${pageContext.request.contextPath }/css/style.css" rel="stylesheet">
+    
+    <!-- =======================================================
+    * Template Name: MyResume
+    * Updated: Mar 10 2023 with Bootstrap v5.2.3
+    * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+    </head>
+<body style="-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;">
    <!-- ======= Header ======= -->
 	<header id="header" class="d-flex flex-column justify-content-center">
-  
+
         <nav id="navbar" class="navbar nav-menu">
-          <ul>
-            <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-            <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>주유소</span></a></li>
-            <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>전기충전소</span></a></li>
-            <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>LPG충전소</span></a></li>
-            <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Board</span></a></li>
-            <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Login</span></a></li>
+
+          <ul class="menu-left">
+
+            <li><a href="${pageContext.request.contextPath}/" class="logo-active"><img src="${pageContext.request.contextPath}/img/FuelPlease_300.png" alt="로고이미지" style="width: 130px;"></a></li>
+            <li><a href="${pageContext.request.contextPath}/mapview/gasolineMap" class="gaslink"> <span>주유소</span></a></li>
+            <li><a href="${pageContext.request.contextPath}/mapview/elecChargeMap" class="eleclink"> <span>전기충전소</span></a></li>
+            <li><a href="${pageContext.request.contextPath}/mapview/lpgMap" class="lpglink"> <span>LPG충전소</span></a></li>
+            <li><a href="${pageContext.request.contextPath}/infoboard/boardList" class="Boardlink"> <span>Board</span></a></li>
+            <c:if test="${login != null}">
+              <li><a href="${pageContext.request.contextPath}/caraccount/accountList" class="caraclink"> <span>Car Account</span></a></li>
+              <li><a href="${pageContext.request.contextPath}/user/userBookmark" class="Bookmarklink"> <span>즐겨찾기</span></a></li>
+            </c:if>
+            
           </ul>
-        </nav><!-- .nav-menu -->
-    
+          
+          <ul class="menu-right">            
+            <c:if test="${login == null}">
+              <li><a href="${pageContext.request.contextPath}/user/userLogin" class="loginlink"> <span>Login</span></a></li>
+              <li><a href="${pageContext.request.contextPath}/user/userJoin" class="joinlink"> <span>회원가입</span></a></li>
+            </c:if>
+            <c:if test="${login != null}">
+              <li><a id="myPage" href="${pageContext.request.contextPath}/user/userMypage" class="userpglink"> <span><strong id="userId"></strong>님 환영합니다! [MyPage]</span></a></li>
+              <li><a href="${pageContext.request.contextPath}/user/userLogout" class="member" id="logout"> <span>Logout</span></a></li>
+            </c:if>
+
+            
+          </ul>
+        </nav>
+        
+        
+
       </header><!-- End Header -->
+
+      <script>
+        const loginId = '${login}';
+        if(loginId !== '') {
+          document.getElementById('userId').textContent = loginId;
+        }
+        
+          // document.getElementById('myPage').textContent = '${login}' + '님 환영합니다! [MyPage]';
+          // document.getElementById('logout').onclick = () => {
+          //   alert(`${login}님` + ' 로그아웃 되었습니다.');
+          // }
+        
+      </script>
+     
 </body>
 </html>

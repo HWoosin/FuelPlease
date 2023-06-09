@@ -33,4 +33,8 @@
 	
 	<mybatis-spring:scan base-package="com.spring.fuelplease.user.mapper"/>
 	<mybatis-spring:scan base-package="com.spring.fuelplease.infoboard.mapper"/>
+	<mybatis-spring:scan base-package="com.spring.fuelplease.reply.mapper"/>
+	<mybatis-spring:scan base-package="com.spring.fuelplease.AllFuel.mapper"/>
+	<mybatis-spring:scan base-package="com.spring.fuelplease.caraccount.mapper"/>
+	
 </beans>

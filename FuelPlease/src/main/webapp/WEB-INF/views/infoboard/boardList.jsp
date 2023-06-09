@@ -2,47 +2,45 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>fuelplease</title>
-</head>
-<body>
-
+<%@ include file="../include/header.jsp" %>
 
 	<section>
-		<div class="container-fluid">
+		<div class="container-fluid" style="height: 818px;">
 			<div class="row">
 				<!--lg에서 9그리드, xs에서 전체그리드-->
-				<div class="col-lg-9 col-xs-12 board-table">
-					<div class="titlebox">
-						<p>자유게시판</p>
+				<div class="col-lg-6 col-xs-12 board-table">
+					<div class="titleBoard">
+						<h1>자유게시판</h1>
 					</div>
-					<hr>
 
 					<!--form select를 가져온다 -->
-					<form action="<c:url value='/infoboard/boardList' />">
-						<div class="search-wrap">
-							<button type="submit" class="btn btn-info search-btn">검색</button>
-							<input type="text" name="keyword"
-								class="form-control search-input" value="${pc.paging.keyword}">
-							<select name="condition" class="form-control search-select">
-								<option value="title"
+					<form action="<c:url value='/infoboard/boardList' />" class="formSearch">
+						<div class="searchB-wrap">
+							<div>
+								<select name="condition" class="form-control search-select" style="justify-content: center; align-items: center; display: flex;">
+									<option value="title"
 									${pc.paging.condition == 'title' ? 'selected' : ''}>제목</option>
-								<option value="content"
+									<option value="content"
 									${pc.paging.condition == 'content' ? 'selected' : ''}>내용</option>
-								<option value="writer"
+									<option value="writer"
 									${pc.paging.condition == 'writer' ? 'selected' : ''}>작성자</option>
-								<option value="titleContent"
+									<option value="titleContent"
 									${pc.paging.condition == 'titleContent' ? 'selected' : ''}>제목+내용</option>
-							</select>
+								</select>
+								<input type="text" name="keyword"
+									class="form-control search-input" value="${pc.paging.keyword}">
+							</div>
+							
+							<div class="searchContents">
+								<button type="submit" class="btn btn-info search-btn" id="boardSearch">검색</button>
+							</div>
+
 						</div>
 					</form>
 
-					<table class="table table-bordered">
+					<table class="table table-bordered" style="justify-content: center; align-items: center;">
 						<thead>
-							<tr>
+							<tr class="tb">
 								<th>번호</th>
 								<th class="board-title">제목</th>
 								<th>작성자</th>
@@ -51,18 +49,19 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="vo" items="${boardList}">
+
+							<c:forEach var="vo" items="${infoBoardList}">
 								<tr>
 									<td>${vo.bno}</td>
 									<td><a
-										href="${pageContext.request.contextPath}/infoboard/content/${vo.bno}?pageNum=${pc.paging.pageNum}&cpp=${pc.paging.cpp}&keyword=${pc.paging.keyword}&condition=${pc.paging.condition}">${vo.title}</a>
+										href="${pageContext.request.contextPath}/infoboard/content/${vo.bno}?pageNum=${pc.paging.pageNum}&cpp=${pc.paging.cpp}&keyword=${pc.paging.keyword}&condition=${pc.paging.condition}" id="title">${vo.title}</a>
 										&nbsp; <strong>[${vo.replyCnt}]</strong></td>
 									<td>${vo.writer}</td>
-									<td><fmt:parseDate value="${vo.regDate}"
+									<td><fmt:parseDate value="${vo.WDate}"
 											pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDateTime"
 											type="both" /> <fmt:formatDate value="${parsedDateTime}"
 											pattern="yyyy년 MM월 dd일 HH시 mm분" /></td>
-									<td><fmt:parseDate value="${vo.updateDate}"
+									<td><fmt:parseDate value="${vo.UDate}"
 											pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedUpDateTime"
 											type="both" /> <fmt:formatDate value="${parsedUpDateTime}"
 											pattern="yyyy년 MM월 dd일 HH시 mm분" /></td>
@@ -78,7 +77,6 @@
 						action="${pageContext.request.contextPath}/infoboard/boardList"
 						name="pageForm">
 						<div class="text-center">
-							<hr>
 							<ul id="pagination" class="pagination pagination-sm">
 								<c:if test="${pc.prev}">
 									<li><a href="#" data-pagenum="${pc.beginPage-1}">이전</a></li>
@@ -86,22 +84,22 @@
 
 								<c:forEach var="num" begin="${pc.beginPage}" end="${pc.endPage}">
 									<li class="${pc.paging.pageNum == num ? 'active' : ''}"><a
-										href="#" data-pagenum="${num}">${num}</a></li>
+										href="#" data-pagenum="${num}" id="nextPage">${num}</a></li>
 								</c:forEach>
 
 								<c:if test="${pc.next}">
 									<li><a href="#" data-pagenum="${pc.endPage+1}">다음</a></li>
 								</c:if>
 							</ul>
-							<button type="button" class="btn btn-info"
+							<button type="button" class="btn btn-info write-btn"
 								onclick="location.href='${pageContext.request.contextPath}/infoboard/regist'">글쓰기</button>
 						</div>
+
 
 						<input type="hidden" name="pageNum" value="${pc.paging.pageNum}">
 						<input type="hidden" name="cpp" value="${pc.paging.cpp}">
 						<input type="hidden" name="keyword" value="${pc.paging.keyword}">
-						<input type="hidden" name="condition"
-							value="${pc.paging.condition}">
+						<input type="hidden" name="condition" value="${pc.paging.condition}">
 
 					</form>
 
@@ -110,7 +108,35 @@
 		</div>
 	</section>
 
+	<%@ include file="../include/footer.jsp" %>
+
+	<script>
+		window.onload = function() {
+			document.getElementById('pagination').addEventListener('click', e => {
+				e.preventDefault(); 
+				if(!e.target.matches('a')) {
+                    return;
+                }
+
+                const value = e.target.dataset.pagenum;
+				document.pageForm.pageNum.value = value;
+                document.pageForm.submit();
+			})
 
 
-</body>
-</html>
+			document.getElementById('title').onclick = () => {
+				const id = '${login}';
+				if(id === '') {
+					alert('로그인 후 이용가능합니다. 로그인 페이지로 이동합니다.');
+				}
+			}
+
+
+
+		} //window.onload end
+
+
+	</script>
+
+
+

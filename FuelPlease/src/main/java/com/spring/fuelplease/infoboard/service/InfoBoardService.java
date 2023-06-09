@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Slf4j
 public class InfoBoardService implements IInfoBoardService {
-	
+
 	@Autowired
 	private IInfoBoardMapper mapper;
 
@@ -32,7 +32,7 @@ public class InfoBoardService implements IInfoBoardService {
 	public int getTotal(PageVO vo) {
 		return mapper.getTotal(vo);
 	}
-	
+
 	@Override
 	public InfoBoardVO getContent(int bno) {
 		return mapper.getContent(bno);

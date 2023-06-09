@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.fuelplease.AllFuel.mapper.IGasolineMapper">
+
+	<insert id="inputGasoline">
+		insert into gasolineInfo
+		VALUES(#{gno}, #{siteTel}, #{rdnWhladdr}, #{bplcNm}, #{trdStatenm})
+	</insert>
+	
+	<select id="findGasoline" resultType="string">
+		select distinct substring_index(rdnwhladdr,'구 ',-1) 
+		as rdnwhladdr
+		from gasolineInfo 
+		where rdnwhladdr like concat('%', #{keyword}, '%')
+		order by rdnwhladdr asc;
+	</select>
+	
+
+	<select id="getGasolineInfo" resultType="gasoline">
+		select * from gasolineInfo
+		where
+		rdnwhladdr like concat('%',#{loadId}, '%');
+	</select>
+	
+	<insert id="addBookmarkGas">
+		insert into bookmark 
+		(bkuser_id, bkaddr, bktel, bkname)
+		values (#{bkuserId}, #{bkaddr}, #{bktel}, #{bkname})
+	</insert>
+	
+	<select id="bookCheck" resultType="int">
+		select count(*) from bookmark where bkaddr = #{bkaddr} and bkuser_id = #{bkuserId}
+	</select>
+
+	
+</mapper>

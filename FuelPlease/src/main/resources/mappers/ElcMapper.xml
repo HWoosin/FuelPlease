@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.fuelplease.AllFuel.mapper.IElecMapper">
+
+	<insert id="inputElec">
+		insert into elecInfo
+		VALUES(#{eno}, #{chargingCapacity}, #{utztnPsbltyTm}, #{addr}, #{chargerType})
+	</insert>
+	
+	<select id="findElec" resultType="string">
+		select distinct substring_index(substring_index(addr,'(',1),'구 ',-1) 
+		as addr
+		from elecInfo 
+		where addr like concat('%', #{keyword}, '%')
+	</select>
+	
+	<select id="getElecInfo" resultType="elec">
+		select * from elecInfo
+		where
+		addr like concat('%',#{loadId}, '%') limit 1;
+	</select>
+	
+	<insert id="addBookmarkGas">
+		insert into bookmark 
+		(bkuser_id, bkaddr, bktel, bkname)
+		values (#{bkuserId}, #{bkaddr}, #{bktel}, #{bkname})
+	</insert>
+	
+</mapper>
